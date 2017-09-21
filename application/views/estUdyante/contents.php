@@ -11,32 +11,33 @@
 			</div>
 			<div class="col-md-6">
 				<div class="row pan1">					
-					<form role="form" class="" method="post">
-					<div class="form-group">						
-						<input type="text" class="form-control" id="username" name="username" value="Username" />
-					</div>
-					<div class="form-group">						
-						<input type="text" class="form-control" id="password" name="password" value="Password" />
-					</div>					
+					<form role="form" class="" method="post"><span class="reauth-email"> </span>
 					<div class="form-group">
-						<a href="">Forgot Password?</a>
-					</div>
+						<input class="form-control" type="email" required="" placeholder="Username" autofocus="" id="inputEmail" />
+					</div>	
+					<div class="form-group">					
+            			<input class="form-control" type="password" required="" placeholder="Password" id="inputPassword" />
+            		</div>	
 					<div class="form-group text-right">
+						<a href="">Forgot Password?</a>
 						<button type="submit" class="btn btn-primary">Log In</button>
 					</div>	
 					</form>
 				</div>
 				<div class="row pan2">
 					<p class="lead">Sign up</p>
-					<form role="form" class="" method="post">
-					<div class="form-group">						
-						<input type="text" class="form-control" id="name" name="name" value="Full Name" />
+					<form role="form" class="" method="post"><span class="reauth-email"> </span>
+					<div class="form-group col-md-6 n">						
+						<input class="form-control" type="fname" required="" placeholder="First Name" autofocus="" id="inputName" />
+					</div>
+					<div class="form-group col-md-6 n">	
+						<input class="form-control" type="lname" required="" placeholder="Last Name" autofocus="" id="inputName" />
 					</div>
 					<div class="form-group">						
-						<input type="text" class="form-control" id="email" name="email" value="Email" />
+						<input class="form-control" type="email" required="" placeholder="Username" autofocus="" id="inputEmail" />
 					</div>	
 					<div class="form-group">						
-						<input type="text" class="form-control" id="password" name="password" value="Password" />
+						<input class="form-control" type="password" required="" placeholder="Password" id="inputPassword" />
 					</div>	
 					<div class="form-group text-right">
 						<button type="submit" class="btn btn-primary">Sign Up</button>
