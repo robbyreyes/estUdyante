@@ -1,0 +1,37 @@
+#sign{
+  text-align:center;
+  padding:300px;
+  background:url(../../assets/img/signup2.jpeg)no-repeat;
+  background-size:cover;
+}
+
+#sign{
+  padding:90px;
+}
+
+div.jumbotron{
+  border-radius:30px;
+  padding:100px;
+  background-color:rgba(255,255,255,0.75);
+  max-width:800px;
+  margin:0 auto;
+}
+
+div.jumbotron{
+  padding:40px;
+}
+
+h2{
+  background-color:#003152;
+}
+
+h2{
+  color:white;
+}
+
+input.input-sm{
+}
+
+div.col-lg-pull-6.col-sm-offset-1{
+}
+
