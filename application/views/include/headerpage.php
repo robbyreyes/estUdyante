@@ -19,6 +19,8 @@
 <link href="<?php echo base_url('bootstrap/css/custom.css'); ?>" rel="stylesheet" />
 <link href="<?php echo base_url('bootstrap/css/homepage.css'); ?>" rel="stylesheet" />
 <link href="<?php echo base_url('bootstrap/css/bookcatalog.css'); ?>" rel="stylesheet" />
+<link href="<?php echo base_url('bootstrap/css/profile.css'); ?>" rel="stylesheet" />
+
 <script src="<?php echo base_url('bootstrap/js/jquery.min.js'); ?>"></script>
 <script src="<?php echo base_url('bootstrap/js/bootstrap.min.js'); ?>"></script>
 
@@ -31,12 +33,12 @@
             </div>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li role="presentation"><a href="#">Username </a></li>
+                    <li role="presentation"><a href="<?php echo site_url('estu/profile') ?>">Username </a></li>
                     <li role="presentation">
                         <a href="<?php echo site_url('estu/homepage') ?>"><img src="<?php echo base_url('assets/img/home-512.png') ?>" width="15"> </a>
                     </li>
                     <li role="presentation">
-                        <a href="#"><img src="<?php echo base_url('assets/img/users-256x256.png') ?>" alt="Friends" width="25"> </a>
+                        <a href="<?php echo site_url('estu/friendlist') ?>"><img src="<?php echo base_url('assets/img/users-256x256.png') ?>" alt="Friends" width="25"> </a>
                     </li>
                     <li role="presentation">
                         <a href="#"> <img src="<?php echo base_url('assets/img/filled_message1600.png') ?>" alt="Message" width="20"></a>
