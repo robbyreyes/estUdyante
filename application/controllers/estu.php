@@ -60,7 +60,6 @@ class estu extends CI_Controller {
 		$this->load->view('include/headerpage',$header_data);
 		$this->load->view('estUdyante/profile', $data);	
 	}
-
 	public function modal(){
 		$header_data['title'] = "Add New Student";
 		$this->load->view('include/header',$header_data);

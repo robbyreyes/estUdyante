@@ -13,7 +13,8 @@
 				<a href="<?php echo site_url('estu/bookcatalog') ?>">Book Catalog</a>
 				<a href="<?php echo site_url('estu/notecatalog') ?>">Note Catalog</a>
 				<a href="<?php echo site_url('estu/friendlist') ?>">Friend List</a>
-				<a href="<?php echo site_url('estu/profile	') ?>">Profile</a>
+				<a href="<?php echo site_url('estu/profile') ?>">Profile</a>
+
 			</div>
 			<div class="col-md-6">
 				<div class="row pan1">
