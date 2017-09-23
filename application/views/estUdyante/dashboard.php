@@ -12,6 +12,7 @@
 				<a href="<?php echo site_url('estu/homepage') ?>">Homepage</a>
 				<a href="<?php echo site_url('estu/bookcatalog') ?>">Book Catalog</a>
 				<a href="<?php echo site_url('estu/notecatalog') ?>">Note Catalog</a>
+				<a href="<?php echo site_url('estu/friendlist') ?>">Friend List</a>
 			</div>
 			<div class="col-md-6">
 				<div class="row pan1">					

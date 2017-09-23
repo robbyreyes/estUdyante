@@ -45,6 +45,13 @@ class estu extends CI_Controller {
 		$this->load->view('estUdyante/notecatalog', $data);	
 	}	
 	
+	public function friendlist(){	
+		$header_data['title'] = "estUdyante";
+		$data['name'] = "User";
+		$condition=null;	
+		$this->load->view('include/headerpage',$header_data);
+		$this->load->view('estUdyante/friendlist', $data);	
+	}	
 	public function modal(){
 		$header_data['title'] = "Add New Student";	
 		$this->load->view('include/header',$header_data);	
