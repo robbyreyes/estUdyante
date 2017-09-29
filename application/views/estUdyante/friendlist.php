@@ -5,12 +5,7 @@
                 <div class="col-md-8 col-md-offset-0" id="feed">
                     <div class="row" id="write">
                         <div class="col-md-9">
-                            <h1 class="text-left">Friendlist</h1></div>
-
-                    </div>
-                    <div class="row" id="row_divider"></div>
-                </div>
-
+                            <h1 class="text-left">Friendlist</h1></div>                      
                     <div class="row" id="row_divider"></div>
                 </div>
                 <div class="col-md-12 col-md-offset-0" id="feed">
@@ -46,11 +41,10 @@
                             <p class="text-left">Friends <img class="img-responsive" src="<?php echo base_url('assets/img/account.png') ?>" alt="friend" width="10"></p>
 							</div>
 
-
-
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
+
 
 </html>
