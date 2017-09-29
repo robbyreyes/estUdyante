@@ -13,16 +13,17 @@
 				<a href="<?php echo site_url('estu/bookcatalog') ?>">Book Catalog</a>
 				<a href="<?php echo site_url('estu/notecatalog') ?>">Note Catalog</a>
 				<a href="<?php echo site_url('estu/friendlist') ?>">Friend List</a>
-				<a href="<?php echo site_url('estu/profile	') ?>">Profile</a>
+				<a href="<?php echo site_url('estu/profile') ?>">Profile</a>
+				<a href="<?php echo site_url('estu/signup') ?>">Sign Up</a>
 			</div>
 			<div class="col-md-6">
 				<div class="row pan1">
 					<form role="form" class="" method="post"><span class="reauth-email"> </span>
 					<div class="form-group">
-						<input class="form-control" type="email" required="" placeholder="Email" autofocus="" id="inputEmail" />
+						<input class="form-control" type="email" required="" placeholder="Email" autofocus="" id="inputEmail" name="email"/>
 					</div>
 					<div class="form-group">
-            			<input class="form-control" type="password" required="" placeholder="Password" id="inputPassword" />
+            			<input class="form-control" type="password" required="" placeholder="Password" id="inputPassword" name="password"/>
             		</div>
 					<div class="form-group text-right">
 						<a href="">Forgot Password?</a>
@@ -31,22 +32,9 @@
 					</form>
 				</div>
 				<div class="row pan2">
-					<p class="lead">Sign up</p>
-					<form role="form" class="" method="post"><span class="reauth-email"> </span>
-					<div class="form-group col-md-6 n">
-						<input class="form-control" type="fname" required="" placeholder="First Name" autofocus="" id="inputName" />
-					</div>
-					<div class="form-group col-md-6 n">
-						<input class="form-control" type="lname" required="" placeholder="Last Name" autofocus="" id="inputName" />
-					</div>
-					<div class="form-group">
-						<input class="form-control" type="email" required="" placeholder="Email" autofocus="" id="inputEmail" />
-					</div>
-					<div class="form-group">
-						<input class="form-control" type="password" required="" placeholder="Password" id="inputPassword" />
-					</div>
-					<div class="form-group text-right">
-						<button type="submit" class="btn btn-primary">Sign Up</button>
+					<h1>Sign up</h1>
+					<p>New to estUdyante? Click here to sign up! 
+					<a href="<?php echo site_url('estu/signup') ?>"><button type="submit" class="btn btn-primary">Sign Up</button></a></p>
 					</div>
 					</form>
 				</div>
@@ -54,3 +42,5 @@
 		</div>
 	</div>
 </div>
+
+
