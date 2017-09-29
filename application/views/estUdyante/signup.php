@@ -40,7 +40,7 @@
 if( isset($saved) && $saved==TRUE ){
 ?>
 <script type="text/javascript">
-    alert("The new user record was successfully created!");
+    alert("The new user record was successfully created!!");
     location.href = '<?php echo site_url(''); ?>';
 </script>
 <?php
