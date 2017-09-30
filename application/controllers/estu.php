@@ -114,9 +114,9 @@ class estu extends CI_Controller {
 							'email' => $email,
 							'password' => $password
 							);
-				  	echo 'hash = '.password_hash($session_data['password'], PASSWORD_DEFAULT);
-						// $this->session->set_userdata($session_data);
-						// redirect(site_url('estu/homepage'), 'refresh');
+				  	//echo 'hash = '.password_hash($session_data['password'], PASSWORD_DEFAULT);
+						$this->session->set_userdata($session_data);
+						redirect(site_url('estu/homepage'), 'refresh');
 				}
 				else
 				{
