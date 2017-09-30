@@ -33,7 +33,7 @@
           </div>
 					<div class="form-group text-right">
 						<a href="">Forgot Password?</a>
-						<a href="<?php echo site_url('estu/homepage') ?>"><button type="submit" class="btn btn-primary">Log In</button></a>
+					<button type="submit" class="btn btn-primary">Log In</button>
 					</div>
 					</form>
 				</div>

@@ -11,14 +11,20 @@ class estu extends CI_Controller {
 
 	public function index(){
 		// echo "CI and Bootstrap";
+		if($this->session->userdata('email') != '')
+		{
+				redirect(site_url('estu/homepage'), 'refresh');
+		}
+		else
+		{
+			$header_data['title'] = "estUdyante";
+			$data['name'] = "User";
+			$condition=null;
 
-		$header_data['title'] = "estUdyante";
-		$data['name'] = "User";
-		$condition=null;
-
-		$this->load->view('include/header',$header_data);
-		$this->load->view('estUdyante/dashboard', $data);
-		$this->load->view('include/footer');
+			$this->load->view('include/header',$header_data);
+			$this->load->view('estUdyante/dashboard', $data);
+			$this->load->view('include/footer');
+		}
 	}
 
 	public function homepage(){
@@ -83,7 +89,8 @@ class estu extends CI_Controller {
 							'firstname'=>$_POST['fname'],
 							'lastname'=>$_POST['lname'],
 							'email'=>$_POST['email'],
-							'password'=>password_hash($_POST['password'], PASSWORD_DEFAULT),
+							// 'password'=>password_hash($_POST['password'], PASSWORD_DEFAULT),
+							'password'=>$_POST['password'],
 							'school'=>$_POST['school'],
 							'course'=>$_POST['course'],
 							'address'=>$_POST['address'],
@@ -114,9 +121,14 @@ class estu extends CI_Controller {
 							'email' => $email,
 							'password' => $password
 							);
-				  	//echo 'hash = '.password_hash($session_data['password'], PASSWORD_DEFAULT);
+				  	// echo 'hash = '.password_hash($session_data['password'], PASSWORD_DEFAULT);
 						$this->session->set_userdata($session_data);
 						redirect(site_url('estu/homepage'), 'refresh');
+						// $cstrong = TRUE;
+						// $token = bin2hex(openssl_random_pseudo_bytes(64, $cstrong));
+						// echo '    '.$token;
+						//
+						// $this->estu_model->tokens($token);
 				}
 				else
 				{

@@ -52,7 +52,7 @@
                         	<li role="presentation"><a href="<?php echo site_url('estu/bookcatalog') ?>">Exchange Book </a></li>
                         	<li role="presentation"><a href="<?php echo site_url('estu/notecatalog') ?>">Exchange Notes </a></li>
                             <li role="presentation"><a href="#">Settings </a></li>
-                            <li role="presentation"><a href="<?php echo site_url('estu/') ?>">Logout </a></li>
+                            <li role="presentation"><a href="<?php echo site_url('estu/logout') ?>">Logout </a></li>
                             <li class="dropdown-header" role="presentation">estUdyante </li>
                         </ul>
                     </li>
