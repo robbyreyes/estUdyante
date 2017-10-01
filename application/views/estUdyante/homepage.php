@@ -16,7 +16,7 @@
                     <div class="row" id="row_divider"></div>
                     <div class="row" id="post">
                         <div class="col-md-12">
-                            <h4><img class="img-circle" src="<?php echo base_url('assets/img/account.png') ?>" alt="Avatar" width="30"> Robby Reyes</h4></div>
+                            <h4><img class="img-circle" src="<?php echo base_url('assets/img/account.png') ?>" alt="Avatar" width="30"><?php echo $name?></h4></div>
                         <div class="col-md-12" id="activepost">
                             <p id="activepostp">POSTPOSTPOSTPOSTPOSTPOSTPOSTPOSTPOSTPOSTPOSTPOSTPOSTPOST </p>
                         </div>

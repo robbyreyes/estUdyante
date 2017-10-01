@@ -18,7 +18,9 @@ class estu extends CI_Controller {
 		else
 		{
 			$header_data['title'] = "estUdyante";
-			$data['name'] = "User";
+
+			$data['name'] = $this->session->userdata('email');
+
 			$condition=null;
 
 			$this->load->view('include/header',$header_data);
@@ -29,37 +31,38 @@ class estu extends CI_Controller {
 
 	public function homepage(){
 		$header_data['title'] = "estUdyante";
-		$data['name'] = "User";
+		$data['name'] = $data['name'] = $this->session->userdata('email');
 		$condition=null;
-		$this->load->view('include/headerpage',$header_data);
+		$this->load->view('include/headerpage', $data);
 		$this->load->view('estUdyante/homepage', $data);
 	}
 
 	public function bookcatalog(){
 		$header_data['title'] = "estUdyante";
-		$data['name'] = "User";
+		$data['name'] = $data['name'] = $this->session->userdata('email');
 		$condition=null;
-		$this->load->view('include/headerpage',$header_data);
+		$this->load->view('include/headerpage', $data);
 		$this->load->view('estUdyante/bookcatalog', $data);
 	}
 
 	public function notecatalog(){
 		$header_data['title'] = "estUdyante";
-		$data['name'] = "User";
+		$data['name'] = $data['name'] = $this->session->userdata('email');
 		$condition=null;
-		$this->load->view('include/headerpage',$header_data);
+		$this->load->view('include/headerpage', $data);
 		$this->load->view('estUdyante/notecatalog', $data);
 	}
 
 	public function friendlist(){
 		$header_data['title'] = "estUdyante";
-		$data['name'] = "User";
+		$data['name'] = $data['name'] = $this->session->userdata('email');
 		$condition=null;
-		$this->load->view('include/headerpage',$header_data);
+		$this->load->view('include/headerpage',$data);
 		$this->load->view('estUdyante/friendlist', $data);
 	}
 
 	public function profile(){
+		$data['name'] = $this->session->userdata('email');
 		$data['user_name'] = "Robby Reyes";
 		$data['user_birthday'] = "November 15, 1999";
 		$data['user_address'] = "Binakayan Kawit Cavite";
@@ -68,7 +71,7 @@ class estu extends CI_Controller {
 		$data['user_school'] = "Technological University of the Philippines";
 		$header_data['title'] = $data['user_name'];
 		$condition=null;
-		$this->load->view('include/headerpage',$header_data);
+		$this->load->view('include/headerpage',$data);
 		$this->load->view('estUdyante/profile', $data);
 	}
 
@@ -91,10 +94,6 @@ class estu extends CI_Controller {
 							'email'=>$_POST['email'],
 							// 'password'=>password_hash($_POST['password'], PASSWORD_DEFAULT),
 							'password'=>$_POST['password'],
-							'school'=>$_POST['school'],
-							'course'=>$_POST['course'],
-							'address'=>$_POST['address'],
-							'birthday'=>$_POST['birthday'],
 						);
 			$insert_id = $this->estudyante->create_user($userrecord);
 			$data['saved'] = TRUE;
@@ -138,6 +137,8 @@ class estu extends CI_Controller {
 		}
 		else
 		{
+
+		 	 $this->session->set_userdata('email',username);
 			 $this->index();
 		}
 	}

@@ -16,26 +16,15 @@
                     <div class="form-group form">
                         <input class="form-control" type="password" required="" placeholder="Password" id="inputPassword" name="password"/>
                     </div>
-                    <div class="form-group form">
-                        <input class="form-control" type="school" required="" placeholder="School" id="inputPassword" name="school"/>
-                    </div>
-                    <div class="form-group form">
-                        <input class="form-control" type="course" required="" placeholder="Course" id="inputPassword" name="course"/>
-                    </div>
-                    <div class="form-group form">
-                        <input class="form-control" type="address" required="" placeholder="Address" id="inputPassword" name="address"/>
-                    </div>
-                    <div class="form-group form">
-                        <input class="form-control" type="birthday" required="" placeholder="Birthday" id="inputPassword" name="birthday"/>
-                    </div>
+
                     <div class="form-group text-right">
-                        <a href="<?php echo site_url('estu/homepage') ?>"><button type="submit" class="btn btn-primary">Sign Up</button></a>
+                        <a href="<?php echo site_url('estu/homepage') ?>"><button type="submit" class="btn btn-primary"> Sign Up </button></a>
                     </div>
             </form>
             </col-md-12>
         </row>
     </div>
-<
+</div>
 <?php
 if( isset($saved) && $saved==TRUE ){
 ?>
