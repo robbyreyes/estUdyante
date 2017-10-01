@@ -6,7 +6,7 @@ class estu_model extends CI_Model {
 	private $friend = "friend";
 	private $note = "note";
 	private $profile = "profile";
-	private $user = "user";
+	private $user = "user1";
 
 	public function create_user($data){
 	   $this->db->insert($this->user, $data);
@@ -15,18 +15,35 @@ class estu_model extends CI_Model {
 
 
 	public function can_login($email, $password){
-		$query = $this->db->get('user');
+
 		$this->db->where('email', $email);
-		$pass = password_hash($password, PASSWORD_DEFAULT);
-		if(password_verify($password, $pass))
-       {
-              return true;
-       }
+		$this->db->where('password', $password);
+		// $pass = password_hash($password, PASSWORD_DEFAULT);
+		$query = $this->db->get('user1');
+		if($query->num_rows() > 0 )
+		{
+			return true;
+				// if(password_verify($password, $pass))
+       // 	{
+        //       return true;
+       // 	}
+				// 	else
+				// 	{
+				//  	return false;
+				// 	}
+		}
 		else
 		{
 			return false;
 		}
 	}
+
+	// public function tokens(){
+	// 	$this->db-where('id', '');
+	// 	$query = $this->db->get('user');
+	//
+	// 	$this->db->insert($this->tokens, ('', $token,));
+	// }
 
 	public function create_book($data){
 		$this->db->insert($this->book,$data);

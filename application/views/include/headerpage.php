@@ -33,7 +33,7 @@
             </div>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li role="presentation"><a href="<?php echo site_url('estu/profile') ?>">Username </a></li>
+                    <li role="presentation"><a href="<?php echo site_url('estu/profile') ?>"><?php echo $name ?> </a></li>
                     <li role="presentation">
                         <a href="<?php echo site_url('estu/homepage') ?>"><img src="<?php echo base_url('assets/img/home-512.png') ?>" width="15"> </a>
                     </li>
@@ -52,7 +52,7 @@
                         	<li role="presentation"><a href="<?php echo site_url('estu/bookcatalog') ?>">Exchange Book </a></li>
                         	<li role="presentation"><a href="<?php echo site_url('estu/notecatalog') ?>">Exchange Notes </a></li>
                             <li role="presentation"><a href="#">Settings </a></li>
-                            <li role="presentation"><a href="<?php echo site_url('estu/') ?>">Logout </a></li>
+                            <li role="presentation"><a href="<?php echo site_url('estu/logout') ?>">Logout </a></li>
                             <li class="dropdown-header" role="presentation">estUdyante </li>
                         </ul>
                     </li>
