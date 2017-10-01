@@ -60,6 +60,14 @@ class estu extends CI_Controller {
 		$this->load->view('include/headerpage',$data);
 		$this->load->view('estUdyante/friendlist', $data);
 	}
+	
+	public function bookinfo(){
+		$header_data['title'] = "estUdyante";
+		$data['name'] = $data['name'] = $this->session->userdata('email');
+		$condition=null;
+		$this->load->view('include/headerpage',$data);
+		$this->load->view('estUdyante/bookinfo', $data);
+	}
 
 	public function profile(){
 		$data['name'] = $this->session->userdata('email');
