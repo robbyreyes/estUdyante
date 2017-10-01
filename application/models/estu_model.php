@@ -20,6 +20,7 @@ class estu_model extends CI_Model {
 		$this->db->where('password', $password);
 		// $pass = password_hash($password, PASSWORD_DEFAULT);
 		$query = $this->db->get('user1');
+
 		if($query->num_rows() > 0 )
 		{
 			return true;

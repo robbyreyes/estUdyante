@@ -16,6 +16,7 @@
                     <div class="form-group form">
                         <input class="form-control" type="password" required="" placeholder="Password" id="inputPassword" name="password"/>
                     </div>
+
                     <div class="form-group text-right">
                         <a href="<?php echo site_url('estu/homepage') ?>"><button type="submit" class="btn btn-primary"> Sign Up </button></a>
                     </div>
@@ -23,7 +24,7 @@
             </col-md-12>
         </row>
     </div>
-<
+</div>
 <?php
 if( isset($saved) && $saved==TRUE ){
 ?>

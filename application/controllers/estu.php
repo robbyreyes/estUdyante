@@ -18,7 +18,9 @@ class estu extends CI_Controller {
 		else
 		{
 			$header_data['title'] = "estUdyante";
+
 			$data['name'] = $this->session->userdata('email');
+
 			$condition=null;
 
 			$this->load->view('include/header',$header_data);
