@@ -31,7 +31,7 @@ class estu extends CI_Controller {
 		$header_data['title'] = "estUdyante";
 		$data['name'] = $data['name'] = $this->session->userdata('email');
 		$condition=null;
-		$this->load->view('include/headerpage',$data);
+		$this->load->view('include/headerpage', $data);
 		$this->load->view('estUdyante/homepage', $data);
 	}
 
@@ -39,7 +39,7 @@ class estu extends CI_Controller {
 		$header_data['title'] = "estUdyante";
 		$data['name'] = $data['name'] = $this->session->userdata('email');
 		$condition=null;
-		$this->load->view('include/headerpage',$data);
+		$this->load->view('include/headerpage', $data);
 		$this->load->view('estUdyante/bookcatalog', $data);
 	}
 
@@ -47,7 +47,7 @@ class estu extends CI_Controller {
 		$header_data['title'] = "estUdyante";
 		$data['name'] = $data['name'] = $this->session->userdata('email');
 		$condition=null;
-		$this->load->view('include/headerpage',$data);
+		$this->load->view('include/headerpage', $data);
 		$this->load->view('estUdyante/notecatalog', $data);
 	}
 

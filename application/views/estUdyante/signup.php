@@ -17,7 +17,7 @@
                         <input class="form-control" type="password" required="" placeholder="Password" id="inputPassword" name="password"/>
                     </div>
                     <div class="form-group text-right">
-                        <a href="<?php echo site_url('estu/homepage') ?>"><button type="submit" class="btn btn-primary">Sign Up</button></a>
+                        <a href="<?php echo site_url('estu/homepage') ?>"><button type="submit" class="btn btn-primary"> Sign Up </button></a>
                     </div>
             </form>
             </col-md-12>

@@ -46,7 +46,7 @@ class estu_model extends CI_Model {
 	// }
 
 	public function create_book($data){
-		$this->db->insert($this->book,$data);
+		$this->db->insert($this->book, $data);
 		return TRUE;
 	}
 
