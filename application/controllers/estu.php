@@ -92,10 +92,6 @@ class estu extends CI_Controller {
 							'email'=>$_POST['email'],
 							// 'password'=>password_hash($_POST['password'], PASSWORD_DEFAULT),
 							'password'=>$_POST['password'],
-							'school'=>$_POST['school'],
-							'course'=>$_POST['course'],
-							'address'=>$_POST['address'],
-							'birthday'=>$_POST['birthday'],
 						);
 			$insert_id = $this->estudyante->create_user($userrecord);
 			$data['saved'] = TRUE;
