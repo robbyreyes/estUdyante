@@ -22,7 +22,9 @@
 <link href="<?php echo base_url('bootstrap/css/profile.css'); ?>" rel="stylesheet" />
 
 <script src="<?php echo base_url('bootstrap/js/jquery.min.js'); ?>"></script>
-<script src="<?php echo base_url('bootstrap/js/bootstrap.min.js'); ?>"></script>
+
+
+<link href="<?php echo base_url('bootstrap/css/user.css'); ?>" rel="stylesheet" />
 
 </head>
 <body>

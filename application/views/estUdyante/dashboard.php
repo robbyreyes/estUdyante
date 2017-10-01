@@ -14,6 +14,7 @@
 				<a href="<?php echo site_url('estu/notecatalog') ?>">Note Catalog</a>
 				<a href="<?php echo site_url('estu/friendlist') ?>">Friend List</a>
 				<a href="<?php echo site_url('estu/profile') ?>">Profile</a>
+				<a href="<?php echo site_url('estu/bookinfo') ?>">book info</a>
 				<a href="<?php echo site_url('estu/signup') ?>">Sign Up</a>
 			</div>
 			<div class="col-md-6">
