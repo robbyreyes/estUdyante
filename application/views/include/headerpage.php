@@ -20,17 +20,14 @@
 <link href="<?php echo base_url('bootstrap/css/homepage.css'); ?>" rel="stylesheet" />
 <link href="<?php echo base_url('bootstrap/css/bookcatalog.css'); ?>" rel="stylesheet" />
 <link href="<?php echo base_url('bootstrap/css/profile.css'); ?>" rel="stylesheet" />
-
-<script src="<?php echo base_url('bootstrap/js/jquery.min.js'); ?>"></script>
-
-
 <link href="<?php echo base_url('bootstrap/css/user.css'); ?>" rel="stylesheet" />
-
+<script src="<?php echo base_url('bootstrap/js/jquery.min.js'); ?>"></script>
+<script src="<?php echo base_url('bootstrap/js/bootstrap.min.js'); ?>"></script>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
-            <div class="navbar-header"><a class="navbar-brand navbar-link" href="#"> estUdyante </a>
+            <div class="navbar-header"><a class="navbar-brand navbar-link" href="<?php echo site_url('estu/homepage') ?>"> estUdyante </a>
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
             </div>
             <div class="collapse navbar-collapse" id="navcol-1">
