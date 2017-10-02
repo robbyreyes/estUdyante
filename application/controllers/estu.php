@@ -68,7 +68,23 @@ class estu extends CI_Controller {
 		$this->load->view('include/headerpage',$data);
 		$this->load->view('estUdyante/bookinfo', $data);
 	}
-
+	
+	public function bookinfo2(){
+		$header_data['title'] = "estUdyante";
+		$data['name'] = $data['name'] = $this->session->userdata('email');
+		$condition=null;
+		$this->load->view('include/headerpage',$data);
+		$this->load->view('estUdyante/bookinfo2', $data);
+	}
+	
+	public function bookinfo3(){
+		$header_data['title'] = "estUdyante";
+		$data['name'] = $data['name'] = $this->session->userdata('email');
+		$condition=null;
+		$this->load->view('include/headerpage',$data);
+		$this->load->view('estUdyante/bookinfo3', $data);
+	}
+	
 	public function profile(){
 		$data['name'] = $this->session->userdata('email');
 		$data['user_name'] = "Robby Reyes";
