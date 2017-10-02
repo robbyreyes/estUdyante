@@ -15,7 +15,7 @@
                 <button class="btn btn-success btn-lg" type="button">Exchange </button>
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Posted By: Robby Dimatigas</h2>
+                        <h2>Posted By: <?php echo $name?></h2>
                         <h3>Book Details</h3></div>
                 </div>
             </div>
