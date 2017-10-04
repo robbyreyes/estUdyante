@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
--- https://www.phpmyadmin.net/
+-- version 4.5.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 01, 2017 at 03:02 AM
--- Server version: 5.7.14
--- PHP Version: 5.6.25
+-- Generation Time: Oct 04, 2017 at 05:12 PM
+-- Server version: 5.7.11
+-- PHP Version: 5.6.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -35,13 +35,25 @@ CREATE TABLE `book` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `friend`
+-- Table structure for table `login_tokens`
 --
 
-CREATE TABLE `friend` (
-  `friend_ID` varchar(10) NOT NULL,
-  `friend_name` varchar(10) NOT NULL,
-  `profile_ID` varchar(10) NOT NULL
+CREATE TABLE `login_tokens` (
+  `id` int(11) NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mate`
+--
+
+CREATE TABLE `mate` (
+  `id` int(11) NOT NULL,
+  `mate_ID` int(10) NOT NULL,
+  `user_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -74,52 +86,26 @@ CREATE TABLE `profile` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
---
-
-CREATE TABLE `user` (
-  `user_ID` int(10) NOT NULL,
-  `password` varchar(10) NOT NULL,
-  `firstname` varchar(10) NOT NULL,
-  `lastname` varchar(10) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `school` varchar(50) NOT NULL,
-  `course` varchar(10) NOT NULL,
-  `address` varchar(50) NOT NULL,
-  `birthday` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`user_ID`, `password`, `firstname`, `lastname`, `email`, `school`, `course`, `address`, `birthday`) VALUES
-(3, '202cb962ac', 'Matt', 'Bellamy', 'mattbellamy@yahoo.com', 'TUP', 'BSIT', 'Stockholm, Sweden', '01-01-1990'),
-(4, '202cb962ac', 'Ryan', 'Ross', 'ryanross@yahoo.com', 'AdU', 'BSCS', 'Chicago', '02-03-1985'),
-(5, '$2y$10$6RJ', 'John', 'Watson', 'johnwatson@yahoo.com', 'TUP', 'BSIT', '221B Baker Street', '01-05-1980'),
-(6, '$2y$10$.xy', 'Sherlock', 'Holmes', 'sherlock@yahoo.com', 'TUP', 'BSIS', '221B Baker Street', '08-02-1979'),
-(7, 'redingram', 'red', 'aricayos', 'redaricayos19@gmail.com', 'TUP', 'BSIT', 'tondo', '01/25/1999');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `user1`
 --
 
 CREATE TABLE `user1` (
-  `id` int(11) NOT NULL,
-  `firstname` varchar(40) NOT NULL,
-  `lastname` varchar(40) NOT NULL,
-  `password` varchar(40) NOT NULL,
-  `email` varchar(40) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `id` int(10) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `firstname` varchar(10) NOT NULL,
+  `lastname` varchar(10) NOT NULL,
+  `email` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user1`
 --
 
-INSERT INTO `user1` (`id`, `firstname`, `lastname`, `password`, `email`) VALUES
-(3, 'Robby', 'Reyes', '1234566', 'reyes@gmail.com');
+INSERT INTO `user1` (`id`, `password`, `firstname`, `lastname`, `email`) VALUES
+(8, '123', 'A', 'B', '99@yahoo.com'),
+(12, '123', 'B', 'A', '1@yahoo.com'),
+(13, '123', 'Robby Andr', 'Reyes', '2@yahoo.com'),
+(14, '123', 'Robby', 'Reyes', 'robby.reyes24@ymail.com');
 
 --
 -- Indexes for dumped tables
@@ -132,10 +118,18 @@ ALTER TABLE `book`
   ADD PRIMARY KEY (`book_ID`);
 
 --
--- Indexes for table `friend`
+-- Indexes for table `login_tokens`
 --
-ALTER TABLE `friend`
-  ADD PRIMARY KEY (`friend_ID`);
+ALTER TABLE `login_tokens`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `token` (`token`),
+  ADD UNIQUE KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `mate`
+--
+ALTER TABLE `mate`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `note`
@@ -150,12 +144,6 @@ ALTER TABLE `profile`
   ADD PRIMARY KEY (`profile_ID`);
 
 --
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`user_ID`);
-
---
 -- Indexes for table `user1`
 --
 ALTER TABLE `user1`
@@ -166,15 +154,25 @@ ALTER TABLE `user1`
 --
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT for table `mate`
 --
-ALTER TABLE `user`
-  MODIFY `user_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+ALTER TABLE `mate`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `user1`
 --
 ALTER TABLE `user1`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `login_tokens`
+--
+ALTER TABLE `login_tokens`
+  ADD CONSTRAINT `login_tokens_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user1` (`id`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
