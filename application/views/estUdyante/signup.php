@@ -1,6 +1,6 @@
 <div class="container">
     <div id="sign">
-        <h1>Sign up </h1>    
+        <h1>Sign up </h1>
         <row>
             <col-md-12>
             <form role="form" class="" method="post"><span class="reauth-email"> </span>
@@ -18,7 +18,7 @@
                     </div>
 
                     <div class="form-group text-right">
-                        <a href="<?php echo site_url('estu/homepage') ?>"><button type="submit" class="btn btn-primary"> Sign Up </button></a>
+                        <a href="<?php echo base_url('homepage') ?>"><button type="submit" class="btn btn-primary"> Sign Up </button></a>
                     </div>
             </form>
             </col-md-12>

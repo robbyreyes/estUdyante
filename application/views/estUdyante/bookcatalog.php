@@ -24,7 +24,7 @@
                     <div class="row" id="row_divider"></div>
                 </div>
                 <div class="col-md-8 col-md-offset-0" id="feed">
-                   <a href="<?php echo site_url('estu/bookinfo2') ?>"> <div class="row" id="write">
+                   <a href="<?php echo base_url('bookcatalog/bookinfo2') ?>"> <div class="row" id="write">
                         <div class="col-md-2"><img class="img-responsive" src="<?php echo base_url('assets/img/stock-vector-mathematics-vector-cover-a-background-from-scientific-formulas-for-book-textbook-notebook-320996975.jpg') ?>" alt="Book Cover" width="80"></div>
                         <div class="col-md-9">
                             <h1 class="text-left">Mathematics 1</h1></div>
@@ -36,7 +36,7 @@
                     </a>
                 </div>
                 <div class="col-md-8 col-md-offset-0" id="feed">
-                    <a href="<?php echo site_url('estu/bookinfo') ?>"><div class="row" id="write">
+                    <a href="<?php echo base_url('bookcatalog/bookinfo') ?>"><div class="row" id="write">
                         <div class="col-md-2"><img class="img-responsive" src="<?php echo base_url('assets/img/kafka_on_the_shore.jpg') ?>" alt="Book Cover" width="80"></div>
                         <div class="col-md-9">
                             <h1 class="text-left">Kafka on the shore</h1></div>
@@ -48,7 +48,7 @@
                 </a>
                 </div>
                 <div class="col-md-8 col-md-offset-0" id="feed">
-                   <a href="<?php echo site_url('estu/bookinfo3') ?>"> <div class="row" id="write">
+                   <a href="<?php echo base_url('bookcatalog/bookinfo3') ?>"> <div class="row" id="write">
                         <div class="col-md-2"><img class="img-responsive" src="<?php echo base_url('assets/img/Percy-Jackson-The-Lightning-Thief-Original-Cover.jpg') ?>" alt="Book Cover" width="80"></div>
                         <div class="col-md-9">
                             <h1 class="text-left">The Lighning Thief</h1></div>

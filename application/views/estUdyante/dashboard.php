@@ -19,7 +19,7 @@
 			</div>
 			<div class="col-md-6">
 				<div class="row pan1">
-					<form role="form" class="" method="post" action = "<?php echo site_url('estu/validate')?>">
+					<form autocomplete="off" role="form" class="" method="post" action = "<?php echo base_url('validate')?>">
 					<span class="reauth-email"> </span>
 					<?php
 						echo '<p class="text-danger">'.$this->session->flashdata("error").'</p>';
@@ -41,7 +41,7 @@
 				<div class="row pan2">
 					<h1>Sign up</h1>
 					<p>New to estUdyante? Click here to sign up!
-					<a href="<?php echo site_url('estu/signup') ?>"><button type="submit" class="btn btn-primary">Sign Up</button></a></p>
+					<a href="<?php echo base_url('signup') ?>"><button type="submit" class="btn btn-primary">Sign Up</button></a></p>
 					</div>
 					</form>
 				</div>

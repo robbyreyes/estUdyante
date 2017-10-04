@@ -28,7 +28,7 @@
                     <div class="col-md-12">
                         <p class="lead">Friends </p>
                         <p>Number of friends</p>
-                        <h4 class="text-center"> <a href="<?php echo site_url('estu/friendlist') ?>">See all</a></h4></div>
+                        <h4 class="text-center"> <a href="<?php echo base_url('friendlist') ?>">See all</a></h4></div>
                 </div>
             </div>
             <div class="col-md-9">
