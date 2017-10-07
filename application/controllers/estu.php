@@ -10,10 +10,11 @@ class estu extends CI_Controller {
 	}
 
 	public function index(){
-		// echo "CI and Bootstrap";
+
 		if($this->session->userdata('logged_in'))
 		{
-				redirect(('homepage'), 'refresh');
+			redirect(('homepage'), 'refresh');
+
 		}
 		else
 		{
@@ -29,12 +30,6 @@ class estu extends CI_Controller {
 		}
 	}
 
-	public function modal(){
-		$header_data['title'] = "Add New Student";
-		$this->load->view('include/header',$header_data);
-		$this->load->view('students/modal');
-		$this->load->view('include/footer');
-	}
 
 
 	public function enter(){

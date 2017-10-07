@@ -88,11 +88,25 @@ class estu_model extends CI_Model {
 	public function read_post($condition=null){
 
 	if(isset($condition))
-		{
-		$this->db->where($condition);
-		}
+
+	{
+		$this->db->where('user_id',$condition);
+	}
 
 	$query=$this->db->get($this->posts);
+	return $query->result_array();
+
+	}
+
+	public function read_info($condition=null){
+
+	$this->db->select('*');
+	$this->db->from('user1');
+	if(isset($condition))
+	{
+		$this->db->where('email',$condition);
+	}
+	$query= $this->db->get();
 	return $query->result_array();
 
 	}

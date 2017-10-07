@@ -40,7 +40,12 @@ p#activepostp{
   min-width:100%;
 }
 
+.activepost{
+  margin-top: 100px;
+}
+
 div#activepost.col-md-12{
+
   min-width:100%;
 }
 
