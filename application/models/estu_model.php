@@ -88,6 +88,7 @@ class estu_model extends CI_Model {
 	public function read_post($condition=null){
 
 	if(isset($condition))
+
 	{
 		$this->db->where('user_id',$condition);
 	}

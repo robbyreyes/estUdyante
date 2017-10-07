@@ -10,6 +10,7 @@ class homepage extends CI_Controller {
 	}
 
 	public function index(){
+
   	$header_data['title'] = "estUdyante";
   	$data['name'] = $this->session->userdata('email');
   	$condition=null;
@@ -27,6 +28,7 @@ class homepage extends CI_Controller {
 
 	$a = $this->estudyante->read_post($info['id']);
 
+
 	foreach($a as $c){
 		$info = array(
 			'body' => $c['body'],
@@ -34,6 +36,7 @@ class homepage extends CI_Controller {
 		);
 		$post[] = $info;
 	}
+
 	if($a!=null)
 		$data['post'] = $post;	
 	else
@@ -58,7 +61,9 @@ class homepage extends CI_Controller {
 	if(isset($_POST))
 	{
 			$b = array(
+
 				'user_id' => $info['id'],
+
 				'body' => $this->input->post('body'),
 				// 'postdate' => date('Y-m-d H:i:s')
 				'postdate' => $today->format('Y-m-d H:i:sP')

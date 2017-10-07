@@ -10,9 +10,11 @@ class estu extends CI_Controller {
 	}
 
 	public function index(){
+
 		if($this->session->userdata('logged_in'))
 		{
 			redirect(('homepage'), 'refresh');
+
 		}
 		else
 		{
@@ -29,6 +31,7 @@ class estu extends CI_Controller {
 	}
 
 
+
 	public function enter(){
 		if($this->session->userdata('email') != '')
 		{
@@ -37,4 +40,10 @@ class estu extends CI_Controller {
 
 		}
 	}
+
+	// public function logout(){
+	// 	echo 'x';
+	// 	// $this->session->sess_destroy();
+ // 	// 	redirect('estudyante');
+	// }
 }
