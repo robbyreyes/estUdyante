@@ -7,6 +7,7 @@ class estu_model extends CI_Model {
 	private $note = "note";
 	private $profile = "profile";
 	private $user = "user1";
+	private $posts = "posts";
 
 	public function create_user($data){
 	   $this->db->insert($this->user, $data);
@@ -16,28 +17,36 @@ class estu_model extends CI_Model {
 
 	public function can_login($email, $password){
 
-		$this->db->where('email', $email);
-		$this->db->where('password', $password);
+		// $this->db->where('password', $password);
 		// $pass = password_hash($password, PASSWORD_DEFAULT);
-		$query = $this->db->get('user1');
+		// $query = $this->db->get('user1');
+		$query = $this->db->get_where('user1', array('email' => $email));
 
 		if($query->num_rows() > 0 )
 		{
-			return true;
-				// if(password_verify($password, $pass))
-       // 	{
-        //       return true;
-       // 	}
-				// 	else
-				// 	{
-				//  	return false;
-				// 	}
+			// return true;
+				$pass = $query->row();
+				if(password_verify($password, $pass->password))
+       	{
+              return true;
+       	}
+					else
+					{
+				 	return false;
+					}
 		}
 		else
 		{
 			return false;
 		}
 	}
+
+	// public function getname(){
+	// 	// $this->db->select('firstname, lastname');
+	// 	// $query = $this->db->get('user1');
+	// 	$query = $this->db->get_where('user1', array('email' => $this->session->sessiondata('email')))
+	// 	return $query->result_array();
+	// }
 
 	// public function tokens(){
 	// 	$this->db-where('id', '');
@@ -70,7 +79,29 @@ class estu_model extends CI_Model {
 		return TRUE;
 	}
 
+	public function create_post($b){
+		// $this->db->where('email', $this->session->userdata('email'));
+		$this->db->insert('posts', $b);
+		return TRUE;
+	}
 
+	public function read_post($condition=null){
+
+	if(isset($condition))
+		{
+		$this->db->where($condition);
+		}
+
+	$query=$this->db->get($this->posts);
+	return $query->result_array();
+
+	}
+
+	public function delete_post($data){
+		$this->db->where($data);
+		$this->db->delete($this->posts);
+		return TRUE;
+	}
 
 
 	public function read_friend($condition=null){
