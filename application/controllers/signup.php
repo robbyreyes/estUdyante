@@ -19,8 +19,8 @@ class signup extends CI_Controller {
             'firstname'=>$_POST['fname'],
             'lastname'=>$_POST['lname'],
             'email'=>$_POST['email'],
-            // 'password'=>password_hash($_POST['password'], PASSWORD_DEFAULT),
-            'password'=>$_POST['password'],
+            'password'=>password_hash($_POST['password'], PASSWORD_BCRYPT),
+            //'password'=>$_POST['password'],
           );
     $insert_id = $this->estudyante->create_user($userrecord);
     $data['saved'] = TRUE;
