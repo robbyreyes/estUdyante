@@ -6,7 +6,8 @@ class estu_model extends CI_Model {
 	private $friend = "friend";
 	private $note = "note";
 	private $profile = "profile";
-	private $user = "user";
+	private $user = "user1";
+	private $posts = "posts";
 
 	public function create_user($data){
 	   $this->db->insert($this->user, $data);
@@ -15,21 +16,47 @@ class estu_model extends CI_Model {
 
 
 	public function can_login($email, $password){
-		$query = $this->db->get('user');
-		$this->db->where('email', $email);
-		$pass = password_hash($password, PASSWORD_DEFAULT);
-		if(password_verify($password, $pass))
-       {
+
+		// $this->db->where('password', $password);
+		// $pass = password_hash($password, PASSWORD_DEFAULT);
+		// $query = $this->db->get('user1');
+		$query = $this->db->get_where('user1', array('email' => $email));
+
+		if($query->num_rows() > 0 )
+		{
+			// return true;
+				$pass = $query->row();
+				if(password_verify($password, $pass->password))
+       	{
               return true;
-       }
+       	}
+					else
+					{
+				 	return false;
+					}
+		}
 		else
 		{
 			return false;
 		}
 	}
 
+	// public function getname(){
+	// 	// $this->db->select('firstname, lastname');
+	// 	// $query = $this->db->get('user1');
+	// 	$query = $this->db->get_where('user1', array('email' => $this->session->sessiondata('email')))
+	// 	return $query->result_array();
+	// }
+
+	// public function tokens(){
+	// 	$this->db-where('id', '');
+	// 	$query = $this->db->get('user');
+	//
+	// 	$this->db->insert($this->tokens, ('', $token,));
+	// }
+
 	public function create_book($data){
-		$this->db->insert($this->book,$data);
+		$this->db->insert($this->book, $data);
 		return TRUE;
 	}
 
@@ -52,7 +79,42 @@ class estu_model extends CI_Model {
 		return TRUE;
 	}
 
+	public function create_post($b){
+		// $this->db->where('email', $this->session->userdata('email'));
+		$this->db->insert('posts', $b);
+		return TRUE;
+	}
 
+	public function read_post($condition=null){
+
+	if(isset($condition))
+	{
+		$this->db->where('user_id',$condition);
+	}
+
+	$query=$this->db->get($this->posts);
+	return $query->result_array();
+
+	}
+
+	public function read_info($condition=null){
+
+	$this->db->select('*');
+	$this->db->from('user1');
+	if(isset($condition))
+	{
+		$this->db->where('email',$condition);
+	}
+	$query= $this->db->get();
+	return $query->result_array();
+
+	}
+
+	public function delete_post($data){
+		$this->db->where($data);
+		$this->db->delete($this->posts);
+		return TRUE;
+	}
 
 
 	public function read_friend($condition=null){
