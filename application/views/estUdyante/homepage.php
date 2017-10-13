@@ -18,6 +18,10 @@
                     <div class="row" id="post">
 
                         <?php
+
+                        if($post!=null)
+                        {
+
                         foreach(array_reverse($post) as $p){?>
 
                           <div class="col-md-12">
@@ -28,6 +32,12 @@
                           </div>
 
                         <?php
+                        }
+
+                        }
+                        else
+                        {
+                            echo'<div class="col-md-12"><h4><center>There is no post</center></h4></div>';
                         }
 
 

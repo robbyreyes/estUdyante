@@ -14,6 +14,13 @@ class estu_model extends CI_Model {
 	return TRUE;
 	}
 
+	public function users(){
+		// $this->db->select('firstname', 'lastname');
+		$this->db->where('email', $this->session->userdata('email'));
+		$query = $this->db->get();
+		return $query->result_array();
+	}
+
 
 	public function can_login($email, $password){
 
@@ -39,6 +46,12 @@ class estu_model extends CI_Model {
 		{
 			return false;
 		}
+	}
+
+	public function search($k){
+	 	$this->db->like('firstname', $k);
+		$query = $this->db->get('user1');
+		return $query->result_array();
 	}
 
 	// public function getname(){
@@ -80,7 +93,6 @@ class estu_model extends CI_Model {
 	}
 
 	public function create_post($b){
-		// $this->db->where('email', $this->session->userdata('email'));
 		$this->db->insert('posts', $b);
 		return TRUE;
 	}
@@ -88,11 +100,25 @@ class estu_model extends CI_Model {
 	public function read_post($condition=null){
 
 	if(isset($condition))
-		{
-		$this->db->where($condition);
-		}
+
+	{
+		$this->db->where('user_id',$condition);
+	}
 
 	$query=$this->db->get($this->posts);
+	return $query->result_array();
+
+	}
+
+	public function read_info($condition=null){
+
+	$this->db->select('*');
+	$this->db->from('user1');
+	if(isset($condition))
+	{
+		$this->db->where('email',$condition);
+	}
+	$query= $this->db->get();
 	return $query->result_array();
 
 	}

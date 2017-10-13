@@ -28,6 +28,12 @@
 <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header"><a class="navbar-brand navbar-link" href="<?php echo base_url('homepage') ?>"> estUdyante </a>
+
+              <form autocomplete="off" role="form" class="" method="post" action = <?php echo base_url('homepage/search')?>>
+              <input name="search" type="text" placeholder="Search" id="AnnualSearchBox">
+              <button class="btn btn-default" type="submit"> <i class="glyphicon glyphicon-search"></i></button>
+              </form>
+
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
             </div>
             <div class="collapse navbar-collapse" id="navcol-1">
