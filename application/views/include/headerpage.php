@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/mystyle.css">
 
 
 <link href="<?php echo base_url('bootstrap/css/bootstrap.css'); ?>" rel="stylesheet" />
@@ -29,14 +29,17 @@
         <div class="container-fluid">
             <div class="navbar-header"><a class="navbar-brand navbar-link" href="<?php echo base_url('homepage') ?>"> estUdyante </a>
 
-              <form autocomplete="off" role="form" class="" method="post" action = <?php echo base_url('homepage/search')?>>
-              <input name="search" type="text" placeholder="Search" id="AnnualSearchBox">
-              <button class="btn btn-default" type="submit"> <i class="glyphicon glyphicon-search"></i></button>
-              </form>
-
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
             </div>
             <div class="collapse navbar-collapse" id="navcol-1">
+                <form autocomplete="off" role="form" method="post" action = <?php echo base_url('homepage/search')?>>
+                    <div class="col-md-5 searchbar">
+                        <input name="search" class="form-control" type="text" placeholder="Search" id="AnnualSearchBox">
+                    </div>
+                    <div class="col-md-1 searchbar">
+                        <button class="btn btn-default" type="submit"> <i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                </form>
                 <ul class="nav navbar-nav navbar-right">
                     <li role="presentation"><a href="<?php echo base_url('profile') ?>"><?php echo $name ?> </a></li>
                     <li role="presentation">
