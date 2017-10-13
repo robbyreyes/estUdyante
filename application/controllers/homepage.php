@@ -96,6 +96,8 @@ class homepage extends CI_Controller {
 			$data['res'] = $result;
 		else
 			$data['res'] = null;
+
+		$data['keyword'] = $this->input->post('search');
 		$this->load->view('include/header', $header_data);
 		$this->load->view('estUdyante/search', $data);
 		}

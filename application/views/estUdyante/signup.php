@@ -3,6 +3,12 @@
         <h1>Sign up </h1>
         <row>
             <col-md-12>
+
+            <?php
+    				if( isset($errors) ){
+    					echo $errors;
+    				}
+    				?>
             <form role="form" class="" method="post"><span class="reauth-email"> </span>
                     <div class="form-group col-md-6 n form">
                         <input class="form-control" type="fname" required="" placeholder="First Name" autofocus="" id="inputName" name="fname"/>
