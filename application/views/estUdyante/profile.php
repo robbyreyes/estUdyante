@@ -34,22 +34,34 @@
             <div class="col-md-9">
                 <div class="row">
                     <div class="col-md-8" id="feed">
+
+                        <?php
+
+                        if($post!=null)
+                        {
+
+                        foreach(array_reverse($post) as $p){?>
                         <div class="row" id="story">
-                            <div class="col-md-2"><img class="img-circle img-responsive" src="<?php echo base_url('assets/img/account.png') ?>" alt="Avatar" width="80"></div>
-                            <div class="col-md-9">
-                                <h3 class="text-left"><?php echo $name?></h3></div>
-                            <div class="col-md-9">
-                                <p class="text-left">POST POST POST POST POST POST POST POST</p>
-                            </div>
+                          <div class="col-md-12">
+                              <h4><a href="<?php echo base_url('profile') ?>"><img class="img-circle" src="<?php echo base_url('assets/img/account.png') ?>"
+                                 alt="Avatar" width="30"><?php echo $p['user_name']?></a> &nbsp; <?php echo $p['postdate'] ?></h4></div>
+                          <div class="col-md-12" id="activepost">
+                              <p id="activepostp"><?php echo $p['body']?></p>
+                          </div>
                         </div>
-                        <div class="row" id="story">
-                            <div class="col-md-2"><img class="img-circle img-responsive" src="<?php echo base_url('assets/img/account.png') ?>" alt="Avatar" width="80"></div>
-                            <div class="col-md-9">
-                                <h3 class="text-left"><?php echo $name?></h3></div>
-                            <div class="col-md-9">
-                                <p class="text-left">POST POST POST POST POST POST POST POST</p>
-                            </div>
-                        </div>
+                        <div class="row" id="row_divider"></div>
+                        <?php
+                        }
+
+                        }
+                        else
+                        {
+                            echo'<div class="col-md-12"><h4><center>There is no post</center></h4></div>';
+                        }
+
+
+                        ?>
+
                     </div>
                 </div>
             </div>

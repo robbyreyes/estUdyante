@@ -15,7 +15,7 @@
                         </div>
                     </div>
                     <div class="row" id="row_divider"></div>
-                    <div class="row" id="post">
+
 
                         <?php
 
@@ -23,14 +23,15 @@
                         {
 
                         foreach(array_reverse($post) as $p){?>
-
+                        <div class="row" id="post">
                           <div class="col-md-12">
-                              <h4><a href="<?php echo base_url('profile') ?>"><img class="img-circle" src="<?php echo base_url('assets/img/account.png') ?>"
-                                 alt="Avatar" width="30"><?php echo $name?></a> &nbsp; <?php echo $p['postdate'] ?></h4></div>
+                              <h4><a href="<?php echo base_url('profile/'.$p["user_id"]) ?>"><img class="img-circle" src="<?php echo base_url('assets/img/account.png') ?>"
+                                 alt="Avatar" width="30"><?php echo $p['user_name']?></a> &nbsp; <?php echo $p['postdate'] ?></h4></div>
                           <div class="col-md-12" id="activepost">
                               <p id="activepostp"><?php echo $p['body']?></p>
                           </div>
-
+                        </div>
+                        <div class="row" id="row_divider"></div>
                         <?php
                         }
 
@@ -43,7 +44,7 @@
 
                         ?>
 
-                    </div>
+
                       </form>
                 </div>
                 <div class="col-md-1" id="divider"></div>
