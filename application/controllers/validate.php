@@ -16,7 +16,6 @@ class validate extends CI_Controller {
     {
         $email = $this->input->post('email');
         $password = $this->input->post('password');
-
         $this->load->model('estu_model');
 
         if ($this->estu_model->can_login($email, $password))
@@ -26,15 +25,21 @@ class validate extends CI_Controller {
               'password' => $password,
 							'logged_in' => TRUE
               );
-            // echo 'hash = '.password_hash($session_data['password'], PASSWORD_DEFAULT);
-            $this->session->set_userdata($session_data);
-						// print_r($session_data);
+              $this->session->set_userdata($session_data);
+              $data['name'] = $this->session->userdata('email');            
+
+              $userinfo = $this->estudyante->read_info($data['name']);
+              foreach($userinfo as $i){
+              $info = array(
+                'id' => $i['id'],
+                'firstname' => $i['firstname'],
+                'lastname' => $i['lastname'],
+                'email' => $i['email'],
+              );
+              $info;
+            }         
+            $this->session->set_userdata('headername',$info['firstname']);
             redirect('homepage', 'refresh');
-            // $cstrong = TRUE;
-            // $token = bin2hex(openssl_random_pseudo_bytes(64, $cstrong));
-            // echo '    '.$token;
-            //
-            // $this->estu_model->tokens($token);
         }
         else
         {
@@ -44,7 +49,6 @@ class validate extends CI_Controller {
     }
     else
     {
-
        $this->session->set_userdata('email',username);
        $this->index();
     }
@@ -56,6 +60,8 @@ class validate extends CI_Controller {
 		// 	'password' => '',
 		// 	'logged_in' => FALSE
 		// );
+      $this->session->unset_userdata('email');
+      $this->session->unset_userdata('headername');
 			$this->session->unset_userdata('logged_in');
 			redirect(base_url(), 'refresh');
 	}

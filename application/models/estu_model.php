@@ -11,7 +11,6 @@ class estu_model extends CI_Model {
 	private $mate = "mate";
 
 
-
 	public function users(){
 		// $this->db->select('firstname', 'lastname');
 		$this->db->where('email', $this->session->userdata('email'));
@@ -115,15 +114,41 @@ class estu_model extends CI_Model {
 		return TRUE;
 	}
 
-	public function read_post($condition=null){
+	public function read_follow($condition=null){
 
 	if(isset($condition))
 	{
 		$this->db->where_in('user_id',$condition);
 	}
 
+	$query=$this->db->get($this->mate);
+	return $query->result_array();
+
+	}
+
+	public function read_post($condition=null){
+
+	if(isset($condition))
+
+	{
+		$this->db->where_in('user_id',$condition);
+	}
+
 	$query=$this->db->get($this->posts);
 	return $query->result_array();
+	}
+
+	public function read_info_follow($condition=null){
+
+	$this->db->select('*');
+	$this->db->from('user1');
+	if(isset($condition))
+	{
+		$this->db->where_in('id',$condition);
+	}
+	$query= $this->db->get();
+	return $query->result_array();
+
 	}
 
 	public function delete_post($data){

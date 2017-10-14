@@ -5,43 +5,44 @@
                 <div class="col-md-8 col-md-offset-0" id="feed">
                     <div class="row" id="write">
                         <div class="col-md-9">
-                            <h1 class="text-left">Friendlist</h1></div>                      
-                    <div class="row" id="row_divider"></div>
-                </div>
-                <div class="col-md-12 col-md-offset-0" id="feed">
-                    <div class="row" id="write">
-                        <div class="col-md-2"><img class="img-responsive" src="<?php echo base_url('assets/img/account.png') ?>" alt="friend" width="65"></div>
-                        <div class="col-md-9">
-                            <h3 class="text-left">Restituto Magalpok</h3></div>
-                        <div class="col-md-9">
-                            <p class="text-left">Friends <img class="img-responsive" src="<?php echo base_url('assets/img/account.png') ?>" alt="friend" width="10"></p>
-							</div>
-							<div class="col-md-2"><img class="img-responsive" src="<?php echo base_url('assets/img/account.png') ?>" alt="friend" width="65"></div>
-                        <div class="col-md-9">
-                            <h3 class="text-left">Cynthia Megusto</h3></div>
-                        <div class="col-md-9">
-                            <p class="text-left">Friends <img class="img-responsive" src="<?php echo base_url('assets/img/account.png') ?>" alt="friend" width="10"></p>
-							</div>
-							<div class="col-md-2"><img class="img-responsive" src="<?php echo base_url('assets/img/account.png') ?>" alt="friend" width="65"></div>
-                        <div class="col-md-9">
-                            <h3 class="text-left">Maria Nasindak</h3></div>
-                        <div class="col-md-9">
-                            <p class="text-left">Friends <img class="img-responsive" src="<?php echo base_url('assets/img/account.png') ?>" alt="friend" width="10"></p>
-							</div>
-							<div class="col-md-2"><img class="img-responsive" src="<?php echo base_url('assets/img/account.png') ?>" alt="friend" width="65"></div>
-                        <div class="col-md-9">
-                            <h3 class="text-left">Bea Mapangakit</h3></div>
-                        <div class="col-md-9">
-                            <p class="text-left">Friends <img class="img-responsive" src="<?php echo base_url('assets/img/account.png') ?>" alt="friend" width="10"></p>
-							</div>
-							<div class="col-md-2"><img class="img-responsive" src="<?php echo base_url('assets/img/account.png') ?>" alt="friend" width="65"></div>
-                        <div class="col-md-9">
-                            <h3 class="text-left">Soledad Dimatawaran</h3></div>
-                        <div class="col-md-9">
-                            <p class="text-left">Friends <img class="img-responsive" src="<?php echo base_url('assets/img/account.png') ?>" alt="friend" width="10"></p>
-							</div>
+                            <h1 class="text-left">Following (<?php echo "$followingcounter People"?>)</h1>
+                        </div>                                          
+                    </div>
 
-    </div>
+                <div class="row" id="row_divider"></div>
+
+                <div class="col-md-12 col-md-offset-0" id="feed">
+
+                <?php
+
+                    if($matefollow!=null)
+                    {
+                       foreach(array_reverse($matefollow) as $mf){?>
+
+                        <div class="row" id="write">
+                                <div class="col-md-2"><img class="img-responsive" src="<?php echo base_url('assets/img/account.png') ?>" alt="friend" width="65">
+                                </div>
+                                <div class="col-md-9">
+                                    <a href="profile?<?php echo $mf["user_id"] ?>">
+                                    <h3 class="text-left"><?php 
+                                        echo $mf['firstname'].' '.$mf['lastname'];
+                                    ?></h3>
+                                    </a>
+                                </div>                            
+        				</div>		
+
+                        <div class="row" id="row_divider"></div>
+
+                <?php
+                        }
+                    }
+                    else
+                    {
+                        echo'<div class="col-md-12"><h4><center>No People</center></h4></div>';
+                    }
+                ?>    
+
+                </div>                
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>

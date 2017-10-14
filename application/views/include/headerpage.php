@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title><?php echo $title;?></title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/mystyle.css">
     <link rel="stylesheet" href="assets/css/profilepic.css">
@@ -36,14 +36,16 @@
             <div class="collapse navbar-collapse" id="navcol-1">
                 <form autocomplete="off" role="form" method="post" action = <?php echo base_url('homepage/search')?>>
                     <div class="col-md-5 searchbar">
-                        <input name="search" class="form-control" type="text" placeholder="Search" id="AnnualSearchBox">
-                    </div>
-                    <div class="col-md-1 searchbar">
-                        <button class="btn btn-default" type="submit"> <i class="glyphicon glyphicon-search"></i></button>
+                        <div class="input-group">
+                            <input name="search" class="form-control" type="text" placeholder="Search" id="AnnualSearchBox">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit"> <i class="glyphicon glyphicon-search"></i></button>
+                            </div>
+                        </div>
                     </div>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li role="presentation"><a href="<?php echo base_url('profile') ?>"><?php echo $name ?> </a></li>
+                    <li role="presentation"><a href="<?php echo base_url('profile') ?>"><?php echo $headername ?> </a></li>
                     <li role="presentation">
                         <a href="<?php echo base_url('homepage') ?>"><img src="<?php echo base_url('assets/img/home-512.png') ?>" width="15"> </a>
                     </li>
