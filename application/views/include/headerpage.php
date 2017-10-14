@@ -12,6 +12,7 @@
     <title>Homepage</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/mystyle.css">
+    <link rel="stylesheet" href="assets/css/profilepic.css">
 
 
 <link href="<?php echo base_url('bootstrap/css/bootstrap.css'); ?>" rel="stylesheet" />
@@ -22,6 +23,7 @@
 <link href="<?php echo base_url('bootstrap/css/profile.css'); ?>" rel="stylesheet" />
 <link href="<?php echo base_url('bootstrap/css/user.css'); ?>" rel="stylesheet" />
 <script src="<?php echo base_url('bootstrap/js/jquery.min.js'); ?>"></script>
+<script src="<?php echo base_url('bootstrap/js/profilepicmodal.js'); ?>"></script>
 <script src="<?php echo base_url('bootstrap/js/bootstrap.min.js'); ?>"></script>
 
 <link href="<?php echo base_url('bootstrap/css/newsfeed.css'); ?>" rel="stylesheet" />
