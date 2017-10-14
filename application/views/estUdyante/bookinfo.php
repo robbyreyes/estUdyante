@@ -27,24 +27,7 @@
 				
             </div>
         </div>
-        <div class="page-header">
-            <h3>Reviews<button class="btn btn-primary write-review" type="button">Write a review</button></h3></div>
-        <div class="media">
-            <div class="media-body">
-                <h4>Love this!</h4>
-                <div><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus nisl ac diam feugiat, non vestibulum libero posuere. Vivamus pharetra leo non nulla egestas, nec malesuada orci finibus. </p>
-                <p><span class="reviewer-name"><strong>John Doe</strong></span><span class="review-date">7 Oct 2015</span></p>
-            </div>
-        </div>
-        <div class="media">
-            <div class="media-body">
-                <h4>Fantastic product</h4>
-                <div><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus nisl ac diam feugiat, non vestibulum libero posuere. Vivamus pharetra leo non nulla egestas, nec malesuada orci finibus. </p>
-                <p><span class="reviewer-name"><strong>Jane Doe</strong></span><span class="review-date">7 Oct 2015</span></p>
-            </div>
-        </div>
+       
     </div>
 	</div>
     <script src="assets/js/jquery.min.js"></script>
