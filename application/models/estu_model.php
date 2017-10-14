@@ -18,12 +18,6 @@ class estu_model extends CI_Model {
 		return $query->result_array();
 	}
 
-	// public function get_username(){
-	// 	$this->db->select(CONCAT('user1.firstname',' ','user1.lastname'));
-	// 	$query = $this->db->get();
-	// 	return $query->result_array();
-	// }
-
 	public function can_login($email, $password){
 
 		$query = $this->db->get_where('user1', array('email' => $email));
@@ -63,6 +57,19 @@ class estu_model extends CI_Model {
 
 	$query=$this->db->get($this->mate);
 	return $query->result_array();
+	}
+	
+	public function read_info_follow($condition=null){
+
+	$this->db->select('*');
+	$this->db->from('user1');
+	if(isset($condition))
+	{
+		$this->db->where_in('id',$condition);
+	}		
+	$query= $this->db->get();
+	return $query->result_array();
+
 	}
 
 
@@ -114,17 +121,7 @@ class estu_model extends CI_Model {
 		return TRUE;
 	}
 
-	public function read_follow($condition=null){
-
-	if(isset($condition))
-	{
-		$this->db->where_in('user_id',$condition);
-	}
-
-	$query=$this->db->get($this->mate);
-	return $query->result_array();
-
-	}
+	
 
 	public function read_post($condition=null){
 
@@ -137,25 +134,16 @@ class estu_model extends CI_Model {
 	$query=$this->db->get($this->posts);
 	return $query->result_array();
 	}
-
-	public function read_info_follow($condition=null){
-
-	$this->db->select('*');
-	$this->db->from('user1');
-	if(isset($condition))
-	{
-		$this->db->where_in('id',$condition);
-	}
-	$query= $this->db->get();
-	return $query->result_array();
-
-	}
-
+	
 	public function delete_post($data){
 		$this->db->where($data);
 		$this->db->delete($this->posts);
 		return TRUE;
 	}
+	
+
+
+	
 
 
 
