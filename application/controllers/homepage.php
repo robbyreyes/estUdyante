@@ -81,7 +81,7 @@ class homepage extends CI_Controller {
 
 				'user_id' => $info['id'],
 
-				'user_name' => $info['firstname'].' '.$info['lastname'];
+				'user_name' => $info['firstname'].' '.$info['lastname'],
 
 				'body' => $this->input->post('body'),
 
