@@ -10,6 +10,7 @@ class bookcatalog extends CI_Controller {
 	}
 
 	public function index(){
+
   $rs = $this->estudyante->read_book();
 		foreach($rs as $r)
 		{

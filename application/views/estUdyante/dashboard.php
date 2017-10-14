@@ -16,7 +16,6 @@
 				<a href="<?php echo site_url('estu/profile') ?>">Profile</a>
 				<a href="<?php echo site_url('estu/bookinfo') ?>">book info</a>
 				<a href="<?php echo site_url('estu/signup') ?>">Sign Up</a>
-				<a href="<?php echo site_url('newsfeed/newsfeed') ?>">newsfeed</a>
 			</div>
 			<div class="col-md-6">
 				<div class="row pan1">

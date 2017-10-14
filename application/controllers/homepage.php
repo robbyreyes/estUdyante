@@ -10,14 +10,9 @@ class homepage extends CI_Controller {
 	}
 
 	public function index(){
-		// $this->load->model('estu_model');
-
-		// $data['username'] = $u;
   	$header_data['title'] = "estUdyante";
   	$data['name'] = $this->session->userdata('email');
   	$condition=null;
-
-		// $u = $this->estu_model->users($data['name']);
 
   	$userinfo = $this->estudyante->read_info($data['name']);
   	foreach($userinfo as $i){
@@ -29,12 +24,14 @@ class homepage extends CI_Controller {
 		);
 		$info;
 	}
+	$data['title'] = $info['firstname'].' '.$info['lastname'];
+
+	$data['headername'] = $this->session->userdata('headername');
 
 	$mate[]=null;
 	$follow = $this->estudyante->read_follow($info['id']);
   	foreach($follow as $i){
-		array_push($mate, $i['mate_ID']);
-
+		array_push($mate, $i['mate_ID']);		
 	}
 
 	if($mate!=null)
@@ -43,8 +40,8 @@ class homepage extends CI_Controller {
 		$a = $this->estudyante->read_post($mate);
 	}
 	else
-	{
-		$a = $this->estudyante->read_post($info['id']);
+	{	
+		$a = $this->estudyante->read_post($info['id']);	
 	}
 	foreach($a as $c){
 		$info = array(
@@ -83,6 +80,8 @@ class homepage extends CI_Controller {
 			$b = array(
 
 				'user_id' => $info['id'],
+
+				'user_name' => $info['firstname'].' '.$info['lastname'],
 
 				'body' => $this->input->post('body'),
 

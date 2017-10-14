@@ -15,37 +15,34 @@
                         </div>
                     </div>
                     <div class="row" id="row_divider"></div>
-
+                    
 
                         <?php
 
                         if($post!=null)
                         {
 
-                        foreach(array_reverse($post) as $p){?>
-                        <div class="row" id="post">
-                          <div class="col-md-12">
-                              <h4><a href="<?php echo base_url('profile/'.$p["user_id"]) ?>"><img class="img-circle" src="<?php echo base_url('assets/img/account.png') ?>"
-                                 alt="Avatar" width="30"><?php echo $p['user_name']?></a> &nbsp; <?php echo $p['postdate'] ?></h4></div>
-                          <div class="col-md-12" id="activepost">
-                              <p id="activepostp"><?php echo $p['body']?></p>
-                          </div>
-                        </div>
-                        <div class="row" id="row_divider"></div>
+                            foreach(array_reverse($post) as $p){?>
+                            <div class="row" id="post">
+                              <div class="col-md-12">
+                                  <h4><a href="profile?<?php echo $p["user_id"] ?>"><img class="img-circle" src="<?php echo base_url('assets/img/account.png') ?>"
+                                     alt="Avatar" width="30"><?php echo $p['user_name']?></a> &nbsp; <?php echo $p['postdate'] ?></h4></div>
+                              <div class="col-md-12" id="activepost">
+                                  <p id="activepostp"><?php echo $p['body']?></p>
+                              </div>
+                            </div>
+                            <div class="row" id="row_divider"></div>
+                            
                         <?php
-                        }
+                            }
 
                         }
                         else
                         {
                             echo'<div class="col-md-12"><h4><center>There is no post</center></h4></div>';
                         }
-
-
                         ?>
-
-
-                      </form>
+                                        
                 </div>
                 <div class="col-md-1" id="divider"></div>
                 <div class="col-md-3" id="function">
