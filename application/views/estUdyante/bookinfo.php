@@ -1,17 +1,25 @@
+<?php
+ if( isset($book) && $book!=null ){
+    foreach($book as $s)
+       {
 
-
-
-<body>
-    <div class="container">
+         $s['book_name'];
+         $s['book_desc'];
+         $s['book_author'];
+                              
+       }
+    }
+                            
+ ?>
+ <div class="container">
         <div class="row product">
             <div class="col-md-3 col-md-offset-0">
 			 <img  src= "<?php echo base_url ('assets/img/kafka_on_the_shore.jpg'); ?>" class="img-responsive" > </div> 
 			 
 				<div class="col-md-7">
-                <h2>KAFKA ON THE SHORE </h2>
-                <p>DescriptionDescriptionDiptionDescriptionDescriptionDescri Description i Descriptioni Descriptioni Descriptioni Descriptioni Descriptioni Descriptioni Descriptioni Descriptioni Descriptioni Descriptioni Descriptioni Descriptioni Descriptioni
-                    Description</p>
-                <p>By Haruki Murakami</p>
+                <h2><?php echo $s['book_name'] ?> </h2>
+                <p><?php echo $s['book_desc'] ?></p>
+                <p><b>Book Author: <?php echo $s['book_author'] ?></b></p>
                 <button class="btn btn-success btn-lg" type="button">Exchange </button>
                 <div class="row">
                     <div class="col-md-12">
@@ -29,9 +37,6 @@
         </div>
        
     </div>
-	</div>
+
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-</body>
-
-</html>
