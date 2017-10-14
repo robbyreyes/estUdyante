@@ -23,6 +23,8 @@
 <link href="<?php echo base_url('bootstrap/css/user.css'); ?>" rel="stylesheet" />
 <script src="<?php echo base_url('bootstrap/js/jquery.min.js'); ?>"></script>
 <script src="<?php echo base_url('bootstrap/js/bootstrap.min.js'); ?>"></script>
+
+<link href="<?php echo base_url('bootstrap/css/newsfeed.css'); ?>" rel="stylesheet" />
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -52,7 +54,7 @@
                         <a href="#"> <img src="<?php echo base_url('assets/img/filled_message1600.png') ?>" alt="Message" width="20"></a>
                     </li>
                     <li role="presentation">
-                        <a href="#"><img src="<?php echo base_url('assets/img/10118-200.png') ?>" alt="Notification" width="25"> </a>
+                        <a href="#"><img src="<?php echo base_url('assets/img/10118-200.png') ?>" alt="Notification"  width="25"> </a>
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> <span class="caret"></span></a>
