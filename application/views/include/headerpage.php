@@ -25,6 +25,7 @@
 <script src="<?php echo base_url('bootstrap/js/jquery.min.js'); ?>"></script>
 <script src="<?php echo base_url('bootstrap/js/profilepicmodal.js'); ?>"></script>
 <script src="<?php echo base_url('bootstrap/js/bootstrap.min.js'); ?>"></script>
+
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
