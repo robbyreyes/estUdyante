@@ -2,7 +2,7 @@
     <div class="container" id="cont">
         <div class="row">
             <div class="col-md-3" id="avatarcol">
-                <img class="img-circle" src="<?php echo base_url('assets/img/account.png') ?>" width="200" id="myImg">
+                <img class="img-circle" alt="<?php echo "$user_name"?> " src="<?php echo base_url('assets/img/account.png') ?>" width="200" id="myImg">
             </div>
             <div id="myModal" class="modal">
               <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
