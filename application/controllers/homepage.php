@@ -10,12 +10,33 @@ class homepage extends CI_Controller {
 	}
 
 	public function index(){
+<<<<<<< HEAD
 		// $this->load->model('estu_model');
 
 		// $data['username'] = $u;
   	$header_data['title'] = "estUdyante";
   	$data['name'] = $this->session->userdata('email');
   	$condition=null;
+=======
+
+  	$header_data['title'] = "estUdyante";
+  	$data['name'] = $this->session->userdata('email');
+  	$condition=null;
+
+  	$userinfo = $this->estudyante->read_info($data['name']);
+  	foreach($userinfo as $i){
+		$info = array(
+			'id' => $i['id'],
+			'firstname' => $i['firstname'],
+			'lastname' => $i['lastname'],
+			'email' => $i['email'],
+		);
+		$info;
+	}
+
+	$a = $this->estudyante->read_post($info['id']);
+
+>>>>>>> 81e812380afc58629ae86eacdebc6fc59f0202ee
 
 		// $u = $this->estu_model->users($data['name']);
 
@@ -57,7 +78,11 @@ class homepage extends CI_Controller {
 	}
 
 	if($a!=null)
+<<<<<<< HEAD
 		$data['post'] = $post;
+=======
+		$data['post'] = $post;	
+>>>>>>> 81e812380afc58629ae86eacdebc6fc59f0202ee
 	else
 		$data['post'] = null;
   	$this->load->view('include/headerpage', $data);
@@ -75,8 +100,12 @@ class homepage extends CI_Controller {
 			'email' => $i['email'],
 		);
 		$info;
+<<<<<<< HEAD
 		}
 
+=======
+	}
+>>>>>>> 81e812380afc58629ae86eacdebc6fc59f0202ee
 		$today = new DateTime(null, new DateTimeZone('Asia/Manila'));
 	if(isset($_POST))
 	{
