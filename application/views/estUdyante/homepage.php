@@ -18,6 +18,14 @@
 
 
                         <?php
+<<<<<<< HEAD
+=======
+
+                        if($post!=null)
+                        {
+
+                        foreach(array_reverse($post) as $p){?>
+>>>>>>> 81e812380afc58629ae86eacdebc6fc59f0202ee
 
                         if($post!=null)
                         {
