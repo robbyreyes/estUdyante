@@ -45,7 +45,7 @@
                     </div>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li role="presentation"><a href="<?php echo base_url('profile') ?>"><?php echo $headername ?> </a></li>
+                    <li role="presentation"><a href="<?php echo base_url('profile') ?>"><?php echo $name ?> </a></li>
                     <li role="presentation">
                         <a href="<?php echo base_url('homepage') ?>"><img src="<?php echo base_url('assets/img/home-512.png') ?>" width="15"> </a>
                     </li>
