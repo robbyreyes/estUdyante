@@ -10,15 +10,6 @@ class homepage extends CI_Controller {
 	}
 
 	public function index(){
-<<<<<<< HEAD
-		// $this->load->model('estu_model');
-
-		// $data['username'] = $u;
-  	$header_data['title'] = "estUdyante";
-  	$data['name'] = $this->session->userdata('email');
-  	$condition=null;
-=======
-
   	$header_data['title'] = "estUdyante";
   	$data['name'] = $this->session->userdata('email');
   	$condition=null;
@@ -33,29 +24,14 @@ class homepage extends CI_Controller {
 		);
 		$info;
 	}
+	$data['title'] = $info['firstname'].' '.$info['lastname'];
 
-	$a = $this->estudyante->read_post($info['id']);
-
->>>>>>> 81e812380afc58629ae86eacdebc6fc59f0202ee
-
-		// $u = $this->estu_model->users($data['name']);
-
-  	$userinfo = $this->estudyante->read_info($data['name']);
-  	foreach($userinfo as $i){
-		$info = array(
-			'id' => $i['id'],
-			'firstname' => $i['firstname'],
-			'lastname' => $i['lastname'],
-			'email' => $i['email'],
-		);
-		$info;
-	}
+	$data['headername'] = $this->session->userdata('headername');
 
 	$mate[]=null;
 	$follow = $this->estudyante->read_follow($info['id']);
   	foreach($follow as $i){
-		array_push($mate, $i['mate_ID']);
-
+		array_push($mate, $i['mate_ID']);		
 	}
 
 	if($mate!=null)
@@ -64,8 +40,8 @@ class homepage extends CI_Controller {
 		$a = $this->estudyante->read_post($mate);
 	}
 	else
-	{
-		$a = $this->estudyante->read_post($info['id']);
+	{	
+		$a = $this->estudyante->read_post($info['id']);	
 	}
 	foreach($a as $c){
 		$info = array(
@@ -78,11 +54,7 @@ class homepage extends CI_Controller {
 	}
 
 	if($a!=null)
-<<<<<<< HEAD
 		$data['post'] = $post;
-=======
-		$data['post'] = $post;	
->>>>>>> 81e812380afc58629ae86eacdebc6fc59f0202ee
 	else
 		$data['post'] = null;
   	$this->load->view('include/headerpage', $data);
@@ -100,18 +72,16 @@ class homepage extends CI_Controller {
 			'email' => $i['email'],
 		);
 		$info;
-<<<<<<< HEAD
 		}
 
-=======
-	}
->>>>>>> 81e812380afc58629ae86eacdebc6fc59f0202ee
 		$today = new DateTime(null, new DateTimeZone('Asia/Manila'));
 	if(isset($_POST))
 	{
 			$b = array(
 
 				'user_id' => $info['id'],
+
+				'user_name' => $info['firstname'].' '.$info['lastname'];
 
 				'body' => $this->input->post('body'),
 

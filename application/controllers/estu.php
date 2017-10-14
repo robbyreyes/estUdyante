@@ -7,20 +7,9 @@ class estu extends CI_Controller {
 		parent::__construct();
 
 		$this->load->model('estu_model','estudyante');
-<<<<<<< HEAD
 		if($this->session->userdata('logged_in'))
 		{
 			redirect('homepage', 'refresh');
-=======
-	}
-
-	public function index(){
-
-		if($this->session->userdata('logged_in'))
-		{
-			redirect(('homepage'), 'refresh');
-
->>>>>>> 81e812380afc58629ae86eacdebc6fc59f0202ee
 		}
 
 	}
@@ -36,20 +25,5 @@ class estu extends CI_Controller {
 			$this->load->view('estUdyante/dashboard', $data);
 			$this->load->view('include/footer');
 		}
-<<<<<<< HEAD
-=======
-	}
-
-
-
-	public function enter(){
-		if($this->session->userdata('email') != '')
-		{
-			echo '<h2>Welcome - '.$this->session->userdata('email').'</h2>';
-			echo '<label><a href="logout">Logout</a></label>';
-
-		}
-	}
->>>>>>> 81e812380afc58629ae86eacdebc6fc59f0202ee
 
 }

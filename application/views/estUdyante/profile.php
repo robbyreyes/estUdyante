@@ -34,7 +34,7 @@
             <div class="col-md-9">
                 <div class="row">
                     <div class="col-md-8" id="feed">
-
+                        
                         <?php
 
                         if($post!=null)
@@ -44,7 +44,7 @@
                         <div class="row" id="story">
                           <div class="col-md-12">
                               <h4><a href="<?php echo base_url('profile') ?>"><img class="img-circle" src="<?php echo base_url('assets/img/account.png') ?>"
-                                 alt="Avatar" width="30"><?php echo $p['user_name']?></a> &nbsp; <?php echo $p['postdate'] ?></h4></div>
+                                 alt="Avatar" width="30"><?php echo $p['name']?></a> &nbsp; <?php echo $p['postdate'] ?></h4></div>
                           <div class="col-md-12" id="activepost">
                               <p id="activepostp"><?php echo $p['body']?></p>
                           </div>
@@ -61,7 +61,7 @@
 
 
                         ?>
-
+                        
                     </div>
                 </div>
             </div>

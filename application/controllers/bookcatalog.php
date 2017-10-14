@@ -10,7 +10,7 @@ class bookcatalog extends CI_Controller {
 	}
 
 	public function index(){
-  $header_data['title'] = "estUdyante";
+  $data['headername'] = $this->session->userdata('headername');
   $data['name'] = $this->session->userdata('email');
   $condition=null;
   $this->load->view('include/headerpage', $data);
