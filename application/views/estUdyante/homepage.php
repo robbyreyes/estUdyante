@@ -15,13 +15,11 @@
                         </div>
                     </div>
                     <div class="row" id="row_divider"></div>
-                    
 
                         <?php
 
                         if($post!=null)
                         {
-
                             foreach(array_reverse($post) as $p){?>
                             <div class="row" id="post">
                               <div class="col-md-12">
