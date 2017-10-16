@@ -15,21 +15,50 @@
                         </div>
                     </div>
                     <div class="row" id="row_divider"></div>
-                    
+                          <!--APPEARING MODAL-->
+                          <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h4 class="modal-title">Comments</h4>
+                                </div>
+                                <div class="modal-body col-md-12">
+                                  <div class="col-md-4">
+                                      <?php echo $name;?>:
+                                  </div>
+                                  <div class="col-md-8">
+                                      <input class="form-control" type="text"/>
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-info" data-dismiss="modal">
+                                    <span class="glyphicon glyphicon-edit"></span> Comment
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
 
                         <?php
 
                         if($post!=null)
                         {
-
                             foreach(array_reverse($post) as $p){?>
                             <div class="row" id="post">
                               <div class="col-md-12">
-                                  <h4><a href="profile?<?php echo $p["user_id"] ?>"><img class="img-circle" src="<?php echo base_url('assets/img/account.png') ?>"
+                                  <h4><a href="profile/id/<?php echo $p["user_id"] ?>"><img class="img-circle" src="<?php echo base_url('assets/img/account.png') ?>"
                                      alt="Avatar" width="30"><?php echo $p['user_name']?></a> &nbsp; <?php echo $p['postdate'] ?></h4></div>
                               <div class="col-md-12" id="activepost">
                                   <p id="activepostp"><?php echo $p['body']?></p>
                               </div>
+                              <!--BUTTON FOR MODAL-->
+                              <button type="button" class="btn btn-primary btn-md">
+                                <span class="glyphicon glyphicon-thumbs-up"></span> Like
+                              </button>
+                              <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal">
+                                <span class="glyphicon glyphicon-pencil"></span> Comment
+                              </button>
                             </div>
                             <div class="row" id="row_divider"></div>
                             

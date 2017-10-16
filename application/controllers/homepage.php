@@ -10,9 +10,14 @@ class homepage extends CI_Controller {
 	}
 
 	public function index(){
+		// $this->load->model('estu_model');
+
+		// $data['username'] = $u;
   	$header_data['title'] = "estUdyante";
   	$data['name'] = $this->session->userdata('email');
   	$condition=null;
+
+		// $u = $this->estu_model->users($data['name']);
 
   	$userinfo = $this->estudyante->read_info($data['name']);
   	foreach($userinfo as $i){
@@ -25,6 +30,7 @@ class homepage extends CI_Controller {
 		$info;
 	}
 	$data['title'] = $info['firstname'].' '.$info['lastname'];
+
 
 	$data['headername'] = $this->session->userdata('headername');
 
@@ -40,6 +46,7 @@ class homepage extends CI_Controller {
 		$a = $this->estudyante->read_post($mate);
 	}
 	else
+
 	{	
 		$a = $this->estudyante->read_post($info['id']);	
 	}

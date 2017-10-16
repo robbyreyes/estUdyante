@@ -1,18 +1,17 @@
-<?php
+<?php /*
  if( isset($book) && $book!=null ){
     foreach($book as $s)
        {
-
          $s['book_name'];
          $s['book_desc'];
          $s['book_author'];
-                              
        }
     }
-                            
- ?>
-    
-
+elseif($book==null)
+{
+    echo "no book";
+}
+ */ ?>
 
     <div class="container-fluid">
         <div id="content">
@@ -38,23 +37,31 @@
                     </div>
                     <div class="row" id="row_divider"></div>
                 </div>
+
+
+                <?php
+
+                foreach(array_reverse($book) as $s){?>
                 <div class="col-md-8 col-md-offset-0" id="feed">
                    <a href="<?php echo base_url('bookcatalog/bookinfo') ?>"> <div class="row" id="write">
-                        <div class="col-md-2"><img class="img-responsive" src="<?php echo base_url('assets/img/stock-vector-mathematics-vector-cover-a-background-from-scientific-formulas-for-book-textbook-notebook-320996975.jpg') ?>" alt="Book Cover" width="80"></div>
+                        <div class="col-md-2"><img class="img-responsive" src="<?php echo base_url('assets/img/kafka_on_the_shore.jpg') ?>" alt="Book Cover" width="80"></div>
                         <div class="col-md-9">
                             <h1 class="text-left"><?php echo $s['book_name'] ?></h1></div>
                         <div class="col-md-9">
-                            <p class="text-left">Author:<?php echo $name?> </p>
+                            <p class="text-left">Author: <?php echo $s['book_author']?> </p>
                         </div>
                     </div>
                     <div class="row" id="row_divider"></div>
                     </a>
                 </div>
-               
-                    <div class="row" id="row_divider"></div>
-                </div>
+                <?php
+                            }
+                ?>
+
+
             </div>
         </div>
+    </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>

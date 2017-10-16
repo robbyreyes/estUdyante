@@ -6,7 +6,7 @@
                     <div class="row" id="write">
                         <div class="col-md-9">
                             <h1 class="text-left">Following (<?php echo "$followingcounter People"?>)</h1>
-                        </div>                                          
+                        </div>
                     </div>
 
                 <div class="row" id="row_divider"></div>
@@ -23,13 +23,13 @@
                                 <div class="col-md-2"><img class="img-responsive" src="<?php echo base_url('assets/img/account.png') ?>" alt="friend" width="65">
                                 </div>
                                 <div class="col-md-9">
-                                    <a href="profile?<?php echo $mf["user_id"] ?>">
-                                    <h3 class="text-left"><?php 
+                                    <a href="profile/id/<?php echo $mf["user_id"] ?>">
+                                    <h3 class="text-left"><?php
                                         echo $mf['firstname'].' '.$mf['lastname'];
                                     ?></h3>
                                     </a>
-                                </div>                            
-        				</div>		
+                                </div>
+        				</div>
 
                         <div class="row" id="row_divider"></div>
 
@@ -40,9 +40,9 @@
                     {
                         echo'<div class="col-md-12"><h4><center>No People</center></h4></div>';
                     }
-                ?>    
+                ?>
 
-                </div>                
+                </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
