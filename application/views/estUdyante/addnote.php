@@ -2,23 +2,20 @@
         <div class="row">
             <div class="container">
                 <div id="sign">
-                    <h1>Add Book </h1>
+                    <h1>Add Notes </h1>
                     <row>
                         <col-md-12>
                         <form role="form" class="" method="post"><span class="reauth-email"> </span>
                                 <div class="form-group col-md-12 n form">
-                                    <input class="form-control" type="book_name"  placeholder="Book's name" autofocus="" id="book_name" name="book_name"/>
-                                </div>
-                                  <div class="form-group col-md-12 n form">
-                                    <input class="form-control" type="book_author"  placeholder="Author" autofocus="" id="book_author" name="book_author"/>
+                                    <input class="form-control" type="note_name"  placeholder="Note's name" autofocus="" id="note_name" name="note_name"/>
                                 </div>
                                 <div class="form-group col-md-12 n form">
-                                    <input class="form-control" type="book_desc"  placeholder="Description" autofocus="" id="book_desc" name="book_desc"/>
+                                    <input class="form-control" type="note_desc"  placeholder="Description" autofocus="" id="note_desc" name="note_desc"/>
                                 </div>
                                
 
                                 <div class="form-group text-right">
-                                    <button type="submit" class="btn btn-primary"> Add book
+                                    <button type="submit" class="btn btn-primary"> Add Notes
                                     <span class="glyphicon glyphicon-save"></span>
                                     </button> 
                                 </div>
@@ -37,8 +34,8 @@
 if( isset($saved) && $saved==TRUE ){
 ?>
 <script type="text/javascript">
-    alert("Your book was succesfully saved!");
-    location.href = '<?php echo base_url('bookcatalog'); ?>';
+    alert("Your note was succesfully saved!");
+    location.href = '<?php echo base_url('notecatalog'); ?>';
 </script>
 <?php
 }
