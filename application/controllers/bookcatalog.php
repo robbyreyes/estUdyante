@@ -10,24 +10,31 @@ class bookcatalog extends CI_Controller {
 	}
 
 	public function index(){
-
-  $rs = $this->estudyante->read_book();
+		$books=null;
+  		$rs = $this->estudyante->read_book();
 		foreach($rs as $r)
 		{
 			$info = array(
-					
 						'book_desc' => $r['book_desc'],
-						'book_name' => $r['book_name'],	
-						'book_author' => $r['book_author'],		
+						'book_name' => $r['book_name'],
+						'book_author' => $r['book_author'],
 						);
-			$studs[] = $info;
+			$books[] = $info;
 		}
-		$data['book'] = $studs;
-		$header_data['name'] = $data['name'] = $this->session->userdata('email');
-		$this->load->view('include/headerpage',$header_data);
+		if ($books!=null)
+		{
+			$data['book'] = $books;
+		}
+		else
+		{
+			$data['book'] = null;
+		}
+
+		$data['headername'] = $this->session->userdata('headername');
+		$this->load->view('include/headerpage',$data);
 		$this->load->view('estUdyante/bookcatalog',$data);
   }
-  
+
   public function addbook()
   {
   		$data = array();
@@ -38,37 +45,37 @@ class bookcatalog extends CI_Controller {
 											'book_desc' => $_POST['book_desc'],
 											'book_author' => $_POST['book_author'],
 
-										);							
-							$insert_id = $this->estudyante->create_book($record);				
-							$data['saved'] = TRUE;				
+										);
+							$insert_id = $this->estudyante->create_book($record);
+							$data['saved'] = TRUE;
 						}
-					
+
 						else
 						{
-						 $data['saved']= FALSE;	
+						 $data['saved']= FALSE;
 						}
   		$header_data['title'] = "estUdyante";
-		$data['name'] = $data['name'] = $this->session->userdata('email');
+		$data['headername'] = $this->session->userdata('headername');
 		$condition=null;
 		$this->load->view('include/headerpage',$data);
 		$this->load->view('estUdyante/addbook', $data);
-  } 
+  }
 
 	public function bookinfo(){
 		$rs = $this->estudyante->read_book();
 		foreach($rs as $r)
 		{
 			$info = array(
-					
+
 						'book_desc' => $r['book_desc'],
-						'book_name' => $r['book_name'],	
-						'book_author' => $r['book_author'],		
+						'book_name' => $r['book_name'],
+						'book_author' => $r['book_author'],
 						);
 			$studs[] = $info;
 		}
 		$data['book'] = $studs;
-		$header_data['name'] = $data['name'] = $this->session->userdata('email');
-		$this->load->view('include/headerpage',$header_data);
+		$data['headername'] = $this->session->userdata('headername');
+		$this->load->view('include/headerpage',$data);
 		$this->load->view('estUdyante/bookinfo',$data);
 	}
 

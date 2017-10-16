@@ -12,10 +12,20 @@ class estu_model extends CI_Model {
 
 
 	public function users(){
-		// $this->db->select('firstname', 'lastname');
 		$this->db->where('email', $this->session->userdata('email'));
 		$query = $this->db->get();
 		return $query->result_array();
+	}
+
+
+	public function if_mate($userid, $mateid){
+		$query = $this->db->get_where('mate', array('user_id' => $userid,'mate_id' => $mateid));
+		if($query->num_rows() > 0 )
+		{
+			return true;
+		}
+		else
+			return false;
 	}
 
 	public function can_login($email, $password){
@@ -43,6 +53,8 @@ class estu_model extends CI_Model {
 
 	public function search($k){
 	 	$this->db->like('firstname', $k);
+	 	$this->db->or_like('lastname', $k);
+	 	$this->db->or_like("concat(firstname,' ',lastname)", $k);
 		$query = $this->db->get('user1');
 		return $query->result_array();
 	}
@@ -90,15 +102,12 @@ class estu_model extends CI_Model {
 	return $query->result_array();
 	}
 
-
-
 	public function create_book($data){
 		$this->db->insert($this->book, $data);
 		return TRUE;
 	}
 
 	public function read_book($condition=null){
-
 	if(isset($condition))
 		{
 			$this->db->where($condition);
@@ -143,17 +152,55 @@ class estu_model extends CI_Model {
 	
 
 
-	
+	public function read_infobyid($condition=null){
 
+	$this->db->select('*');
+	$this->db->from('user1');
+	if(isset($condition))
+	{
+		$this->db->where('id',$condition);
+	}
+	$query= $this->db->get();
+	return $query->result_array();
 
+	}
 
+	public function create_follow($f){
+		$this->db->insert('mate', $f);
+		return TRUE;
+
+	}
+  
+	public function read_info_follow($condition=null){
+
+	$this->db->select('*');
+	$this->db->from('user1');
+	if(isset($condition))
+	{
+		$this->db->where_in('id',$condition);
+	}
+	$query= $this->db->get();
+	return $query->result_array();
+
+	}
+  
+	public function delete_follow($userid, $mateid){
+		$this->db->delete('mate', array('user_id' => $userid,'mate_id' => $mateid));
+		return TRUE;
+	}
+
+	public function delete_post($data){
+		$this->db->where($data);
+		$this->db->delete($this->posts);
+		return TRUE;
+	}
+    
 	public function create_note($data){
 		$this->db->insert($this->note, $data);
 		return TRUE;
 	}
 
 	public function read_note($condition=null){
-
 	if(isset($condition))
 		{
 			$this->db->where($condition);
@@ -193,7 +240,11 @@ class estu_model extends CI_Model {
 		return TRUE;
 	}
 
-
+  
+	public function create_profile($data){
+		$this->db->insert($this->profile, $data);
+		return TRUE;
+	}
 
 
 	public function read_info($condition=null){
@@ -207,9 +258,6 @@ class estu_model extends CI_Model {
 	$query= $this->db->get();
 	return $query->result_array();
 	}
-
-
-
 
 	public function read_friend($condition=null){
 
@@ -227,15 +275,6 @@ class estu_model extends CI_Model {
 		$this->db->delete($this->friend);
 		return TRUE;
 	}
-
-
-
-
-
-
-
-
-
 
 	public function delete_user($data){
 		$this->db->where($data);

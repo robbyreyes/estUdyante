@@ -47,10 +47,32 @@
                     <div class="col-md-8" id="feed">
 
                         <?php
+                        if($mate_validate=="USER")
+                        {
+                            echo $mate_validate;
+                        }
+                        elseif($mate_validate=="UNFOLLOW")
+                        {
+                          ?><form role="form" class="" method="post" action = "<?php echo current_url()?>">
+                            <input name="follow" value="Follow" type="submit">
+                           </form><?php
+                           $mate_validate = "FOLLOW";
+                        }
+                        elseif($mate_validate=="FOLLOW")
+                        {
+                            ?><form role="form" class="" method="post" action = "<?php echo current_url()?>">
+                              <input name="unfollow" value="Unfollow" type="submit">
+                             </form><?php
+
+                        }
+                        else
+                        {
+                            echo "ERROR";
+                        }
+
 
                         if($post!=null)
                         {
-
                         foreach(array_reverse($post) as $p){?>
                         <div class="row" id="story">
                           <div class="col-md-12">
@@ -64,16 +86,13 @@
                         <div class="row" id="row_divider"></div>
                         <?php
                         }
-
                         }
                         else
                         {
                             echo'<div class="col-md-12"><h4><center>There is no post</center></h4></div>';
                         }
-
-
                         ?>
-                        
+
                     </div>
                 </div>
             </div>

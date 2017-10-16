@@ -38,6 +38,7 @@ class validate extends CI_Controller {
               );
               $info;
             }         
+            $this->session->set_userdata('logged_user',$info['id']);
             $this->session->set_userdata('headername',$info['firstname']);
             redirect('homepage', 'refresh');
         }
