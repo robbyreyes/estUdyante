@@ -37,7 +37,7 @@ class homepage extends CI_Controller {
 	$mate[]=null;
 	$follow = $this->estudyante->read_follow($info['id']);
   	foreach($follow as $i){
-		array_push($mate, $i['mate_ID']);		
+		array_push($mate, $i['mate_ID']);
 	}
 
 	if($mate!=null)
@@ -47,8 +47,8 @@ class homepage extends CI_Controller {
 	}
 	else
 
-	{	
-		$a = $this->estudyante->read_post($info['id']);	
+	{
+		$a = $this->estudyante->read_post($info['id']);
 	}
 	foreach($a as $c){
 		$info = array(
@@ -104,27 +104,38 @@ class homepage extends CI_Controller {
 
 
 	public function search(){
-		$header_data['title'] = "Search Results";
+		$data['title'] = "Search Results";
 
 		$data['name'] = $this->session->userdata('email');
 
 		if(isset($_POST))
 		{
 
-			 $k = $this->input->post('search');
+			$k = $this->input->post('search');
 
 			$this->load->model('estu_model');
-			$result = $this->estu_model->search($k);
+			if(!empty($k))
+			{
+				$result = $this->estu_model->search($k);
+			}
+			else {
+				$result = null;
+			}
 
-		if($result!=null)
-			$data['res'] = $result;
-		else
-			$data['res'] = null;
+			if($result!=null){
+				$data['res'] = $result;
+			}
+			else
+			{
+				$data['res'] = null;
+			}
+		}
+
+
 
 		$data['keyword'] = $this->input->post('search');
-		$this->load->view('include/header', $header_data);
+		$this->load->view('include/header', $data);
 		$this->load->view('estUdyante/search', $data);
-		}
 
 		}
 	}
