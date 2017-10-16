@@ -2,7 +2,7 @@
     <div class="container" id="cont">
         <div class="row">
             <div class="col-md-3" id="avatarcol">
-                <img class="img-circle" alt="<?php echo "$name"?> " src="<?php echo base_url('assets/img/account.png') ?>" width="200" id="myImg">
+                <img class="img-circle" alt="<?php echo "$name's avatar"?> " src="<?php echo base_url('assets/img/account.png') ?>" width="200" id="myImg">
             </div>
             <div id="myModal" class="modal">
               <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
@@ -49,7 +49,7 @@
                         <?php
                         if($mate_validate=="USER")
                         {
-                            echo $mate_validate;
+                            //echo $mate_validate;
                         }
                         elseif($mate_validate=="UNFOLLOW")
                         {
@@ -76,7 +76,7 @@
                         foreach(array_reverse($post) as $p){?>
                         <div class="row" id="story">
                           <div class="col-md-12">
-                              <h4><a href="<?php echo base_url('profile') ?>"><img class="img-circle" src="<?php echo base_url('assets/img/account.png') ?>"
+                              <h4><a href=<?php echo base_url('profile/id/'.$p['user_id'].'') ?>><img class="img-circle" src="<?php echo base_url('assets/img/account.png') ?>"
                                  alt="Avatar" width="30"><?php echo $p['name']?></a> &nbsp; <?php echo $p['postdate'] ?></h4></div>
 
                           <div class="col-md-12" id="activepost">
@@ -98,9 +98,9 @@
             </div>
         </div>
     </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/profilepicmodal.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    
+    <script src="<?php echo base_url('bootstrap/js/profilepicmodal.js')?>"></script>    
+
 </body>
 
 </html>
