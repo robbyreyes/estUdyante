@@ -50,18 +50,6 @@ class bookcatalog extends CI_Controller {
   {
   		$data['name'] = $this->session->userdata('email');
   		 $userinfo = $this->estudyante->read_info($data['name']);
-		    foreach($userinfo as $i){
-		      $info = array(
-		        'id' => $i['id'],
-		        'firstname' => $i['firstname'],
-		        'lastname' => $i['lastname'],
-		        'email' => $i['email'],
-		      );    
-		    }
-		    $data['title'] = $info['firstname'].' '.$info['lastname'];
-		    $data['name'] = $info['firstname'].' '.$info['lastname'];
-		    $data['headername'] = $this->session->userdata('headername');
-
   		$data = array();
 						if($_SERVER['REQUEST_METHOD']=='POST')
 						{

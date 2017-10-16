@@ -1,19 +1,4 @@
-<?php /*
- if( isset($book) && $book!=null ){
-    foreach($book as $s)
-       {
-         $s['book_name'];
-         $s['book_desc'];
-         $s['book_author'];
-       }
-    }
-elseif($book==null)
-{
-    echo "no book";
-}
- */ ?>
-
-    <div class="container-fluid">
+<div class="container-fluid">
         <div id="content">
             <div class="row" id="contentrow">
                 <div class="col-md-8 col-md-offset-0" id="feed">
