@@ -10,6 +10,7 @@ class bookcatalog extends CI_Controller {
 	}
 
 	public function index(){
+		$data['name'] = $this->session->userdata('email');
 		$books=null;
   		$rs = $this->estudyante->read_book();
 		foreach($rs as $r)
@@ -29,14 +30,38 @@ class bookcatalog extends CI_Controller {
 		{
 			$data['book'] = null;
 		}
-
-		$data['headername'] = $this->session->userdata('headername');
+		$userinfo = $this->estudyante->read_info($data['name']);
+	    foreach($userinfo as $i){
+	      $info = array(
+	        'id' => $i['id'],
+	        'firstname' => $i['firstname'],
+	        'lastname' => $i['lastname'],
+	        'email' => $i['email'],
+	      );    
+	    }
+	    $data['title'] = $info['firstname'].' '.$info['lastname'];
+	    $data['name'] = $info['firstname'].' '.$info['lastname'];
+	    $data['headername'] = $this->session->userdata('headername');
 		$this->load->view('include/headerpage',$data);
 		$this->load->view('estUdyante/bookcatalog',$data);
   }
 
   public function addbook()
   {
+  		$data['name'] = $this->session->userdata('email');
+  		 $userinfo = $this->estudyante->read_info($data['name']);
+		    foreach($userinfo as $i){
+		      $info = array(
+		        'id' => $i['id'],
+		        'firstname' => $i['firstname'],
+		        'lastname' => $i['lastname'],
+		        'email' => $i['email'],
+		      );    
+		    }
+		    $data['title'] = $info['firstname'].' '.$info['lastname'];
+		    $data['name'] = $info['firstname'].' '.$info['lastname'];
+		    $data['headername'] = $this->session->userdata('headername');
+
   		$data = array();
 						if($_SERVER['REQUEST_METHOD']=='POST')
 						{
@@ -54,14 +79,24 @@ class bookcatalog extends CI_Controller {
 						{
 						 $data['saved']= FALSE;
 						}
-  		$header_data['title'] = "estUdyante";
-		$data['headername'] = $this->session->userdata('headername');
+		foreach($userinfo as $i){
+		      $info = array(
+		        'id' => $i['id'],
+		        'firstname' => $i['firstname'],
+		        'lastname' => $i['lastname'],
+		        'email' => $i['email'],
+		      );    
+		    }
+		    $data['title'] = $info['firstname'].' '.$info['lastname'];
+		    $data['name'] = $info['firstname'].' '.$info['lastname'];
+		    $data['headername'] = $this->session->userdata('headername');
 		$condition=null;
 		$this->load->view('include/headerpage',$data);
 		$this->load->view('estUdyante/addbook', $data);
   }
 
 	public function bookinfo(){
+		$data['name'] = $this->session->userdata('email');
 		$rs = $this->estudyante->read_book();
 		foreach($rs as $r)
 		{
@@ -73,8 +108,19 @@ class bookcatalog extends CI_Controller {
 						);
 			$studs[] = $info;
 		}
+		$userinfo = $this->estudyante->read_info($data['name']);
+	    foreach($userinfo as $i){
+	      $info = array(
+	        'id' => $i['id'],
+	        'firstname' => $i['firstname'],
+	        'lastname' => $i['lastname'],
+	        'email' => $i['email'],
+	      );    
+	    }
+	    $data['title'] = $info['firstname'].' '.$info['lastname'];
+	    $data['name'] = $info['firstname'].' '.$info['lastname'];
+	    $data['headername'] = $this->session->userdata('headername');
 		$data['book'] = $studs;
-		$data['headername'] = $this->session->userdata('headername');
 		$this->load->view('include/headerpage',$data);
 		$this->load->view('estUdyante/bookinfo',$data);
 	}
