@@ -7,6 +7,7 @@
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
@@ -105,6 +106,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
 
+
 --
 -- Dumping data for table `posts`
 --
@@ -125,6 +127,7 @@ INSERT INTO `posts` (`id`, `body`, `postdate`, `user_id`, `user_name`) VALUES
 (47, 'wwee', '2017-10-13 19:42:56', 18, 'Eternal Envy'),
 (51, 'ha', '2017-10-14 13:46:56', 15, ''),
 (52, 'he', '2017-10-14 13:58:55', 15, '');
+
 
 -- --------------------------------------------------------
 
