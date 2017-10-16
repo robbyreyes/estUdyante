@@ -6,7 +6,7 @@
          $s['book_desc'];
          $s['book_author'];
        }
-    }
+}
 elseif($book==null)
 {
     echo "no book";
@@ -25,7 +25,7 @@ elseif($book==null)
                 <button class="btn btn-success btn-lg" type="button">Exchange </button>
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Posted By: <?php echo "";?></h2>
+                        <h2>Posted By: <?php echo $name;?></h2>
                         <h3>Book Details</h3></div>
                 </div>
             </div>

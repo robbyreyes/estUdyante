@@ -70,20 +70,6 @@ class estu_model extends CI_Model {
 	$query=$this->db->get($this->mate);
 	return $query->result_array();
 	}
-	
-	public function read_info_follow($condition=null){
-
-	$this->db->select('*');
-	$this->db->from('user1');
-	if(isset($condition))
-	{
-		$this->db->where_in('id',$condition);
-	}		
-	$query= $this->db->get();
-	return $query->result_array();
-
-	}
-
 
 
 	public function create_user($data){
@@ -130,7 +116,7 @@ class estu_model extends CI_Model {
 		return TRUE;
 	}
 
-	
+
 
 	public function read_post($condition=null){
 
@@ -143,13 +129,13 @@ class estu_model extends CI_Model {
 	$query=$this->db->get($this->posts);
 	return $query->result_array();
 	}
-	
+
 	public function delete_post($data){
 		$this->db->where($data);
 		$this->db->delete($this->posts);
 		return TRUE;
 	}
-	
+
 
 
 	public function read_infobyid($condition=null){
@@ -170,7 +156,7 @@ class estu_model extends CI_Model {
 		return TRUE;
 
 	}
-  
+
 	public function read_info_follow($condition=null){
 
 	$this->db->select('*');
@@ -183,18 +169,12 @@ class estu_model extends CI_Model {
 	return $query->result_array();
 
 	}
-  
+
 	public function delete_follow($userid, $mateid){
 		$this->db->delete('mate', array('user_id' => $userid,'mate_id' => $mateid));
 		return TRUE;
 	}
 
-	public function delete_post($data){
-		$this->db->where($data);
-		$this->db->delete($this->posts);
-		return TRUE;
-	}
-    
 	public function create_note($data){
 		$this->db->insert($this->note, $data);
 		return TRUE;
@@ -237,12 +217,6 @@ class estu_model extends CI_Model {
 	public function delete_profile($data){
 		$this->db->where($data);
 		$this->db->delete($this->profile);
-		return TRUE;
-	}
-
-  
-	public function create_profile($data){
-		$this->db->insert($this->profile, $data);
 		return TRUE;
 	}
 
