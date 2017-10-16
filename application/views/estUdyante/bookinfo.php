@@ -1,10 +1,11 @@
 <?php
  if( isset($book) && $book!=null ){
-    foreach($book as $s)
+    foreach(array_reverse($book) as $s)
        {
          $s['book_name'];
          $s['book_desc'];
          $s['book_author'];
+         $s['image'];
        }
 }
 elseif($book==null)
@@ -16,7 +17,7 @@ elseif($book==null)
  <div class="container">
         <div class="row product">
             <div class="col-md-3 col-md-offset-0">
-			 <img  src= "<?php echo base_url ('assets/img/kafka_on_the_shore.jpg'); ?>" class="img-responsive" > </div>
+			 <img class="img-responsive" src= "<?php echo $s['image'] ?>"> </div>
 
 				<div class="col-md-7">
                 <h2><?php echo $s['book_name'] ?> </h2>
@@ -26,18 +27,12 @@ elseif($book==null)
                 <div class="row">
                     <div class="col-md-12">
                         <h2>Posted By: <?php echo $name;?></h2>
-                        <h3>Book Details</h3></div>
+                    </div>
                 </div>
             </div>
             <div class="col-md-7 col-md-push-0">
-
-                <p>Page length: 450</p>
-				<p>English</p>
-				<p>Romance</p>
-
             </div>
         </div>
-
-
+               <a href="../bookcatalog" class="btn btn-danger btn-md">Back</a>      
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>

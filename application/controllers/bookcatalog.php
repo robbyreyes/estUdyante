@@ -19,6 +19,7 @@ class bookcatalog extends CI_Controller {
 						'book_desc' => $r['book_desc'],
 						'book_name' => $r['book_name'],
 						'book_author' => $r['book_author'],
+						'image'=>$r['image']
 						);
 			$books[] = $info;
 		}
@@ -48,16 +49,18 @@ class bookcatalog extends CI_Controller {
 
   public function addbook()
   {
+
   		$data['name'] = $this->session->userdata('email');
   		 $userinfo = $this->estudyante->read_info($data['name']);
   		$data = array();
-						if($_SERVER['REQUEST_METHOD']=='POST')
+			if($_SERVER['REQUEST_METHOD']=='POST')
 						{
+							$url = $this->do_upload();
 							$record = array(
 											'book_name' => $_POST['book_name'],
 											'book_desc' => $_POST['book_desc'],
 											'book_author' => $_POST['book_author'],
-
+											'image'=>$url
 										);
 							$insert_id = $this->estudyante->create_book($record);
 							$data['saved'] = TRUE;
@@ -67,6 +70,7 @@ class bookcatalog extends CI_Controller {
 						{
 						 $data['saved']= FALSE;
 						}
+
 		foreach($userinfo as $i){
 		      $info = array(
 		        'id' => $i['id'],
@@ -93,6 +97,7 @@ class bookcatalog extends CI_Controller {
 						'book_desc' => $r['book_desc'],
 						'book_name' => $r['book_name'],
 						'book_author' => $r['book_author'],
+						'image'=>$r['image']
 						);
 			$studs[] = $info;
 		}
@@ -111,6 +116,18 @@ class bookcatalog extends CI_Controller {
 		$data['book'] = $studs;
 		$this->load->view('include/headerpage',$data);
 		$this->load->view('estUdyante/bookinfo',$data);
+	}
+
+	public function do_upload()
+	{
+		$type = explode('.', $_FILES["pic"]["name"]);
+		$type = strtolower($type[count($type)-1]);
+		$url = "./assets/images/".uniqid(rand()).'.'.$type;
+		if(in_array($type, array("jpg", "jpeg", "gif", "png")))
+			if(is_uploaded_file($_FILES["pic"]["tmp_name"]))
+				if(move_uploaded_file($_FILES["pic"]["tmp_name"],$url))
+					return $url;
+		return "";
 	}
 
 }

@@ -28,14 +28,9 @@ elseif($note==null)
                 </div>
             </div>
             <div class="col-md-7 col-md-push-0">
-
-                <p>Page length: 450</p>
-				<p>English</p>
-				<p>Romance</p>
-
             </div>
         </div>
-
+<a href="../notecatalog" class="btn btn-danger btn-md">Back</a>    
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
