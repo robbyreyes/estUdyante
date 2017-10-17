@@ -38,7 +38,6 @@ $(document).ready(function(){
 				    }
 				});
 			  } else {
-			    swal("Your post is safe!");
 			    $.ajax({
 				    url: 'profile.php',
 				    type: 'DELETE',
