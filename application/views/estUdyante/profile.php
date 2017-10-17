@@ -1,3 +1,4 @@
+
     <div class="container" id="cont">
         <div class="row">
             <div class="col-md-3" id="avatarcol">
@@ -101,14 +102,14 @@
                         }
                         elseif($mate_validate=="UNFOLLOW")
                         {
-                          ?><form role="form" class="" method="post" action = "<?php echo current_url()?>">
+                          ?><form role="form" class="" method="post" action = "<?php echo base_url('profile/modify/'.$m.'')?>">
                             <input name="follow" value="Follow" type="submit">
                            </form><?php
                            $mate_validate = "FOLLOW";
                         }
                         elseif($mate_validate=="FOLLOW")
                         {
-                            ?><form role="form" class="" method="post" action = "<?php echo current_url()?>">
+                            ?><form role="form" class="" method="post" action = "<?php echo base_url('profile/modify/'.$m.'')?>">
                               <input name="unfollow" value="Unfollow" type="submit">
                              </form><?php
 
