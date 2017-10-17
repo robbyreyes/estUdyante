@@ -10,21 +10,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title;?></title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/mystyle.css">
-    <link rel="stylesheet" href="assets/css/profilepic.css">
 
+    <link href="<?php echo base_url('bootstrap/css/mystyle.css')?>" rel="stylesheet" />
+    <link href="<?php echo base_url('bootstrap/css/profilepic.css')?>" rel="stylesheet" />
 
-<link href="<?php echo base_url('bootstrap/css/bootstrap.css'); ?>" rel="stylesheet" />
-<link href="<?php echo base_url('bootstrap/css/bootstrap-theme.css'); ?>" rel="stylesheet" />
-<link href="<?php echo base_url('bootstrap/css/custom.css'); ?>" rel="stylesheet" />
-<link href="<?php echo base_url('bootstrap/css/homepage.css'); ?>" rel="stylesheet" />
-<link href="<?php echo base_url('bootstrap/css/bookcatalog.css'); ?>" rel="stylesheet" />
-<link href="<?php echo base_url('bootstrap/css/profile.css'); ?>" rel="stylesheet" />
-<link href="<?php echo base_url('bootstrap/css/user.css'); ?>" rel="stylesheet" />
-<script src="<?php echo base_url('bootstrap/js/jquery.min.js'); ?>"></script>
-<script src="<?php echo base_url('bootstrap/js/profilepicmodal.js'); ?>"></script>
-<script src="<?php echo base_url('bootstrap/js/bootstrap.min.js'); ?>"></script>
+    <link href="<?php echo base_url('bootstrap/css/bootstrap.css'); ?>" rel="stylesheet" />
+    <link href="<?php echo base_url('bootstrap/css/bootstrap-theme.css'); ?>" rel="stylesheet" />
+    <link href="<?php echo base_url('bootstrap/css/custom.css'); ?>" rel="stylesheet" />
+    <link href="<?php echo base_url('bootstrap/css/homepage.css'); ?>" rel="stylesheet" />
+    <link href="<?php echo base_url('bootstrap/css/bookcatalog.css'); ?>" rel="stylesheet" />
+    <link href="<?php echo base_url('bootstrap/css/profile.css'); ?>" rel="stylesheet" />
+    <link href="<?php echo base_url('bootstrap/css/user.css'); ?>" rel="stylesheet" />
+
+	<script src="<?php echo base_url('bootstrap/js/jquery.min.js'); ?>"></script>
+    <script src="<?php echo base_url('bootstrap/js/profilepicmodal.js'); ?>"></script>
+    <script src="<?php echo base_url('bootstrap/js/bootstrap.min.js'); ?>"></script>
+    <script src="<?php echo base_url('bootstrap/js/jquery.min.js')?>"></script>
+    <script src="<?php echo base_url('bootstrap/js/profilepicmodal.js')?>"></script>
+    <script src="<?php echo base_url('bootstrap/js/profiledetails.js')?>"></script>
+    <script src="<?php echo base_url('bootstrap/js/sweetalert.min.js')?>"></script>
+   
+    
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -46,7 +52,6 @@
                 </form>
                 <ul class="nav navbar-nav navbar-right">
                     <li role="presentation"><a href=<?php echo base_url('profile/id/'.$this->session->userdata('logged_user')) ?> ><?php echo $headername ?> </a></li>
-
                     <li role="presentation">
                         <a href="<?php echo base_url('homepage') ?>"><img src="<?php echo base_url('assets/img/home-512.png') ?>" width="15"> </a>
                     </li>
