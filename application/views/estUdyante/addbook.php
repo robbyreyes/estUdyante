@@ -22,6 +22,7 @@
                                 </div>
                                     <input type="file" id="pic" name="pic"/>
                                 <div class="form-group text-right">
+                                    <a href="../bookcatalog" class="btn btn-danger btn-md">Cancel</a> 
                                     <button type="submit" class="btn btn-primary"> Add book
                                     <span class="glyphicon glyphicon-save"></span>   
                                     </button>

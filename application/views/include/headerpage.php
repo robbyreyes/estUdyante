@@ -63,7 +63,7 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                         	<li role="presentation"><a href="<?php echo base_url('bookcatalog') ?>">Exchange Book </a></li>
-                        	<li role="presentation"><a href="<?php echo base_url('notecatalog') ?>">Exchange Notes </a></li>
+                        	<li role="presentation"><a href="<?php echo base_url('notecatalog') ?>">Share Notes </a></li>
                             <li role="presentation"><a href="#">Settings </a></li>
                             <li role="presentation"><a href="<?php echo base_url('validate/logout') ?>">Logout </a></li>
                             <li class="dropdown-header" role="presentation">estUdyante </li>

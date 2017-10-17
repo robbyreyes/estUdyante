@@ -16,6 +16,7 @@ class bookcatalog extends CI_Controller {
 		foreach($rs as $r)
 		{
 			$info = array(
+						'book_ID' => $r['book_ID'],
 						'book_desc' => $r['book_desc'],
 						'book_name' => $r['book_name'],
 						'book_author' => $r['book_author'],
@@ -56,6 +57,10 @@ class bookcatalog extends CI_Controller {
 			if($_SERVER['REQUEST_METHOD']=='POST')
 						{
 							$url = $this->do_upload();
+							if($url==null)
+							{
+								$url="./assets/images/no_image.png";
+							}
 							$record = array(
 											'book_name' => $_POST['book_name'],
 											'book_desc' => $_POST['book_desc'],
@@ -87,13 +92,13 @@ class bookcatalog extends CI_Controller {
 		$this->load->view('estUdyante/addbook', $data);
   }
 
-	public function bookinfo(){
+	public function bookinfo($id){
 		$data['name'] = $this->session->userdata('email');
-		$rs = $this->estudyante->read_book();
+		$rs = $this->estudyante->read_book($id);
 		foreach($rs as $r)
 		{
 			$info = array(
-
+						'book_ID' => $r['book_ID'],
 						'book_desc' => $r['book_desc'],
 						'book_name' => $r['book_name'],
 						'book_author' => $r['book_author'],
@@ -127,7 +132,7 @@ class bookcatalog extends CI_Controller {
 			if(is_uploaded_file($_FILES["pic"]["tmp_name"]))
 				if(move_uploaded_file($_FILES["pic"]["tmp_name"],$url))
 					return $url;
-		return "";
+		return null;
 	}
 
 }
