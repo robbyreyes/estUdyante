@@ -14,7 +14,7 @@
         </div>
         <div>
             <button class="btn btn-primary">Upload Picture</button>
-            <button class="btn btn-primary">Edit Profile Details</button>
+            <button class="btn btn-primary" id="btn">Edit Profile Details</button>
         </div>
         <div class="row" id="profilesecrow">
             <div class="col-md-3 col-md-offset-0">
@@ -26,11 +26,37 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12 col-md-offset-0">
-                                <p>School: </p>
-                                <p>Birthday: </p>
-                                <p>Contact No:</p>
-                                <p>Address: </p>
+                            <div class="col-md-12 ">
+                                <div class="col-md-1">
+                                    <p>School: </p>
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" id="schoolField" placeholder="TUP, PNU, ADU"/>
+                                </div>
+                                <div class="col-md-1">
+                                    <p>Birthday: </p>
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" id="bdayField" placeholder="01/01/1999" />
+                                </div>
+                                <div class="col-md-1">
+                                    <p id="cont">Contact No:</p>
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" id="contactField" placeholder="09*********" />
+                                </div>
+                                <div class="col-md-1">
+                                    <p>Address: </p>
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" id="addressField" placeholder="123 Papasa tayo Sa. Defense natin, Manila" />
+                                </div>
+                                <div class="col-md-1" id="space">
+                                    &nbsp;
+                                </div>
+                                <div class="col-md-12">
+                                    <button class="btn btn-success" id="save">Save details</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -81,6 +107,9 @@
 
                           <div class="col-md-12" id="activepost">
                               <p id="activepostp"><?php echo $p['body']?></p>
+                                <form role="form" class="" method="post" action = "<?php echo base_url('profile/delete/'.$m.'')?>">
+                                <input class="btn btn-danger" id="deletePost" name="delete" value="Delete" type="submit">
+                               </form>
                           </div>
                         </div>
                         <div class="row" id="row_divider"></div>
@@ -98,8 +127,8 @@
             </div>
         </div>
     </div>
-    
-    <script src="<?php echo base_url('bootstrap/js/profilepicmodal.js')?>"></script>    
+
+    <script src="<?php echo base_url('bootstrap/js/profilepicmodal.js')?>"></script>
 
 </body>
 

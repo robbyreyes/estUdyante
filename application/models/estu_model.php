@@ -136,9 +136,8 @@ class estu_model extends CI_Model {
 	return $query->result_array();
 	}
 
-	public function delete_post($data){
-		$this->db->where($data);
-		$this->db->delete($this->posts);
+	public function delete_post($postbody, $postdate){
+		$this->db->delete('posts', array('body' => $postbody,'postdate' => $postdate));
 		return TRUE;
 	}
 
@@ -280,7 +279,7 @@ class estu_model extends CI_Model {
 }
 
 
-	
+
 
 }
 

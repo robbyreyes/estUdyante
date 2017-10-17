@@ -1,0 +1,20 @@
+$(document).ready(function(){
+	$("#schoolField").hide();
+	$("#bdayField").hide();
+	$("#contactField").hide();
+	$("#addressField").hide();
+	$("#space").hide();
+	$("#save").hide();
+	$("#btn").click(function(){
+		$("#schoolField").show();
+		$("#bdayField").show();
+		$("#contactField").show();
+		$("#addressField").show();
+		$("#space").show();
+		$("#save").show();
+		$("#save").click(function(){
+			confirm("Are you sure?");
+			location.reload();
+		});
+	});
+});
