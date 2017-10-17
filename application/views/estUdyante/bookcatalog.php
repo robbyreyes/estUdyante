@@ -29,7 +29,7 @@
                 foreach(array_reverse($book) as $s){?>
                 <div class="col-md-8 col-md-offset-0" id="feed">
                    <a href="<?php echo base_url('bookcatalog/bookinfo') ?>"> <div class="row" id="write">
-                        <div class="col-md-2"><img class="img-responsive" src="<?php echo base_url('assets/img/kafka_on_the_shore.jpg') ?>" alt="Book Cover" width="80"></div>
+                        <div class="col-md-2"><img class="img-responsive" src="<?php echo $s['image'] ?>" alt="Book Cover" width="80"></div>
                         <div class="col-md-9">
                             <h1 class="text-left"><?php echo $s['book_name'] ?></h1></div>
                         <div class="col-md-9">

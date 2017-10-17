@@ -15,6 +15,7 @@
                                
 
                                 <div class="form-group text-right">
+                                    <a href="../notecatalog" class="btn btn-danger btn-md">Cancel</a> 
                                     <button type="submit" class="btn btn-primary"> Add Notes
                                     <span class="glyphicon glyphicon-save"></span>
                                     </button> 

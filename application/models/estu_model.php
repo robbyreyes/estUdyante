@@ -88,8 +88,14 @@ class estu_model extends CI_Model {
 	return $query->result_array();
 	}
 
+	public function save($url)
+		{
+			$this->db->set('image', $url);
+			$this->db->insert('book');
+		}
+
 	public function create_book($data){
-		$this->db->insert($this->book, $data);
+		$this->db->insert('book', $data);
 		return TRUE;
 	}
 
@@ -261,6 +267,21 @@ class estu_model extends CI_Model {
 		$this->db->update($this->user, $data);
 		return TRUE;
 	}
+
+	public function insert_data($name, $path_name){
+    $data = array(
+                  'name'    => $name,
+                  'path'    => $path_name
+                 );
+
+    $this->db->insert('book', $data);
+
+    return $this->db->insert_id();
+}
+
+
+	
+
 }
 
 ?>
