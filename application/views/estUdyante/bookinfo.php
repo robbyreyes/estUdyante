@@ -17,7 +17,7 @@ elseif($book==null)
  <div class="container">
         <div class="row product">
             <div class="col-md-3 col-md-offset-0">
-			 <img class="img-responsive" src= "<?php echo $s['image'] ?>"> </div>
+			 <img class="img-responsive" src= <?php echo base_url($s['image']) ?>> </div>
 
 				<div class="col-md-7">
                 <h2><?php echo $s['book_name'] ?> </h2>
