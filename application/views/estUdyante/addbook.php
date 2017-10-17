@@ -44,10 +44,16 @@
 <?php
 if( isset($saved) && $saved==TRUE ){
 ?>
-<script type="text/javascript">
-    alert("Your book was succesfully saved!");
-    location.href = '<?php echo base_url('bookcatalog'); ?>';
-</script>
+    <script type="text/javascript">
+
+        swal("Added!", "The book has been added!", "success")
+        .then( (willRedirect) => {
+            if (willRedirect) {
+                location.href = '<?php echo base_url('bookcatalog'); ?>';
+            }
+        });
+        
+    </script>
 <?php
 }
 ?>
