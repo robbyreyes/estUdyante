@@ -55,7 +55,7 @@
                                     &nbsp;
                                 </div>
                                 <div class="col-md-12">
-                                    <button class="btn btn-success" id="save">Save details</button>
+                                    <button class="btn btn-success edit" id="save">Save details</button>
                                 </div>
                             </div>
                         </div>
@@ -108,7 +108,7 @@
                           <div class="col-md-12" id="activepost">
                               <p id="activepostp"><?php echo $p['body']?></p>
                                 <form role="form" class="" method="post" action = "<?php echo base_url('profile/delete/'.$m.'')?>">
-                                <input class="btn btn-danger" id="deletePost" name="delete" value="Delete" type="submit">
+                                <input class="btn btn-danger" id="deletePost" value="Delete" name="delete" value="Delete" type="submit">
                                </form>
                           </div>
                         </div>
