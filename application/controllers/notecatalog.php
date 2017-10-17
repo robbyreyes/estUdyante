@@ -51,9 +51,10 @@ public function noteinfo(){
     foreach($rs as $r)
     {
       $info = array(
-
+            'note_ID'=>$r['note_ID'],
             'note_desc' => $r['note_desc'],
-            'note_name' => $r['note_name']
+            'note_name' => $r['note_name'],
+            'file'=>$r['file']
             );
       $studs[] = $info;
     }
@@ -120,6 +121,23 @@ public function do_upload()
         if(move_uploaded_file($_FILES["file"]["tmp_name"],$url))
           return $url;
     return "";
+  }
+
+  public function download($id)
+  {
+    $this->load->helper('download');
+    $rs=$this->estudyante->read_note($id);
+    foreach($rs as $r)
+    {
+      $info = array(
+            'note_ID'=>$r['note_ID'],
+            'note_desc' => $r['note_desc'],
+            'note_name' => $r['note_name'],
+            'file'=>$r['file']
+            );
+    }
+    $file = $info ['file'];
+    force_download($file, NULL);
   }
 
 }
