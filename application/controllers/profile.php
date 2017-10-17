@@ -125,7 +125,7 @@ public function modify($id){
 
   }
 
-  else
+  else 
   {
     $data['mate_validate'] = "UNFOLLOW";
     if(isset($_POST['follow']))
@@ -139,7 +139,7 @@ public function modify($id){
       $data['mate_validate'] = "FOLLOW";
     }
 
-  }
+  } 
 
   $a = $this->estudyante->read_post($info['id']);
 foreach($a as $c){
@@ -149,7 +149,7 @@ foreach($a as $c){
     'body' => $c['body'],
     'postdate' => $c['postdate']
   );
-  }
+  } 
   if(isset($_POST['delete']))
   {
     $this->load->model('estu_model');
