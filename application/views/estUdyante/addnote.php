@@ -34,8 +34,12 @@
 if( isset($saved) && $saved==TRUE ){
 ?>
 <script type="text/javascript">
-    alert("Your note was succesfully saved!");
-    location.href = '<?php echo base_url('notecatalog'); ?>';
+    swal("Nice one Buddy!", "The note has been added!", "success")
+	.then((willRedirect) => {
+		if (willRedirect) {
+			 location.href = '<?php echo base_url('notecatalog'); ?>';
+		}
+	});
 </script>
 <?php
 }
