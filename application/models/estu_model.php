@@ -109,6 +109,16 @@ class estu_model extends CI_Model {
 	return $query->result_array();
 	}
 
+	public function read_note($condition=null){
+	if(isset($condition))
+		{
+			$this->db->where('note_ID',$condition);
+		}
+
+	$query=$this->db->get($this->note);
+	return $query->result_array();
+	}
+
 	public function delete_book($data){
 		$this->db->where($data);
 		$this->db->delete($this->book);
@@ -184,16 +194,6 @@ class estu_model extends CI_Model {
 	public function create_note($data){
 		$this->db->insert($this->note, $data);
 		return TRUE;
-	}
-
-	public function read_note($condition=null){
-	if(isset($condition))
-		{
-			$this->db->where($condition);
-		}
-
-	$query=$this->db->get($this->note);
-	return $query->result_array();
 	}
 
 	public function delete_note($data){
