@@ -12,9 +12,40 @@ $(document).ready(function(){
 		$("#addressField").show();
 		$("#space").show();
 		$("#save").show();
-		$("#save").click(function(){
-			confirm("Are you sure?");
-			location.reload();
-		});
+	});
+
+	$(".edit").click(function(){
+		swal("Saving Profile Details", "Saved successfully!");
+	});
+
+	$("#deletePost").click(function(){
+		swal({
+			  title: "Are you sure?",
+			  text: "Once deleted, you will not be able to recover this post!",
+			  icon: "warning",
+			  buttons: true,
+			  dangerMode: true,
+			})
+			.then((willDelete) => {
+			  if (willDelete) {
+			    swal("Your post has been deleted!", {
+			      icon: "success",
+			    });
+			    $.ajax({
+				    url: 'profile.php',
+				    type: 'DELETE',
+				    success: function(result) {
+				    }
+				});
+			  } else {
+			    swal("Your post is safe!");
+			    $.ajax({
+				    url: 'profile.php',
+				    type: 'DELETE',
+				    success: function(result) {
+				    }
+				});
+			  }
+			});
 	});
 });

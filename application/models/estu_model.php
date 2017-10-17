@@ -138,6 +138,7 @@ class estu_model extends CI_Model {
 
 	public function delete_post($postbody, $postdate){
 		$this->db->delete('posts', array('body' => $postbody,'postdate' => $postdate));
+		sleep(3);
 		return TRUE;
 	}
 

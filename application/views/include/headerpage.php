@@ -28,6 +28,7 @@
     <script src="<?php echo base_url('bootstrap/js/jquery.min.js')?>"></script>
     <script src="<?php echo base_url('bootstrap/js/profilepicmodal.js')?>"></script>
     <script src="<?php echo base_url('bootstrap/js/profiledetails.js')?>"></script>
+    <script src="<?php echo base_url('bootstrap/js/sweetalert.min.js')?>"></script>
    
     
 </head>
