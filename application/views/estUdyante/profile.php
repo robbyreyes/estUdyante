@@ -102,14 +102,14 @@
                         }
                         elseif($mate_validate=="UNFOLLOW")
                         {
-                          ?><form role="form" class="" method="post" action = "<?php echo current_url()?>">
+                          ?><form role="form" class="" method="post" action = "<?php echo base_url('profile/modify/'.$m.'')?>">
                             <input name="follow" value="Follow" type="submit">
                            </form><?php
                            $mate_validate = "FOLLOW";
                         }
                         elseif($mate_validate=="FOLLOW")
                         {
-                            ?><form role="form" class="" method="post" action = "<?php echo current_url()?>">
+                            ?><form role="form" class="" method="post" action = "<?php echo base_url('profile/modify/'.$m.'')?>">
                               <input name="unfollow" value="Unfollow" type="submit">
                              </form><?php
 
@@ -121,7 +121,7 @@
 
 
                         if($post!=null)
-                        {
+
                         foreach(array_reverse($post) as $p){?>
                         <div class="row" id="story">
                           <div class="col-md-12">
@@ -137,14 +137,17 @@
                                 <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal">
                                     <span class="glyphicon glyphicon-pencil"></span> Comment
                                 </button>
+                                <?php if($p['user_id']==$this->session->userdata('logged_user'))
+                                    {?>
                                 <input class="btn btn-danger" id="deletePost" value="Delete" name="delete" value="Delete" type="submit">
                                </form>
+                             <?php } ?>
                           </div>
                         </div>
                         <div class="row" id="row_divider"></div>
                         <?php
                         }
-                        }
+
                         else
                         {
                             echo'<div class="col-md-12"><h4><center>There is no post</center></h4></div>';
