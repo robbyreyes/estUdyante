@@ -33,16 +33,14 @@
 <?php
 if( isset($saved) && $saved==TRUE ){
 ?>
-    <script type="text/javascript">
-
-        swal("Added!", "The book has been added!", "success")
-        .then( (willRedirect) => {
-            if (willRedirect) {
-                location.href = '<?php echo base_url('notecatalog'); ?>';
-            }
-        });
-        
-    </script>
+<script type="text/javascript">
+    swal("Nice one Buddy!", "The note has been added!", "success")
+    .then((willRedirect) => {
+        if (willRedirect) {
+             location.href = '<?php echo base_url('notecatalog'); ?>';
+        }
+    });
+</script>
 <?php
 }
 ?>
