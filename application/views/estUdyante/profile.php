@@ -1,4 +1,3 @@
-
     <div class="container" id="cont">
         <div class="row">
             <div class="col-md-3" id="avatarcol">
