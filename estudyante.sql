@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 16, 2017 at 06:39 PM
+-- Generation Time: Oct 17, 2017 at 09:03 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -77,17 +77,17 @@ CREATE TABLE `mate` (
 CREATE TABLE `note` (
   `note_ID` int(10) NOT NULL,
   `note_name` varchar(100) NOT NULL,
-  `note_desc` varchar(1000) NOT NULL
+  `note_desc` varchar(1000) NOT NULL,
+  `user_id` int(100) NOT NULL,
+  `file` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `note`
 --
 
-INSERT INTO `note` (`note_ID`, `note_name`, `note_desc`) VALUES
-(1, 'Github basic instructions ', 'This is a basic github instruction'),
-(2, 'Physics Lecture', 'Basic physic lectures'),
-(3, 'Basic functions of php', 'Everything about php basic functions');
+INSERT INTO `note` (`note_ID`, `note_name`, `note_desc`, `user_id`, `file`) VALUES
+(15, 'Github', 'This is a basic github function', 0, './assets/documents/664259e59a88b1fe7.pdf');
 
 -- --------------------------------------------------------
 
@@ -217,7 +217,7 @@ ALTER TABLE `user1`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `book_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
+  MODIFY `book_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 --
 -- AUTO_INCREMENT for table `mate`
 --
@@ -227,7 +227,7 @@ ALTER TABLE `mate`
 -- AUTO_INCREMENT for table `note`
 --
 ALTER TABLE `note`
-  MODIFY `note_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `note_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `posts`
 --
