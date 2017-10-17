@@ -80,10 +80,11 @@ public function addnote()
       $data = array();
             if($_SERVER['REQUEST_METHOD']=='POST')
             {
+              $url = $this->do_upload();
               $record = array(
                       'note_name' => $_POST['note_name'],
-                      'note_desc' => $_POST['note_desc']
-
+                      'note_desc' => $_POST['note_desc'],
+                      'file'=>$url
                     );
               $insert_id = $this->estudyante->create_note($record);
               $data['saved'] = TRUE;
@@ -107,6 +108,18 @@ public function addnote()
     $condition=null;
     $this->load->view('include/headerpage',$data);
     $this->load->view('estUdyante/addnote', $data);
+  }
+
+public function do_upload()
+  {
+    $type = explode('.', $_FILES["file"]["name"]);
+    $type = strtolower($type[count($type)-1]);
+    $url = "./assets/documents/".uniqid(rand()).'.'.$type;
+    if(in_array($type, array("docx", "doc", "odt", "txt", "pdf", "ppt","pptx")))
+      if(is_uploaded_file($_FILES["file"]["tmp_name"]))
+        if(move_uploaded_file($_FILES["file"]["tmp_name"],$url))
+          return $url;
+    return "";
   }
 
 }

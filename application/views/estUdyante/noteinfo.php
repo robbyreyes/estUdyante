@@ -20,7 +20,7 @@ elseif($note==null)
 				<div class="col-md-7">
                 <h2><?php echo $s['note_name'] ?> </h2>
                 <p><?php echo $s['note_desc'] ?></p>
-                <button class="btn btn-success btn-lg" type="button">Exchange </button>
+                <button class="btn btn-success btn-lg" type="button" name="create_document" id="create_document">Download </button>
                 <div class="row">
                     <div class="col-md-12">
                         <h2>Posted By: <?php echo $name;?></h2>

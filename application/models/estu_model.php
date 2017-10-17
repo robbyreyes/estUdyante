@@ -102,7 +102,7 @@ class estu_model extends CI_Model {
 	public function read_book($condition=null){
 	if(isset($condition))
 		{
-			$this->db->where($condition);
+			$this->db->where('book_ID',$condition);
 		}
 
 	$query=$this->db->get($this->book);
