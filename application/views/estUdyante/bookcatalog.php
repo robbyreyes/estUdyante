@@ -1,30 +1,12 @@
-<?php
- if( isset($book) && $book!=null ){
-    foreach(array_reverse($book) as $s)
-       {
-         $s['book_ID'];
-         $s['book_name'];
-         $s['book_desc'];
-         $s['book_author'];
-         $s['image'];
-       }
-}
-elseif($book==null)
-{
-    echo "no book";
-}
-?>
-
-
 <div class="container-fluid">
         <div id="content">
             <div class="row" id="contentrow">
                 <div class="col-md-8 col-md-offset-0" id="feed">
                     <div class="row" id="write">
                         <div class="col-md-9">
-                            <h1 class="text-left">Books Catalogue</h1></div>
+                            <h1 class="text-left">Books Catalog</h1></div>
                         <div class="col-md-9">
-                            <p class="text-left">Book catalogue</p>
+                            <p class="text-left">Book catalog</p>
                         </div>
                     </div>
                     <div class="row" id="row_divider"></div>
@@ -43,8 +25,10 @@ elseif($book==null)
 
 
                 <?php
-                foreach(array_reverse($book) as $s)
-                {?>
+                if($book!=null){
+
+
+                foreach(array_reverse($book) as $s){?>
                 <div class="col-md-8 col-md-offset-0" id="feed">
                    <a href=<?php echo base_url('bookcatalog/bookinfo/'.$s['book_ID'].'') ?>> <div class="row" id="write">
                         <div class="col-md-2"><img class="img-responsive" src="<?php echo $s['image'] ?>" alt="Book Cover" width="80"></div>
@@ -56,11 +40,19 @@ elseif($book==null)
                     </div>
                     <div class="row" id="row_divider"></div>
                     </a>
+                    
                 </div>
+
                 <?php
+                            }
+                }
+                else
+                {   
+                    echo "<div class='col-md-8 col-md-offset-0' id='feed'>";
+                    echo "no books";
+                    echo "</div>";
                 }
                 ?>
-
 
             </div>
         </div>
