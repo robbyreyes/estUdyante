@@ -9,8 +9,8 @@
 
 <div class="container-fluid header">
 	<div class="row">
-		<div class="col-md-12 header text-center">
-			<h1>estUdyante</h1>
+		<div class="col-md-7 header text-center">
+			<img class="img-responsive" src="<?php echo base_url('assets/img/estulogo.png') ?>" alt="logo" width="180" align="right">
 		</div>
 	</div>
 </div>
