@@ -36,9 +36,14 @@
                 <h1><?php echo $name?></h1></div>
         </div>
         <div>
+		<?php if($m==$this->session->userdata('logged_user'))
+                                    {?>
             <button class="btn btn-primary">Upload Picture</button>
             <button class="btn btn-primary" id="btn">Edit Profile Details</button>
-        </div>
+        <?php } 
+		
+	?>
+		</div>
         <div class="row" id="profilesecrow">
             <div class="col-md-3 col-md-offset-0">
                 <div class="row" id="rowinfo">
@@ -146,19 +151,19 @@
                         </div>
                         <div class="row" id="row_divider"></div>
                         <?php
-                        }
+                        } 
 
                         else
                         {
                             echo'<div class="col-md-12"><h4><center>There is no post</center></h4></div>';
-                        }
+                        } 
                         ?>
-
+ 
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+            </div> 
+        </div> 
+    </div> 
 
     <script src="<?php echo base_url('bootstrap/js/profilepicmodal.js')?>"></script>
 
