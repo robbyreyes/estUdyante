@@ -4,10 +4,33 @@
             <div class="col-md-3" id="avatarcol">
                 <img class="img-circle" alt="<?php echo "$name's avatar"?> " src="<?php echo base_url('assets/img/account.png') ?>" width="200" id="myImg">
             </div>
-            <div id="myModal" class="modal">
-              <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+            <div id="myModalpic" class="modal">
+              <span class="close" onclick="document.getElementById('myModalpic').style.display='none'">&times;</span>
               <img class="modal-content" id="img01">
               <div id="caption"></div>
+            </div>
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Comments</h4>
+                        </div>
+                            <div class="modal-body col-md-12">
+                                <div class="col-md-4">
+                                    <?php echo $name;?>:
+                                </div>
+                                <div class="col-md-8">
+                                    <input class="form-control" type="text"/>
+                                </div>
+                            </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-info" data-dismiss="modal">
+                                <span class="glyphicon glyphicon-edit"></span> Comment
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-md-6" id="nameholder">
                 <h1><?php echo $name?></h1></div>
@@ -79,14 +102,14 @@
                         }
                         elseif($mate_validate=="UNFOLLOW")
                         {
-                          ?><form role="form" class="" method="post" action = "<?php echo current_url()?>">
+                          ?><form role="form" class="" method="post" action = "<?php echo base_url('profile/modify/'.$m.'')?>">
                             <input name="follow" value="Follow" type="submit">
                            </form><?php
                            $mate_validate = "FOLLOW";
                         }
                         elseif($mate_validate=="FOLLOW")
                         {
-                            ?><form role="form" class="" method="post" action = "<?php echo current_url()?>">
+                            ?><form role="form" class="" method="post" action = "<?php echo base_url('profile/modify/'.$m.'')?>">
                               <input name="unfollow" value="Unfollow" type="submit">
                              </form><?php
 
@@ -98,7 +121,7 @@
 
 
                         if($post!=null)
-                        {
+
                         foreach(array_reverse($post) as $p){?>
                         <div class="row" id="story">
                           <div class="col-md-12">
@@ -108,14 +131,23 @@
                           <div class="col-md-12" id="activepost">
                               <p id="activepostp"><?php echo $p['body']?></p>
                                 <form role="form" class="" method="post" action = "<?php echo base_url('profile/delete/'.$m.'')?>">
+                                <button type="button" class="btn btn-primary btn-md">
+                                    <span class="glyphicon glyphicon-thumbs-up"></span> Like
+                                </button>
+                                <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal">
+                                    <span class="glyphicon glyphicon-pencil"></span> Comment
+                                </button>
+                                <?php if($p['user_id']==$this->session->userdata('logged_user'))
+                                    {?>
                                 <input class="btn btn-danger" id="deletePost" value="Delete" name="delete" value="Delete" type="submit">
                                </form>
+                             <?php } ?>
                           </div>
                         </div>
                         <div class="row" id="row_divider"></div>
                         <?php
                         }
-                        }
+
                         else
                         {
                             echo'<div class="col-md-12"><h4><center>There is no post</center></h4></div>';
