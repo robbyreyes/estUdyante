@@ -5,13 +5,17 @@
             <div class="row" id="contentrow">
                 <div class="col-md-7 col-md-offset-0" id="feed">
                     <div class="row" id="write">
-                        <div class="col-md-2"><img class="img-circle img-responsive" src="<?php echo base_url('assets/img/account.png') ?>" alt="Avatar" width="80"></div>
-                        <form role="form" class="" method="post" action= <?php echo base_url('homepage/status')?>>
-                        <div class="col-md-7">
-                            <input name="body" autocomplete="off" class="input-lg" type="text" placeholder="Write Something..." id="writepost">
+                        <div class="col-md-2" id="avatarcol">
+                          <img class="img-circle img-responsive" src="<?php echo base_url('assets/img/account.png') ?>" alt="Avatar" width="80">
                         </div>
-                        <div class="col-md-3">
-                            <button class="btn btn-info" type="submit">POST </button>
+                        <form role="form" class="" method="post" action= <?php echo base_url('homepage/status')?>>
+                        <div class="col-md-8">
+                          <div class="form-group">
+                            <textarea name="body" class="form-control input-lg" type="text" rows="3" placeholder="What's on your mind?" id="writepost"></textarea>
+                          </div>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-info postbutton" name="post" type="submit"><span class="glyphicon glyphicon-pencil"></span> POST</button>
                         </div>
                     </div>
                     <div class="row" id="row_divider"></div>
@@ -46,22 +50,50 @@
                         {
                             foreach(array_reverse($post) as $p){?>
                             <div class="row" id="post">
-                              <div class="col-md-12">
-                                  <h4><a href="profile/id/<?php echo $p["user_id"] ?>"><img class="img-circle" src="<?php echo base_url('assets/img/account.png') ?>"
-                                     alt="Avatar" width="30"><?php echo $p['user_name']?></a> &nbsp; <?php echo $p['postdate'] ?></h4></div>
+                            <div class="row">
+                                <a href="profile/id/<?php echo $p["user_id"] ?>">
+                                <div class="col-md-2 col-sm-2 col-xs-3">
+                                    <img id="avatar" class="img-circle" src="<?php echo base_url('assets/img/account.png')
+                                    ?>"alt="Avatar"> </a>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-9">
+                                    <div class="row">
+
+                                        <h4><a href=<?php echo base_url('profile/id/'.$p['user_id'].'') ?>><?php echo $p['user_name']?></a> </h4>
+                                    </div>
+
+                                    <div class="row">
+                                        <p id="time"><?php echo $p['postdate'] ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
                               <div class="col-md-12" id="activepost">
-                                  <p id="activepostp"><?php echo $p['body']?></p>
+                                  <p id="postbody"><?php echo $p['body']?></p>
                               </div>
+                            </div>
                               <!--BUTTON FOR MODAL-->
-                              <button type="button" class="btn btn-primary btn-md">
-                                <span class="glyphicon glyphicon-thumbs-up"></span> Like
-                              </button>
-                              <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal">
-                                <span class="glyphicon glyphicon-pencil"></span> Comment
-                              </button>
+                              <div class="row postbuttons">
+                                <div class="col-md-12">
+                                  <button type="button" class="btn btn-primary btn-md button">
+                                    <span class="glyphicon glyphicon-thumbs-up"></span> Like
+                                  </button>
+                                  <button type="button" class="btn btn-info btn-md button" data-toggle="modal" data-target="#myModal">
+                                    <span class="glyphicon glyphicon-pencil"></span> Comment
+                                  </button>
+                                  <?php if($p['user_id']==$this->session->userdata('logged_user'))
+                                        {
+                                          echo
+                                    '<input class="btn btn-danger button" id="deletePost" value="Delete" name="delete" value="Delete" type="submit">';
+                                    echo '</form>';
+                                  } ?>
+                                 </div>
+                            </div>
+
+
                             </div>
                             <div class="row" id="row_divider"></div>
-                            
+
                         <?php
                             }
 
@@ -71,7 +103,7 @@
                             echo'<div class="col-md-12"><h4><center>There is no post</center></h4></div>';
                         }
                         ?>
-                                        
+
                 </div>
                 <div class="col-md-1" id="divider"></div>
                 <div class="col-md-3" id="function">
