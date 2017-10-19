@@ -1,5 +1,5 @@
 body{
-  background-color:rgb(228,228,228);
+  background-color:#ededed;
 }
 
 #content{
@@ -8,31 +8,59 @@ body{
   padding-right:20px;
 }
 
-#post{
-  background-color:rgba(255,255,255,0.75);
-  min-height:100px;
-  padding:10px;
-  border-radius:10px;
+#postbody{
+  overflow-wrap: break-word;
 }
 
-input#writepost.input-lg{
+#post{
+  background-color:rgba(255,255,255,1);
+  min-height:100px;
+  padding:20px;
+  border: solid 1px #dbdbdb;
+  border-radius: 4px;
+  margin-top:5px;
+}
+
+.postbutton{
+  height: 100%;
+}
+
+.button{
+  width:50%;
+}
+
+.input-lg{
+  resize: none;
   min-width:100%;
-  height:75px;
+  height:100%;
+}
+
+.postbuttons{
+  margin-right: 5px;
+  margin-left: 5px;
+  padding-top: 10px;
+  border-top : solid 1px #dbdbdb;
+  text-align: center;
+  color: #cccccc;
 }
 
 #book{
-  background-color:rgba(255,255,255,0.75);
+  background-color:rgba(255,255,255,1);
   min-height:100px;
   padding:20px;
-  border-radius:10px;
+  border: solid 1px #dbdbdb;
+  border-radius: 4px;
+  margin-top:5px;
   text-align:center;
 }
 
 #write{
-  background-color:rgba(255,255,255,0.75);
+  background-color:rgba(255,255,255,1);
   min-height:100px;
   padding:20px;
-  border-radius:10px;
+  border: solid 1px #dbdbdb;
+  border-radius: 4px;
+  margin-top:5px;
   text-align:center;
 }
 
@@ -61,4 +89,3 @@ div#activepost.col-md-12{
 #function{
   background-color:rgba(222,222,222,0);
 }
-
