@@ -34,6 +34,6 @@ elseif($book==null)
             <div class="col-md-7 col-md-push-0">
             </div>
         </div>
-                <a href=<?php echo base_url('bookcatalog')?> class="btn btn-danger btn-md">Back</a>      
+               <a href=<?php echo base_url('bookcatalog')?> class="btn btn-danger btn-md">Back</a>      
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
