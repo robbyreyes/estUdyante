@@ -9,7 +9,7 @@ class estu_model extends CI_Model {
 	private $user = "user1";
 	private $posts = "posts";
 	private $mate = "mate";
-
+	private $like_table = "like_table";
 
 	public function users(){
 		$this->db->where('email', $this->session->userdata('email'));
@@ -132,14 +132,35 @@ class estu_model extends CI_Model {
 		return TRUE;
 	}
 
+	public function like($record){
+		$this->db->insert('like_table', $record);
+		return TRUE;
+	}
 
+	public function unlike($recorda,$recordb){
+		$this->db->delete('like_table', array('user_id' => $recorda,'post_id' => $recordb));
+	}
+
+	public function read_like($conditiona,$conditionb){
+		$this->db->select('*');
+		$this->db->from('like_table');
+		$this->db->where('user_id',$conditiona);
+		$this->db->where('post_id',$conditionb);
+		$query= $this->db->get();
+		if($query->result_array()!=null)
+		{
+			return TRUE;
+		}
+	}
 
 	public function read_post($condition=null){
 
 	if(isset($condition))
-
+	$this->db->select('posts.id, posts.user_id, posts.user_name, posts.body, posts.postdate,
+		user1.avatar');
+			$this->db->join('user1', 'posts.user_id=user1.id');
 	{
-		$this->db->where_in('user_id',$condition);
+		$this->db->where_in('posts.user_id',$condition);
 	}
 
 	$query=$this->db->get($this->posts);
