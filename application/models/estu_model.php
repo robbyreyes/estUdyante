@@ -172,6 +172,7 @@ class estu_model extends CI_Model {
 		}
 	}
 
+
 	public function read_profile_post($condition=null){
 		$this->db->select('posts.id, posts.user_id, posts.user_name, posts.body, posts.postdate,
 			user1.avatar');
@@ -201,21 +202,17 @@ class estu_model extends CI_Model {
 		return $query->num_rows();
 	}
 
-
 	public function count_note($condition=null){		
 		$query=$this->db->get($this->note);
 		return $query->num_rows();
 	}
-
-
 
 	public function count_post($condition=null){
 		$this->db->where_in('posts.user_id',$condition);
 		$query=$this->db->get($this->posts);
 		return $query->num_rows();
 	}
-
-	public function delete_post($postbody, $postdate){
+		public function delete_post($postbody, $postdate){
 		$this->db->delete('posts', array('body' => $postbody,'postdate' => $postdate));
 		sleep(3);
 		return TRUE;
@@ -303,6 +300,9 @@ class estu_model extends CI_Model {
 	return $query->result_array();
 	}
 
+
+
+
 	public function delete_profile($data){
 		$this->db->where($data);
 		$this->db->delete($this->profile);
@@ -361,9 +361,6 @@ class estu_model extends CI_Model {
 
     return $this->db->insert_id();
 }
-
-
-
 
 }
 

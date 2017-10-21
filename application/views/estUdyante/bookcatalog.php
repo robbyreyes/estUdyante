@@ -42,12 +42,14 @@ elseif($book==null)
             <a href="#" class="list-group-item">Satire</a>
             <a href="#" class="list-group-item">Science</a>
             <a href="#" class="list-group-item">Science fiction</a>
+            <a href="#" class="list-group-item">Others</a>
           </div>
 
         </div>
         <!-- /.col-lg-3 -->
 
         <div class="col-lg-9 col-md-9 col-sm-9">
+          <a href="<?php echo base_url('bookcatalog/addbook') ?>"><button class="btn btn-default" type="button">Add Book </button></a>
             <div class="row">
                 <?php
                  if($book!=null)
