@@ -99,12 +99,15 @@ class estu_model extends CI_Model {
 		return TRUE;
 	}
 
-	public function read_book($condition=null,$limit,$offset){
+	public function read_book($condition=null,$limit=null,$offset=null){
 	if(isset($condition))
 		{
 			$this->db->where('book_ID',$condition);
 		}
-	$this->db->limit($limit,$offset);
+	if(isset($limit,$offset))
+	{
+		$this->db->limit($limit,$offset);
+	}
 	$query=$this->db->get($this->book);
 	return $query->result_array();
 	}
@@ -137,14 +140,18 @@ class estu_model extends CI_Model {
 		return TRUE;
 	}
 
+	public function notif($notif){
+		$this->db->insert('notification', $notif);
+		return TRUE;
+	}
+
 	public function unlike($recorda,$recordb){
 		$this->db->delete('like_table', array('user_id' => $recorda,'post_id' => $recordb));
 	}
 
 	public function read_like($conditiona,$conditionb){
 		$this->db->select('*');
-		$this->db->from('like_table');
-		echo $conditionb;
+		$this->db->from('like_table');		
 		$this->db->where('user_id',$conditiona);
 		$this->db->where('post_id',$conditionb);
 		$query= $this->db->get();
@@ -175,19 +182,27 @@ class estu_model extends CI_Model {
 		return $query->result_array();
 	}
 
-	public function read_post($condition=null,$limit,$offset){
+	public function read_post($condition=null,$limit=null,$offset=null){
 		$this->db->select('posts.id, posts.user_id, posts.user_name, posts.body, posts.postdate,
 			user1.avatar');
 		$this->db->join('user1', 'posts.user_id=user1.id');
 		$this->db->where_in('posts.user_id',$condition);
 		$this->db->order_by("posts.id","desc");
-		$this->db->limit($limit,$offset);
+		if(isset($limit,$offset))
+		{
+			$this->db->limit($limit,$offset);
+		}
 		$query=$this->db->get($this->posts);
 		return $query->result_array();
 	}
 
-	public function count_book($condition=null){
+	public function count_book($condition=null){		
 		$query=$this->db->get($this->book);
+		return $query->num_rows();
+	}
+
+	public function count_note($condition=null){		
+		$query=$this->db->get($this->note);
 		return $query->num_rows();
 	}
 
@@ -203,7 +218,18 @@ class estu_model extends CI_Model {
 		return TRUE;
 	}
 
+	public function read_postsbyid($condition=null){
 
+		$this->db->select('*');
+		$this->db->from('posts');
+		if(isset($condition))
+		{
+			$this->db->where('id',$condition);
+		}
+		$query= $this->db->get();
+		return $query->result_array();
+
+	}
 
 	public function read_infobyid($condition=null){
 
@@ -263,9 +289,12 @@ class estu_model extends CI_Model {
 	public function read_profile($condition=null){
 
 	if(isset($condition))
-		{
-			$this->db->where($condition);
-		}
+	$this->db->select('profile.info_id, profile.user_id, profile.address, profile.contact, profile.school,
+		profile.birthday');
+			$this->db->join('user1', 'profile.user_id=user1.id');
+	{
+		$this->db->where_in('profile.user_id',$condition);
+	}
 
 	$query=$this->db->get($this->profile);
 	return $query->result_array();
