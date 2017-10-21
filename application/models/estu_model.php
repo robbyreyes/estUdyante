@@ -60,6 +60,12 @@ class estu_model extends CI_Model {
 	}
 
 
+public function count_post($condition=null){
+		$this->db->where_in('posts.user_id',$condition);
+		$query=$this->db->get($this->posts);
+		return $query->num_rows();
+	}
+
 	public function read_follow($condition=null){
 
 	if(isset($condition))
@@ -154,20 +160,6 @@ class estu_model extends CI_Model {
 		}
 	}
 
-	public function read_post($condition=null){
-
-	if(isset($condition))
-	$this->db->select('posts.id, posts.user_id, posts.user_name, posts.body, posts.postdate,
-		user1.avatar');
-			$this->db->join('user1', 'posts.user_id=user1.id');
-	{
-		$this->db->where_in('posts.user_id',$condition);
-	}
-
-	$query=$this->db->get($this->posts);
-	return $query->result_array();
-	}
-
 	public function delete_post($postbody, $postdate){
 		$this->db->delete('posts', array('body' => $postbody,'postdate' => $postdate));
 		sleep(3);
@@ -234,13 +226,31 @@ class estu_model extends CI_Model {
 	public function read_profile($condition=null){
 
 	if(isset($condition))
-		{
-			$this->db->where($condition);
-		}
+	$this->db->select('profile.info_id, profile.user_id, profile.address, profile.contact, profile.school,
+		profile.birthday');
+			$this->db->join('user1', 'profile.user_id=user1.id');
+	{
+		$this->db->where_in('profile.user_id',$condition);
+	}
 
 	$query=$this->db->get($this->profile);
 	return $query->result_array();
 	}
+
+	public function read_post($condition=null){
+
+	if(isset($condition))
+	$this->db->select('posts.id, posts.user_id, posts.user_name, posts.body, posts.postdate,
+		user1.avatar');
+			$this->db->join('user1', 'posts.user_id=user1.id');
+	{
+		$this->db->where_in('posts.user_id',$condition);
+	}
+
+	$query=$this->db->get($this->posts);
+	return $query->result_array();
+	}
+
 
 	public function delete_profile($data){
 		$this->db->where($data);
@@ -300,9 +310,6 @@ class estu_model extends CI_Model {
 
     return $this->db->insert_id();
 }
-
-
-
 
 }
 

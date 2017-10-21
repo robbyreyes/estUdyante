@@ -49,37 +49,79 @@
                                 <p class="lead">Personal Information</p>
                             </div>
                         </div>
+                        <?php 
+                         if($information!=null)
+
+                        foreach(array_reverse($information) as $i){?>
                         <div class="row">
                             <div class="col-md-12 ">
-                                <div class="col-md-1">
-                                    <p>School: </p>
+                                <div class="col-md-12">
+                                    <p><b>School:</b> <?php echo $i['school']?> </p>
                                 </div>
                                 <div class="col-md-12">
                                     <input type="text" class="form-control" id="schoolField" placeholder="TUP, PNU, ADU"/>
                                 </div>
-                                <div class="col-md-1">
-                                    <p>Birthday: </p>
+                                <div class="col-md-12">
+                                    <p><b>Birthday:</b> <?php echo $i['birthday']?> </p>
                                 </div>
                                 <div class="col-md-12">
                                     <input type="text" class="form-control" id="bdayField" placeholder="01/01/1999" />
                                 </div>
-                                <div class="col-md-1">
-                                    <p id="cont">Contact No:</p>
+                                <div class="col-md-12">
+                                    <p id="cont"><b>Contact No: </b><?php echo $i['contact']?></p>
                                 </div>
                                 <div class="col-md-12">
                                     <input type="text" class="form-control" id="contactField" placeholder="09*********" />
                                 </div>
-                                <div class="col-md-1">
-                                    <p>Address: </p>
+                                <div class="col-md-12">
+                                    <p><b>Address:</b> <?php echo $i['address']?> </p>
                                 </div>
                                 <div class="col-md-12">
                                     <input type="text" class="form-control" id="addressField" placeholder="123 Papasa tayo Sa. Defense natin, Manila" />
+                                    <a href="<?php echo base_url('profile/editinfo/'.$m.'') ?>"><button class="btn btn-default" type="button">Edit Info </button></a>
                                 </div>
                                 <div class="col-md-1" id="space">
                                     &nbsp;
                                 </div>
                                 <div class="col-md-12">
-                                    <button class="btn btn-success edit" id="save">Save details</button>
+                                   <?php
+                                    }
+                                        else
+                                        {?>
+                                             <div class="row">
+                            <div class="col-md-12 ">
+                                <div class="col-md-12">
+                                    <p><b>School:</b>  </p>
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" id="schoolField" placeholder="TUP, PNU, ADU"/>
+                                </div>
+                                <div class="col-md-12">
+                                    <p><b>Birthday:</b>  </p>
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" id="bdayField" placeholder="01/01/1999" />
+                                </div>
+                                <div class="col-md-12">
+                                    <p id="cont"><b>Contact No:</p>
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" id="contactField" placeholder="09*********" />
+                                </div>
+                                <div class="col-md-12">
+                                    <p><b>Address:</b></p>
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" id="addressField" placeholder="123 Papasa tayo Sa. Defense natin, Manila" />
+                                    <a href="<?php echo base_url('profile/info/'.$m.'') ?>"><button class="btn btn-default" type="button">Add Info </button></a>
+                                </div>
+                                <div class="col-md-1" id="space">
+                                    &nbsp;
+                                </div>
+                                <div class="col-md-12">
+                                   <?php     
+                                    }
+                                     ?>
                                 </div>
                             </div>
                         </div>

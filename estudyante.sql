@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2017 at 07:00 AM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 5.6.24
+-- Generation Time: Oct 21, 2017 at 08:23 AM
+-- Server version: 5.7.14
+-- PHP Version: 5.6.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -58,7 +58,14 @@ CREATE TABLE `like_table` (
 --
 
 INSERT INTO `like_table` (`id`, `user_id`, `post_id`) VALUES
-(68, 18, 85);
+(68, 18, 85),
+(101, 15, 30),
+(102, 15, 30),
+(103, 15, 30),
+(104, 15, 30),
+(105, 15, 30),
+(106, 15, 30),
+(107, 15, 94);
 
 -- --------------------------------------------------------
 
@@ -112,7 +119,9 @@ CREATE TABLE `note` (
 INSERT INTO `note` (`note_ID`, `note_name`, `note_desc`, `file`) VALUES
 (1, 'asdasdas', 'asdasdasda', './assets/documents/2008959e72e8de7361.docx'),
 (2, 'IT3B', 'Network Assignment', './assets/documents/1009659e7325c1df56.docx'),
-(3, 'zxc', 'zxc', './assets/documents/1019859e732d263cdf.docx');
+(3, 'zxc', 'zxc', './assets/documents/1019859e732d263cdf.docx'),
+(4, 'File', 'example', './assets/documents/498159eab54faa9d5.docx'),
+(5, 'ASD', 'aSD', './assets/documents/2644459eabec1140fd.docx');
 
 -- --------------------------------------------------------
 
@@ -141,7 +150,11 @@ INSERT INTO `posts` (`id`, `user_id`, `user_name`, `body`, `postdate`) VALUES
 (57, 15, 'Robby Reyes', 'test', '2017-10-16 23:18:43'),
 (84, 18, 'Felix Barredo', 'Ang hirap maging pogi lalo na pag kamukha mo si Johnny Sins. All around sa bahay <3', '2017-10-19 00:24:31'),
 (85, 18, 'Felix Barredo', 'testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest', '2017-10-19 00:50:20'),
-(91, 18, 'Felix Barredo', 'asdasdsa', '2017-10-20 01:19:05');
+(91, 18, 'Felix Barredo', 'asdasdsa', '2017-10-20 01:19:05'),
+(92, 15, 'Robby Reyes', 'Testing', '2017-10-21 10:10:05'),
+(93, 15, 'Robby Reyes', 'Nakakapag post robs', '2017-10-21 10:27:11'),
+(94, 15, 'Robby Reyes', 'sda', '2017-10-21 11:31:27'),
+(95, 15, 'Robby Reyes', 'rerere', '2017-10-21 15:43:29');
 
 -- --------------------------------------------------------
 
@@ -150,13 +163,20 @@ INSERT INTO `posts` (`id`, `user_id`, `user_name`, `body`, `postdate`) VALUES
 --
 
 CREATE TABLE `profile` (
-  `profile_ID` varchar(10) NOT NULL,
-  `note_ID` varchar(10) NOT NULL,
-  `book_ID` varchar(10) NOT NULL,
-  `user_ID` varchar(10) NOT NULL,
-  `friends_count` varchar(10) NOT NULL,
-  `school` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `info_id` int(11) NOT NULL,
+  `user_id` int(100) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `contact` int(100) NOT NULL,
+  `school` varchar(100) NOT NULL,
+  `birthday` varchar(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `profile`
+--
+
+INSERT INTO `profile` (`info_id`, `user_id`, `address`, `contact`, `school`, `birthday`) VALUES
+(3, 15, '2217 Earnshaw St. Gagalangin, Tondo, Manila', 2147483647, 'Technological University of the Philippines', 'January 25, 1999');
 
 -- --------------------------------------------------------
 
@@ -228,7 +248,7 @@ ALTER TABLE `posts`
 -- Indexes for table `profile`
 --
 ALTER TABLE `profile`
-  ADD PRIMARY KEY (`profile_ID`);
+  ADD PRIMARY KEY (`info_id`);
 
 --
 -- Indexes for table `user1`
@@ -244,12 +264,12 @@ ALTER TABLE `user1`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `book_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `book_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT for table `like_table`
 --
 ALTER TABLE `like_table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 --
 -- AUTO_INCREMENT for table `mate`
 --
@@ -259,12 +279,17 @@ ALTER TABLE `mate`
 -- AUTO_INCREMENT for table `note`
 --
 ALTER TABLE `note`
-  MODIFY `note_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `note_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+--
+-- AUTO_INCREMENT for table `profile`
+--
+ALTER TABLE `profile`
+  MODIFY `info_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `user1`
 --
