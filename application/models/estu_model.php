@@ -144,6 +144,7 @@ class estu_model extends CI_Model {
 	public function read_like($conditiona,$conditionb){
 		$this->db->select('*');
 		$this->db->from('like_table');
+		echo $conditionb;
 		$this->db->where('user_id',$conditiona);
 		$this->db->where('post_id',$conditionb);
 		$query= $this->db->get();

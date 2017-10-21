@@ -5,7 +5,7 @@ class bookcatalog extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-
+		
 		$this->load->model('estu_model','estudyante');
 	}
 
@@ -52,7 +52,7 @@ class bookcatalog extends CI_Controller {
   {
 
   		$data['name'] = $this->session->userdata('email');
-  		 $userinfo = $this->estudyante->read_info($data['name']);
+  		$userinfo = $this->estudyante->read_info($data['name']);
   		$data = array();
 			if($_SERVER['REQUEST_METHOD']=='POST')
 						{

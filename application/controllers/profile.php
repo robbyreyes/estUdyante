@@ -56,13 +56,20 @@ class profile extends CI_Controller {
 
     $a = $this->estudyante->read_profile_post($info['id']);
 
+    $a = $this->estudyante->read_post($info['id']);
+
+
     foreach($a as $c){
       $info = array(
         'user_id' => $c['user_id'],
         'name' => $c['user_name'],
         'body' => $c['body'],
         'postdate' => $c['postdate'],
+
         'avatar' => $c['avatar'],
+
+        'avatar' => $c['avatar']
+
       );
       $post[] = $info;
     }

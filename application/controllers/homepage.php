@@ -13,6 +13,12 @@ class homepage extends CI_Controller {
 		// $this->load->model('estu_model');
 
 		// $data['username'] = $u;
+	if (isset($_POST['post'])) {
+        $this->status();
+    }
+    elseif (isset($_POST['delete'])) {
+        $this->delete();
+    }
   	$header_data['title'] = "estUdyante";
   	$data['name'] = $this->session->userdata('email');
   	$condition=null;
@@ -51,19 +57,42 @@ class homepage extends CI_Controller {
 		$a = $this->estudyante->read_post($info['id']);
 	}
 	foreach($a as $c){
-		$info = array(
+		
+		if($this->estudyante->read_like($this->session->userdata('logged_user'),$c['id']))
+		{
+			$info = array(
+			'id' => $c['id'],
 			'user_id' => $c['user_id'],
 			'user_name' => $c['user_name'],
 			'body' => $c['body'],
-			'postdate' => $c['postdate']
-		);
+			'postdate' => $c['postdate'],
+			'avatar' => $c['avatar'],
+			'like' => "TRUE"
+			);
+		}
+		else
+		{
+			$info = array(
+			'id' => $c['id'],
+			'user_id' => $c['user_id'],
+			'user_name' => $c['user_name'],
+			'body' => $c['body'],
+			'postdate' => $c['postdate'],
+			'avatar' => $c['avatar'],	
+			'like' => "FALSE"
+			);
+		}
 		$post[] = $info;
 	}
 
 	if($a!=null)
+	{
 		$data['post'] = $post;
+	}
 	else
+	{
 		$data['post'] = null;
+	}
   	$this->load->view('include/headerpage', $data);
   	$this->load->view('estUdyante/homepage', $data);
   	}
@@ -138,5 +167,56 @@ class homepage extends CI_Controller {
 		$this->load->view('estUdyante/search', $data);
 
 		}
+
+	public function delete($id){
+    $userinfo = $this->estudyante->read_infobyid($id);
+    foreach($userinfo as $i){
+      $info = array(
+        'id' => $i['id'],
+        'firstname' => $i['firstname'],
+        'lastname' => $i['lastname'],
+        'email' => $i['email'],
+      );
+    }
+
+    $a = $this->estudyante->read_post($info['id']);
+    foreach($a as $c){
+    $info = array(
+      'user_id' => $c['user_id'],
+      'name' => $c['user_name'],
+      'body' => $c['body'],
+      'postdate' => $c['postdate']
+    );
+    }
+    if(isset($_POST['delete']))
+    {
+      $this->load->model('estu_model');
+      echo "delete";
+      //$this->estu_model->delete_post($info['body'], $info['postdate']);
+    }
+    // redirect(base_url('profile/id/'.$id), 'refresh');
+    redirect($_SERVER['HTTP_REFERER']);
 	}
+	public function test(){
+		$this->load->view('estUdyante/test');
+	}
+
+	public function like(){
+		$record = array(
+			'post_id' => $_GET['id'],
+			'user_id' => $this->session->userdata('logged_user')
+		);
+		$insert_id = $this->estudyante->like($record);
+		redirect($_SERVER['HTTP_REFERER']);
+	}
+
+	public function unlike(){
+		$recordb=$_GET['id'];
+		$recorda=$this->session->userdata('logged_user');
+		$this->estudyante->unlike($recorda,$recordb);
+		
+		redirect($_SERVER['HTTP_REFERER']);
+	}
+}
+
 ?>

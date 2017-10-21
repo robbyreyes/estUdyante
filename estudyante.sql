@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2017 at 09:03 AM
--- Server version: 5.7.14
--- PHP Version: 5.6.25
+-- Generation Time: Oct 20, 2017 at 07:00 AM
+-- Server version: 10.1.16-MariaDB
+-- PHP Version: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -27,22 +27,38 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `book` (
-  `book_ID` int(10) NOT NULL,
-  `book_desc` varchar(1000) NOT NULL,
-  `book_name` varchar(1000) NOT NULL,
-  `book_author` varchar(1000) NOT NULL,
-  `user_id` int(255) NOT NULL,
-  `image` varchar(100) NOT NULL
+  `book_ID` int(11) NOT NULL,
+  `book_name` varchar(50) NOT NULL,
+  `book_desc` varchar(500) NOT NULL,
+  `book_author` varchar(50) NOT NULL,
+  `image` varchar(100) NOT NULL DEFAULT './assets/images/nobook.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `book`
 --
 
-INSERT INTO `book` (`book_ID`, `book_desc`, `book_name`, `book_author`, `user_id`, `image`) VALUES
-(126, 'When Robert Langdon wakes up in an Italian hospital with amnesia, he teams up with Dr. Sienna Brooks, and together they must race across Europe against the clock to foil a deadly global plot.', 'Inferno', 'Dan Brown', 0, './assets/images/2908259e4f1846c7d6.jpg'),
-(127, 'Peter Pan (also known as the Boy Who Wouldn\'t Grow Up or Peter and Wendy) is the story of a mischievous little boy who can fly, and his adventures on the island of Neverland with Wendy Darling and her brothers, the fairy Tinker Bell, the Lost Boys, the Indian princess Tiger Lily, and the pirate Captain Hook.', 'Peter Pan', 'J. M. Barrie', 0, './assets/images/2988559e4f54e6b5fe.jpg'),
-(129, 'A murder in Paris\' Louvre Museum and cryptic clues in some of Leonardo da Vinci\'s most famous paintings lead to the discovery of a religious mystery. For 2,000 years a secret society closely guards information that -- should it come to light -- could rock the very foundations of Christianity.', 'Da Vinci Code', 'Dan Brown', 0, './assets/images/3141059e4f8b7e7228.jpg');
+INSERT INTO `book` (`book_ID`, `book_name`, `book_desc`, `book_author`, `image`) VALUES
+(29, 'asd', 'asd', 'asd', './assets/images/no_image.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `like_table`
+--
+
+CREATE TABLE `like_table` (
+  `id` int(11) NOT NULL,
+  `user_id` int(255) NOT NULL,
+  `post_id` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `like_table`
+--
+
+INSERT INTO `like_table` (`id`, `user_id`, `post_id`) VALUES
+(68, 18, 85);
 
 -- --------------------------------------------------------
 
@@ -68,6 +84,14 @@ CREATE TABLE `mate` (
   `user_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `mate`
+--
+
+INSERT INTO `mate` (`id`, `mate_ID`, `user_id`) VALUES
+(4, 15, 16),
+(17, 16, 18);
+
 -- --------------------------------------------------------
 
 --
@@ -75,19 +99,20 @@ CREATE TABLE `mate` (
 --
 
 CREATE TABLE `note` (
-  `note_ID` int(10) NOT NULL,
-  `note_name` varchar(100) NOT NULL,
-  `note_desc` varchar(1000) NOT NULL,
-  `user_id` int(100) NOT NULL,
-  `file` varchar(255) NOT NULL
+  `note_ID` int(11) NOT NULL,
+  `note_name` varchar(10) NOT NULL,
+  `note_desc` varchar(100) NOT NULL,
+  `file` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `note`
 --
 
-INSERT INTO `note` (`note_ID`, `note_name`, `note_desc`, `user_id`, `file`) VALUES
-(15, 'Github', 'This is a basic github function', 0, './assets/documents/664259e59a88b1fe7.pdf');
+INSERT INTO `note` (`note_ID`, `note_name`, `note_desc`, `file`) VALUES
+(1, 'asdasdas', 'asdasdasda', './assets/documents/2008959e72e8de7361.docx'),
+(2, 'IT3B', 'Network Assignment', './assets/documents/1009659e7325c1df56.docx'),
+(3, 'zxc', 'zxc', './assets/documents/1019859e732d263cdf.docx');
 
 -- --------------------------------------------------------
 
@@ -97,32 +122,26 @@ INSERT INTO `note` (`note_ID`, `note_name`, `note_desc`, `user_id`, `file`) VALU
 
 CREATE TABLE `posts` (
   `id` int(11) NOT NULL,
-  `body` varchar(150) NOT NULL,
-  `postdate` varchar(19) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `user_name` varchar(100) NOT NULL
+  `user_name` varchar(100) NOT NULL,
+  `body` varchar(1000) NOT NULL,
+  `postdate` varchar(19) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`id`, `body`, `postdate`, `user_id`, `user_name`) VALUES
-(29, 'aaba', '2017-10-07 23:51:39', 19, 'Maybe Next Time'),
-(30, 'aa', '2017-10-08 23:49:43', 15, 'Robby Reyes'),
-(35, 'bb', '2017-10-09 00:06:05', 15, 'Robby Reyes'),
-(36, 'aas', '2017-10-09 00:06:09', 15, 'Robby Reyes'),
-(37, 'a', '2017-10-09 00:30:00', 15, 'Robby Reyes'),
-(38, 'aaa', '2017-10-09 00:30:09', 15, 'Robby Reyes'),
-(39, 'nn', '2017-10-09 00:30:57', 15, 'Robby Reyes'),
-(40, 'gg', '2017-10-09 00:58:21', 15, 'Robby Reyes'),
-(41, '122223', '2017-10-13 12:38:10', 15, 'Robby Reyes'),
-(42, '122223', '2017-10-13 12:38:10', 15, 'Robby Reyes'),
-(43, 'robby', '2017-10-13 13:33:19', 18, 'Eternal Envy'),
-(45, 'Edu1', '2017-10-13 14:44:19', 18, 'Eternal Envy'),
-(47, 'wwee', '2017-10-13 19:42:56', 18, 'Eternal Envy'),
-(51, 'ha', '2017-10-14 13:46:56', 15, ''),
-(52, 'he', '2017-10-14 13:58:55', 15, '');
+INSERT INTO `posts` (`id`, `user_id`, `user_name`, `body`, `postdate`) VALUES
+(27, 16, 'Patrick Panganiban', 'post ni 16', '2017-10-07 16:12:03'),
+(30, 15, 'Robby Reyes', 'post ni 15 1', '2017-10-07 16:49:59'),
+(32, 15, 'Robby Reyes', 'post ni 15 2', '2017-10-07 17:51:38'),
+(33, 15, 'Robby Reyes', 'post ni 15 3', '2017-10-10 12:02:30'),
+(55, 15, 'Robby Reyes', 'hi', '2017-10-16 23:12:08'),
+(57, 15, 'Robby Reyes', 'test', '2017-10-16 23:18:43'),
+(84, 18, 'Felix Barredo', 'Ang hirap maging pogi lalo na pag kamukha mo si Johnny Sins. All around sa bahay <3', '2017-10-19 00:24:31'),
+(85, 18, 'Felix Barredo', 'testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest', '2017-10-19 00:50:20'),
+(91, 18, 'Felix Barredo', 'asdasdsa', '2017-10-20 01:19:05');
 
 -- --------------------------------------------------------
 
@@ -132,9 +151,11 @@ INSERT INTO `posts` (`id`, `body`, `postdate`, `user_id`, `user_name`) VALUES
 
 CREATE TABLE `profile` (
   `profile_ID` varchar(10) NOT NULL,
-  `school` varchar(64) NOT NULL,
-  `birthday` varchar(20) NOT NULL,
-  `id` int(10) NOT NULL
+  `note_ID` varchar(10) NOT NULL,
+  `book_ID` varchar(10) NOT NULL,
+  `user_ID` varchar(10) NOT NULL,
+  `friends_count` varchar(10) NOT NULL,
+  `school` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -146,19 +167,20 @@ CREATE TABLE `profile` (
 CREATE TABLE `user1` (
   `id` int(10) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `firstname` varchar(10) NOT NULL,
-  `lastname` varchar(10) NOT NULL,
-  `email` varchar(100) NOT NULL
+  `firstname` varchar(100) NOT NULL,
+  `lastname` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `avatar` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user1`
 --
 
-INSERT INTO `user1` (`id`, `password`, `firstname`, `lastname`, `email`) VALUES
-(15, '$2y$10$8eBZ9Y8Qn7xB2btJBP.P7eHZHTOpGoWgIyaJuVPq.4kQ3TyPNN79.', 'Robby', 'Reyes', '111@yahoo.com'),
-(18, '$2y$10$EbtOL4KUWdh5N1Ev3w.nXO805FIsTqkAcYsyZA3zURUCrjZJRkQw6', 'Eternal', 'Envy', 'ee@yahoo.com'),
-(19, '$2y$10$DDPk5g8JEJ064ltSJtXCy./HZhh447RjQF35jN9iOJ2pNYgN.J1RW', 'Maybe Next', 'Time', '122@yahoo.com');
+INSERT INTO `user1` (`id`, `password`, `firstname`, `lastname`, `email`, `avatar`) VALUES
+(15, '$2y$10$8eBZ9Y8Qn7xB2btJBP.P7eHZHTOpGoWgIyaJuVPq.4kQ3TyPNN79.', 'Robby', 'Reyes', '111@yahoo.com', './assets/images/no_image.png\r\n'),
+(16, '$2y$10$pQfXNipGQtT3oUfgXxDZ6eAl0RLkq6c9vl3Fu2fyT8T9KfpWUzJCm', 'Patrick', 'Panganiban', '3@yahoo.com', './assets/images/pat.png\r\n'),
+(18, '$2y$10$wTijn8DVhaSA6PluZCMYvugF/CHgRCcD/K80RqjXAAOQehiuZgJwC', 'Felix', 'Barredo', 'barredo.simon@gmail.com', './assets/images/koala.jpg');
 
 --
 -- Indexes for dumped tables
@@ -169,6 +191,12 @@ INSERT INTO `user1` (`id`, `password`, `firstname`, `lastname`, `email`) VALUES
 --
 ALTER TABLE `book`
   ADD PRIMARY KEY (`book_ID`);
+
+--
+-- Indexes for table `like_table`
+--
+ALTER TABLE `like_table`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `login_tokens`
@@ -200,8 +228,7 @@ ALTER TABLE `posts`
 -- Indexes for table `profile`
 --
 ALTER TABLE `profile`
-  ADD PRIMARY KEY (`profile_ID`),
-  ADD KEY `id` (`id`);
+  ADD PRIMARY KEY (`profile_ID`);
 
 --
 -- Indexes for table `user1`
@@ -217,27 +244,32 @@ ALTER TABLE `user1`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `book_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `book_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+--
+-- AUTO_INCREMENT for table `like_table`
+--
+ALTER TABLE `like_table`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 --
 -- AUTO_INCREMENT for table `mate`
 --
 ALTER TABLE `mate`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `note`
 --
 ALTER TABLE `note`
-  MODIFY `note_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `note_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 --
 -- AUTO_INCREMENT for table `user1`
 --
 ALTER TABLE `user1`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- Constraints for dumped tables
 --
@@ -247,12 +279,6 @@ ALTER TABLE `user1`
 --
 ALTER TABLE `login_tokens`
   ADD CONSTRAINT `login_tokens_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user1` (`id`);
-
---
--- Constraints for table `profile`
---
-ALTER TABLE `profile`
-  ADD CONSTRAINT `profile_ibfk_1` FOREIGN KEY (`id`) REFERENCES `user1` (`id`) ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
