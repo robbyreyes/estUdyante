@@ -1,16 +1,13 @@
-
-
     <div class="container-fluid">
         <div id="content">
             <div class="row" id="contentrow">
-
                 <div class="col-md-3 col-sm-4 col-xs-12 col-xs-auto" id="function">
                 <div class="affix">
                     <div class="row" id="book">
                         <div class="col-md-12">
                             <h4 class="text-center"><img src="<?php echo base_url('assets/img/book-icon-149.png') ?>" alt="Avatar" width="30"> </h4></div>
                         <div class="col-md-12">
-                            <a href="<?php echo base_url('bookcatalog') ?>"><button class="btn btn-default" type="button">Exchange Books </button></a>
+                            <a href="<?php echo base_url('bookcatalog/index/0') ?>"><button class="btn btn-default" type="button">Exchange Books </button></a>
                         </div>
                     </div>
                     <div class="row" id="row_divider"></div>
@@ -31,7 +28,7 @@
                             </div>
                           </div>
                           <div class="col-md-2 wr">
-                              <button class="btn btn-info postbutton" name="post" type="submit"><span class="glyphicon glyphicon-pencil"></span> POST</button>
+                              <button class="btn btn-info postbutton wr" name="post" type="submit"><span class="glyphicon glyphicon-pencil"></span> POST</button>
                           </div>
                         </form>
                     </div>
@@ -64,12 +61,12 @@
                         $p['like']=null;
                         if($post!=null)
                         {
-                            foreach(array_reverse($post) as $p){?>
+                            foreach($post as $p){?>
                             <div class="row" id="post">
                             <div class="row">
                                 <a href="profile/id/<?php echo $p["user_id"] ?>">
                                 <div class="col-md-2 col-sm-1 col-xs-3 avatarcol">
-                                    <img id="avatar" src="<?php echo base_url(''.$p['avatar'].'') 
+                                    <img id="avatar" class="img-circle img-responsive "src="<?php echo base_url(''.$p['avatar'].'') 
                                     ?>"alt="Avatar"> </a> 
                                 </div>
                                 <div class="col-md-9 col-sm-9 col-xs-9">
@@ -94,15 +91,15 @@
                                   <?php if($p['like']=="FALSE")
                                   {
                                     ?>
-                                      <a href="<?php echo base_url('homepage/like?id='.$p['id'].'') ?>"><button type="button" class="btn btn-primary btn-md button">
+                                      <button type="button" class="btn btn-primary btn-md button like" onClick="like('<?php echo $p['id']?>');" >
                                         <span class="glyphicon glyphicon-thumbs-up"></span> Like
-                                      </button></a>
+                                      </button>                                 
                                   <?php
                                   }
                                   ?>
 
                                   <?php if($p['like']=="TRUE"){?>
-                                    <a href="<?php echo base_url('homepage/unlike?id='.$p['id'].'') ?>"><button type="button" class="btn btn-primary btn-md button">
+                                    <a href="<?php echo base_url('homepage/unlike?id='.$p['id'].'') ?>"><button type="button" class="btn btn-primary btn-md button unlike">
                                         <span class="glyphicon glyphicon-thumbs-up"></span> Unlike
                                       </button></a>
                                   <?php }?>
@@ -129,25 +126,61 @@
                         {
                             echo'<div class="col-md-12"><h4><center>There is no post</center></h4></div>';
                         }
-                        ?>             
+                        ?> 
+                        <div class="row">
+                          <center>                        
+                            <?php echo $this->pagination->create_links();?>
+                          </center> 
+                        </div>
                 </div>
-                <div class="col-md-1" id="divider"></div>                
+
+                <div class="col-md-1" id="divider"></div>
+
             </div>
         </div>
     </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>
 
 <script type="text/javascript">
-function adjustHeight(ctrl) {
-  $(ctrl).css({'height':'auto','overflow-y':'hidden'}).height(ctrl.scrollHeight);
-}
-$('textarea').each(function () {
-  adjustHeight(this);
-}).on('input', function () {
-  adjustHeight(this);
-});
+  function adjustHeight(ctrl) {
+    $(ctrl).css({'height':'auto','overflow-y':'hidden'}).height(ctrl.scrollHeight);
+  }
+  $('textarea').each(function () {
+    adjustHeight(this);
+  }).on('input', function () {
+    adjustHeight(this);
+  });    
 </script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.wr').click(function(){
+      setInterval(function(){
+        $('.post').load('<?php echo base_url('homepage')?>').fadeIn("slow");
+      },1000);
+    });
+  });
+</script>
+
+<script>
+$(document).on('click','.like',function(event){
+    event.preventDefault(); 
+});
+
+
+function like($id) { 
+    var url = "<?php echo base_url('homepage/like?id=')?>";
+    var url = url.concat($id);
+    $.ajax({
+        url: url,
+        dataType: "json",
+        success: function(data){
+          alert("liked");
+        }
+    });
+  }
+</script>
+
+

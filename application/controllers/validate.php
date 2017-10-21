@@ -40,7 +40,7 @@ class validate extends CI_Controller {
             }         
             $this->session->set_userdata('logged_user',$info['id']);
             $this->session->set_userdata('headername',$info['firstname']);
-            redirect('homepage', 'refresh');
+            redirect('homepage/index/0', 'refresh');
         }
         else
         {
