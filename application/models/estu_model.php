@@ -361,7 +361,10 @@ class estu_model extends CI_Model {
 
     return $this->db->insert_id();
 }
-
+ function update_profile($data,$id){
+$this->db->where('info_id', $id);
+$this->db->update('profile', $data);
+}
 }
 
 ?>
