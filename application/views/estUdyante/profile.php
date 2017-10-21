@@ -104,27 +104,17 @@
                         }
                         elseif($mate_validate=="UNFOLLOW")
                         {
-<<<<<<< Updated upstream
-                          ?><form role="form" class="" method="post" action = "<?php echo current_url()?>">
-                            <input name="follow" value="Follow" type="submit">
-=======
                           ?>
 
                         <form role="form" class="" method="post" action = "<?php echo base_url('profile/modify/'.$m.'')?>">
                                 <input class="btn" name="follow" value="Follow" type="submit">
->>>>>>> Stashed changes
                            </form><?php
                            $mate_validate = "FOLLOW";
                         }
                         elseif($mate_validate=="FOLLOW")
                         {
-<<<<<<< Updated upstream
-                            ?><form role="form" class="" method="post" action = "<?php echo current_url()?>">
-                              <input name="unfollow" value="Unfollow" type="submit">
-=======
                             ?><form role="form" class="" method="post" action = "<?php echo base_url('profile/modify/'.$m.'')?>">
                                 <input class="btn" name="unfollow" value="Unfollow" type="submit">
->>>>>>> Stashed changes
                              </form><?php
 
                         }
@@ -135,27 +125,6 @@
 
 
                         if($post!=null)
-<<<<<<< Updated upstream
-                        {
-                        foreach(array_reverse($post) as $p){?>
-                        <div class="row" id="story">
-                          <div class="col-md-12">
-                              <h4><a href=<?php echo base_url('profile/id/'.$p['user_id'].'') ?>><img class="img-circle" src="<?php echo base_url('assets/img/account.png') ?>"
-                                 alt="Avatar" width="30"><?php echo $p['name']?></a> &nbsp; <?php echo $p['postdate'] ?></h4></div>
-
-                          <div class="col-md-12" id="activepost">
-                              <p id="activepostp"><?php echo $p['body']?></p>
-                                <form role="form" class="" method="post" action = "<?php echo base_url('profile/delete/'.$m.'')?>">
-                                <button type="button" class="btn btn-primary btn-md">
-                                    <span class="glyphicon glyphicon-thumbs-up"></span> Like
-                                </button>
-                                <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal">
-                                    <span class="glyphicon glyphicon-pencil"></span> Comment
-                                </button>
-                                <input class="btn btn-danger" id="deletePost" value="Delete" name="delete" value="Delete" type="submit">
-                               </form>
-                          </div>
-=======
 
                         foreach(($post) as $p){?>
                         <div class="row" id="post">
@@ -199,13 +168,12 @@
                                  <?php } ?>
                                  </div>
                             </div>
->>>>>>> Stashed changes
                         </div>
 
                         <div class="row" id="row_divider"></div>
                         <?php
                         }
-                        }
+
                         else
                         {
                             echo'<div class="col-md-12"><h4><center>There is no post</center></h4></div>';

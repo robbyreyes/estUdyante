@@ -43,23 +43,6 @@ elseif($book==null)
 
 
                 <?php
-<<<<<<< Updated upstream
-                foreach(array_reverse($book) as $s)
-                {?>
-                <div class="col-md-8 col-md-offset-0" id="feed">
-                   <a href=<?php echo base_url('bookcatalog/bookinfo/'.$s['book_ID'].'') ?>> <div class="row" id="write">
-                        <div class="col-md-2"><img class="img-responsive" src="<?php echo $s['image'] ?>" alt="Book Cover" width="80"></div>
-                        <div class="col-md-9">
-                            <h1 class="text-left"><?php echo $s['book_name'] ?></h1></div>
-                        <div class="col-md-9">
-                            <p class="text-left">Author: <?php echo $s['book_author']?> </p>
-                        </div>
-                    </div>
-                    <div class="row" id="row_divider"></div>
-                    </a>
-                </div>
-                <?php
-=======
                 if($book!=null)
                 {
                     foreach(array_reverse($book) as $s)
@@ -85,7 +68,6 @@ elseif($book==null)
                     echo '<div class="col-md-8 col-md-offset-0" id="feed">';
                     echo "no book";
                     echo '</div>';
->>>>>>> Stashed changes
                 }
                 ?>
 

@@ -39,11 +39,7 @@ elseif($book==null)
                 </div>
             </div>                 
         </div>
-<<<<<<< Updated upstream
-                <a href=<?php echo base_url('bookcatalog')?> class="btn btn-danger btn-md">Back</a>      
-=======
 </div>
                 
->>>>>>> Stashed changes
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
