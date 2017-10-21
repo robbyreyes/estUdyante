@@ -7,6 +7,7 @@
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -143,6 +144,7 @@ CREATE TABLE `posts` (
   `postdate` varchar(19) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
 --
 -- Dumping data for table `posts`
 --
@@ -165,6 +167,7 @@ INSERT INTO `posts` (`id`, `user_id`, `user_name`, `body`, `postdate`) VALUES
 (121, 18, 'Felix Barredo', '9', '2017-10-21 02:51:00'),
 (127, 15, 'Robby Reyes', 'amazing', '2017-10-21 13:48:53'),
 (128, 18, 'Felix Barredo', 'amazeballs', '2017-10-21 15:44:41');
+
 
 -- --------------------------------------------------------
 
