@@ -21,13 +21,11 @@ elseif($note==null)
             </div>
             <div class="row">
 				<div class="col-md-7">
-
                     <h1><?php echo $s['note_name'] ?> </h1>
                     <p><?php echo $s['note_desc'] ?></p>
                     <p>Posted By: <?php echo $name;?></p>
                     <a href=<?php echo base_url('notecatalog/download/'.$s['note_ID'].'')?>> <button class="btn btn-success btn-lg" type="button" name="create_document" id="create_document">DOWNLOAD</button></a>
                     
-
                 </div>
             </div>
             <div>
