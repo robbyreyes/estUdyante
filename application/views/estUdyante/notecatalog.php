@@ -38,9 +38,9 @@
                 {
                     foreach(($note) as $s)
                     {?>
-                    <div class="col-lg-2 col-md-6 mb-4 itemcard">
+                    <div class="col-lg-4 col-md-12 mb-12 itemcard">
                       <div class="card h-100 ">
-                        <a href=<?php echo base_url('notecatalog/noteinfo/'.$s['note_ID'].'') ?>><img class="card-img-top" height="100px" width="2" src="<?php echo base_url().$s['image'] ?>" alt="<?php echo $s['note_name'] ?>"></a>
+                        <a href=<?php echo base_url('notecatalog/noteinfo/'.$s['note_ID'].'') ?>><img class="card-img-top" height="200px" width="2" src="<?php echo base_url().$s['image'] ?>" alt="<?php echo $s['note_name'] ?>"></a>
                         <div class="card-body">
                           <h2 class="card-title">
                             <a href=<?php echo base_url('notecatalog/noteinfo/'.$s['note_ID'].'') ?>><?php echo $s['note_name'] ?></a>

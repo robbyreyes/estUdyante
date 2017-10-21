@@ -22,6 +22,7 @@ class profile extends CI_Controller {
           'lastname' => $i['lastname'],
           'email' => $i['email'],
           'avatar' => $i['avatar']
+
         );
         $data['m'] = $info['id'];
         $data['avatar'] = $info['avatar'];
@@ -53,38 +54,44 @@ class profile extends CI_Controller {
     $config['base_url'] = base_url().'profile/id/'.$info['id'].'/index';
 
     $this->pagination->initialize($config);
-
     $a = $this->estudyante->read_profile_post($info['id']);
-
-
     $a = $this->estudyante->read_post($info['id']);
-
-
-
-
+    $b = $this->estudyante->read_profile($info['id']);
     foreach($a as $c){
       $info = array(
         'user_id' => $c['user_id'],
         'name' => $c['user_name'],
         'body' => $c['body'],
         'postdate' => $c['postdate'],
-
-
         'avatar' => $c['avatar'],
-
-        'avatar' => $c['avatar']
-
-
-        'avatar' => $c['avatar'], 
 
       );
       $post[] = $info;
     }
 
-    if($a!=null)
+    foreach($b as $d)
+    {
+     $info = array(
+        'user_id' => $d['user_id'],
+        'address' => $d['address'],
+        'contact' => $d['contact'],
+        'birthday' => $d['birthday'],
+        'school' => $d['school']
+      );
+     $information[]=$info;
+    }
+
+    if($a!=null&&$b!=null)
+    {
       $data['post'] = $post;
+      $data['information']=$information;
+    }
+
     else
+    {
       $data['post'] = null;
+      $data['information']=null;
+    }
 
       $this->load->view('include/headerpage', $data);
       $this->load->view('estUdyante/profile', $data);
