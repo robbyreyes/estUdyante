@@ -206,4 +206,118 @@ foreach($a as $c){
   // redirect(base_url('profile/id/'.$id), 'refresh');
   redirect($_SERVER['HTTP_REFERER']);
 }
+
+public function info($id)
+{
+      $userinfo = $this->estudyante->read_infobyid($id);
+      foreach($userinfo as $i){
+        $info = array(
+          'id' => $i['id'],
+          'firstname' => $i['firstname'],
+          'lastname' => $i['lastname'],
+          'email' => $i['email'],
+        );
+        $data['m'] = $info['id'];
+
+      }
+
+      if($_SERVER['REQUEST_METHOD']=='POST')
+            {
+              $record = array(
+                      'user_id'=>$data['m'],
+                      'address' => $_POST['address'],
+                      'school' => $_POST['school'],
+                      'birthday' => $_POST['birthday'],
+                      'contact' => $_POST['contact'],
+                    );
+              $insert_id = $this->estudyante->create_profile($record);
+              $data['saved'] = TRUE;
+            }
+
+            else
+            {
+             $data['saved']= FALSE;
+            }
+
+    foreach($userinfo as $i){
+          $info = array(
+            'id' => $i['id'],
+            'firstname' => $i['firstname'],
+            'lastname' => $i['lastname'],
+            'email' => $i['email'],
+          );    
+        }
+        $data['title'] = $info['firstname'].' '.$info['lastname'];
+        $data['name'] = $info['firstname'].' '.$info['lastname'];
+        $data['headername'] = $this->session->userdata('headername');
+    $condition=null;
+    $this->load->view('include/headerpage',$data);
+    $this->load->view('estUdyante/addinfo', $data);
+}
+
+
+  public function editinfo($id)
+  {
+     $userinfo = $this->estudyante->read_infobyid($id);
+      foreach($userinfo as $i){
+        $info = array(
+          'id' => $i['id'],
+          'firstname' => $i['firstname'],
+          'lastname' => $i['lastname'],
+          'email' => $i['email'],
+        );
+        $data['m'] = $info['id'];
+
+      }
+    $rs = $this->estudyante->read_profile();
+    foreach($rs as $r)
+    {
+      $info = array(
+               'user_id'=>$r['user_id'],
+               'info_id'=>$r['info_id'],
+              'address' => $r['address'],
+              'school' => $r['school'],
+              'birthday' => $r['birthday'],
+              'contact' => $r['contact'],        
+            );
+      $studs[] = $info;
+    }
+    $data['information'] = $studs;
+    $data['z']=$info['info_id'];
+       if($_SERVER['REQUEST_METHOD']=='POST')
+            {
+              $record = array(
+                      'user_id'=>$data['m'],
+                      'info_id'=>$data['z'],
+                      'address' => $_POST['address'],
+                      'school' => $_POST['school'],
+                      'birthday' => $_POST['birthday'],
+                      'contact' => $_POST['contact'],
+                    );
+              $insert_id = $this->estudyante->update_profile($record,$data['z']);
+              $data['saved'] = TRUE;
+            }
+
+            else
+            {
+             $data['saved']= FALSE;
+            }
+
+
+     foreach($userinfo as $i){
+          $info = array(
+            'id' => $i['id'],
+            'firstname' => $i['firstname'],
+            'lastname' => $i['lastname'],
+            'email' => $i['email'],
+          );    
+        }
+        $data['title'] = $info['firstname'].' '.$info['lastname'];
+        $data['name'] = $info['firstname'].' '.$info['lastname'];
+        $data['headername'] = $this->session->userdata('headername');
+    $condition=null;
+    $this->load->view('include/headerpage',$data);
+    $this->load->view('estudyante/editinfo',$data);
+
+  }
 }

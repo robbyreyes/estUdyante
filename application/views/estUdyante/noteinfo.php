@@ -6,6 +6,7 @@
          $s['note_desc'];
          $s['file'];
          $s['note_ID'];
+         $s['image'];
        }
 }
 elseif($note==null)
@@ -17,7 +18,7 @@ elseif($note==null)
  <div class="container cont">
         <div class="row product">
             <div class="col-md-3 col-md-offset-0">
-			     <img  src= "<?php echo base_url ('assets/img/Document_black-512.png'); ?>" class="img-responsive" > 
+			     <img  src= <?php echo base_url($s['image']) ?> class="img-responsive" > 
             </div>
             <div class="row">
 				<div class="col-md-7">

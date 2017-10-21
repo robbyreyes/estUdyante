@@ -87,7 +87,8 @@ public function noteinfo($id){
             'note_ID'=>$r['note_ID'],
             'note_desc' => $r['note_desc'],
             'note_name' => $r['note_name'],
-            'file'=>$r['file']
+            'file'=>$r['file'],
+            'image'=>$r['image']
             );
       $note[]=$info;
     }
