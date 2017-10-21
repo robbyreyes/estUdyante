@@ -73,8 +73,8 @@ class estu_model extends CI_Model {
 
 
 	public function create_user($data){
-		 $this->db->insert($this->user, $data);
-		 return TRUE;
+		$this->db->insert($this->user, $data);
+		return TRUE;
 	}
 
 	public function read_user($condition=null){
@@ -99,12 +99,12 @@ class estu_model extends CI_Model {
 		return TRUE;
 	}
 
-	public function read_book($condition=null){
+	public function read_book($condition=null,$limit,$offset){
 	if(isset($condition))
 		{
 			$this->db->where('book_ID',$condition);
 		}
-
+	$this->db->limit($limit,$offset);
 	$query=$this->db->get($this->book);
 	return $query->result_array();
 	}
@@ -129,7 +129,7 @@ class estu_model extends CI_Model {
 
 	public function create_post($b){
 		$this->db->insert('posts', $b);
-		return TRUE;
+		//return TRUE;
 	}
 
 	public function like($record){
@@ -153,19 +153,48 @@ class estu_model extends CI_Model {
 			return TRUE;
 		}
 	}
-
-	public function read_post($condition=null){
-
-	if(isset($condition))
-	$this->db->select('posts.id, posts.user_id, posts.user_name, posts.body, posts.postdate,
-		user1.avatar');
-			$this->db->join('user1', 'posts.user_id=user1.id');
-	{
-		$this->db->where_in('posts.user_id',$condition);
+	public function readpost($condition=null){
+		$query =$this->db->get('posts');
+		if($query->num_rows() >0)
+		{
+			return $query->result();
+		}
+		else
+		{
+			return false;
+		}
 	}
 
-	$query=$this->db->get($this->posts);
-	return $query->result_array();
+	public function read_profile_post($condition=null){
+		$this->db->select('posts.id, posts.user_id, posts.user_name, posts.body, posts.postdate,
+			user1.avatar');
+		$this->db->join('user1', 'posts.user_id=user1.id');
+		$this->db->where_in('posts.user_id',$condition);
+		$this->db->order_by("posts.id","desc");
+		$query=$this->db->get($this->posts);
+		return $query->result_array();
+	}
+
+	public function read_post($condition=null,$limit,$offset){
+		$this->db->select('posts.id, posts.user_id, posts.user_name, posts.body, posts.postdate,
+			user1.avatar');
+		$this->db->join('user1', 'posts.user_id=user1.id');
+		$this->db->where_in('posts.user_id',$condition);
+		$this->db->order_by("posts.id","desc");
+		$this->db->limit($limit,$offset);
+		$query=$this->db->get($this->posts);
+		return $query->result_array();
+	}
+
+	public function count_book($condition=null){
+		$query=$this->db->get($this->book);
+		return $query->num_rows();
+	}
+
+	public function count_post($condition=null){
+		$this->db->where_in('posts.user_id',$condition);
+		$query=$this->db->get($this->posts);
+		return $query->num_rows();
 	}
 
 	public function delete_post($postbody, $postdate){
