@@ -31,8 +31,7 @@
                             </div>
                           </div>
                           <div class="col-md-2 wr">
-
-                              <button class="btn btn-info postbutton wr" name="post" type="submit"><span class="glyphicon glyphicon-pencil"></span> POST</button>
+                              <button class="btn btn-info postbutton" name="post" type="submit"><span class="glyphicon glyphicon-pencil"></span> POST</button>
                           </div>
                         </form>
                     </div>
@@ -65,32 +64,26 @@
                         $p['like']=null;
                         if($post!=null)
                         {
-                            foreach($post as $p){?>
+                            foreach(array_reverse($post) as $p){?>
                             <div class="row" id="post">
                             <div class="row">
                                 <a href="profile/id/<?php echo $p["user_id"] ?>">
-
                                 <div class="col-md-2 col-sm-1 col-xs-3 avatarcol">
-                                    <img id="avatar" class="img-circle img-responsive "src="<?php echo base_url(''.$p['avatar'].'') 
+                                    <img id="avatar" src="<?php echo base_url(''.$p['avatar'].'') 
                                     ?>"alt="Avatar"> </a> 
-
                                 </div>
                                 <div class="col-md-9 col-sm-9 col-xs-9">
                                     <div class="row">
 
-
                                         <h4><a href=<?php echo base_url('profile/id/'.$p['user_id'].'') ?>><?php echo $p['user_name']?></a> </h4>  
                                     </div>
                               
-
                                     <div class="row">
                                         <p id="time"><?php echo $p['postdate'] ?></p>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row">  
-
                               <div class="col-md-12" id="activepost">
                                   <p id="postbody"><?php echo $p['body']?></p>
                               </div>
@@ -101,42 +94,33 @@
                                   <?php if($p['like']=="FALSE")
                                   {
                                     ?>
-                                      <button type="button" class="btn btn-primary btn-md button like" onClick="like('<?php echo $p['id']?>');" >
+                                      <a href="<?php echo base_url('homepage/like?id='.$p['id'].'') ?>"><button type="button" class="btn btn-primary btn-md button">
                                         <span class="glyphicon glyphicon-thumbs-up"></span> Like
-                                      </button>                                 
-
+                                      </button></a>
                                   <?php
                                   }
                                   ?>
 
                                   <?php if($p['like']=="TRUE"){?>
-
-                                    <a href="<?php echo base_url('homepage/unlike?id='.$p['id'].'') ?>"><button type="button" class="btn btn-primary btn-md button unlike">
+                                    <a href="<?php echo base_url('homepage/unlike?id='.$p['id'].'') ?>"><button type="button" class="btn btn-primary btn-md button">
                                         <span class="glyphicon glyphicon-thumbs-up"></span> Unlike
                                       </button></a>
                                   <?php }?>
-
                                   <button type="button" class="btn btn-info btn-md button" data-toggle="modal" data-target="#myModal">
                                     <span class="glyphicon glyphicon-pencil"></span> Comment
                                   </button>
                                   <?php if($p['user_id']==$this->session->userdata('logged_user'))
                                         {
-
                                           echo 
-
                                     '<input class="btn btn-danger button" id="deletePost" value="Delete" name="delete" value="Delete" type="submit">';
                                     echo '</form>';
                                   } ?>
                                  </div>
-                            </div>               
+                            </div>
+
+                              
                             </div>
                             
-
-
-                            </div>
-                            <div class="row" id="row_divider"></div>
-
-
                         <?php
                             }
 
@@ -145,60 +129,25 @@
                         {
                             echo'<div class="col-md-12"><h4><center>There is no post</center></h4></div>';
                         }
-
-                        ?> 
-                        <ul class="pagination">
-                          <li><?php echo $this->pagination->create_links();?></li>      
-                        </ul>
-
+                        ?>             
                 </div>
-
-                <div class="col-md-1" id="divider"></div>
-          </div>
+                <div class="col-md-1" id="divider"></div>                
+            </div>
         </div>
     </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>
 
 <script type="text/javascript">
-
-  function adjustHeight(ctrl) {
-    $(ctrl).css({'height':'auto','overflow-y':'hidden'}).height(ctrl.scrollHeight);
-  }
-  $('textarea').each(function () {
-    adjustHeight(this);
-  }).on('input', function () {
-    adjustHeight(this);
-  });    
-</script>
-
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('.wr').click(function(){
-      setInterval(function(){
-        $('.post').load('<?php echo base_url('homepage')?>').fadeIn("slow");
-      },1000);
-    });
-  });
-</script>
-
-<script>
-$(document).on('click','.like',function(event){
-    event.preventDefault(); 
+function adjustHeight(ctrl) {
+  $(ctrl).css({'height':'auto','overflow-y':'hidden'}).height(ctrl.scrollHeight);
+}
+$('textarea').each(function () {
+  adjustHeight(this);
+}).on('input', function () {
+  adjustHeight(this);
 });
-
-
-function like($id) { 
-    var url = "<?php echo base_url('homepage/like?id=')?>";
-    var url = url.concat($id);
-    $.ajax({
-        url: url,
-        dataType: "json",
-        success: function(data){
-          alert("liked");
-        }
-    });
-  }
 </script>
-

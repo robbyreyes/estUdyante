@@ -15,35 +15,36 @@
     <link href="<?php echo base_url('bootstrap/css/profilepic.css')?>" rel="stylesheet" />
 
     <link href="<?php echo base_url('bootstrap/css/bootstrap.css'); ?>" rel="stylesheet" />
-    <link href="<?php echo base_url('bootstrap/css/bootstrap-theme.css'); ?>" rel="stylesheet" />
-    <link href="<?php echo base_url('bootstrap/css/custom.css'); ?>" rel="stylesheet" />
-    <link href="<?php echo base_url('bootstrap/css/homepage.css'); ?>" rel="stylesheet" />
-    <link href="<?php echo base_url('bootstrap/css/bookcatalog.css'); ?>" rel="stylesheet" />
-    <link href="<?php echo base_url('bootstrap/css/profile.css'); ?>" rel="stylesheet" />
-    <link href="<?php echo base_url('bootstrap/css/user.css'); ?>" rel="stylesheet" />
 
-	<script src="<?php echo base_url('bootstrap/js/jquery.min.js'); ?>"></script>
-    <script src="<?php echo base_url('bootstrap/js/profilepicmodal.js'); ?>"></script>
+    
+    <link href="<?php echo base_url('bootstrap/css/homepage.css'); ?>" rel='stylesheet' />
+    
+    
+    <link href="<?php echo base_url('bootstrap/css/creative.css'); ?>" rel='stylesheet' />
+
+    <link href="<?php echo base_url('bootstrap/css/profile.css'); ?>" rel='stylesheet' />
+
+    <script src="<?php echo base_url('bootstrap/js/jquery.min.js'); ?>"></script>
+    <script src="<?php echo base_url('bootstrap/js/profilepicmodal.js'); ?>"></script>	
     <script src="<?php echo base_url('bootstrap/js/bootstrap.min.js'); ?>"></script>
     <script src="<?php echo base_url('bootstrap/js/jquery.min.js')?>"></script>
     <script src="<?php echo base_url('bootstrap/js/profilepicmodal.js')?>"></script>
     <script src="<?php echo base_url('bootstrap/js/profiledetails.js')?>"></script>
     <script src="<?php echo base_url('bootstrap/js/sweetalert.min.js')?>"></script>
-   
-    
+
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header"><a class="navbar-brand navbar-link" href="<?php echo base_url('homepage') ?>"> estUdyante </a>
+<nav class="nb navbar-default navbar-fixed-top">
+        <div class="container-fluid nb">
+            <div class="navbar-header"><a class="nav navbar-brand navbar-link" href="<?php echo base_url('homepage') ?>"> estUdyante </a>
 
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
             </div>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <form autocomplete="off" role="form" method="post" action = <?php echo base_url('homepage/search')?>>
-                    <div class="col-md-5 searchbar">
+                    <div class="col-md-5 col-sm-5 searchbar">
                         <div class="input-group">
-                            <input name="search" class="form-control" type="text" placeholder="Search" id="AnnualSearchBox">
+                            <input name="search" class="form-control search" type="text" placeholder="Search" id="AnnualSearchBox">
                             <div class="input-group-btn">
                                 <button class="btn btn-default" type="submit"> <i class="glyphicon glyphicon-search"></i></button>
                             </div>

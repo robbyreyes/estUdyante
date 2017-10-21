@@ -1,5 +1,4 @@
 body{
-
   background-color:white;
 }
 
@@ -57,7 +56,6 @@ label:focus,
     border-color: #cccccc;
     -webkit-box-shadow: none;
     box-shadow: none;
-
 }
 
 #content{
@@ -71,7 +69,6 @@ label:focus,
 }
 
 #post{
-
   min-height:100px;
   padding:20px;
   margin-top:5px;
@@ -91,7 +88,6 @@ label:focus,
   min-height:100px;
   padding:20px;
   border-bottom: solid 1px #dbdbdb;
-
   margin-top:5px;
   text-align:center;
 }
@@ -120,7 +116,6 @@ label:focus,
   margin-right: 100px;
 }
 
-
 @media (max-width:992px) {
   #feed{
     background-color:white;
@@ -130,4 +125,3 @@ label:focus,
     text-align: center;
   }
 }
-

@@ -9,91 +9,92 @@ class homepage extends CI_Controller {
 		$this->load->model('estu_model','estudyante');
 	}
 
-	public function index(){	
-		if (isset($_POST['post'])) {
-	        $this->status();
-	    }
-	    elseif (isset($_POST['delete'])) {
-	        $this->delete();
-	    }
-	  	$header_data['title'] = "estUdyante";
-	  	$data['name'] = $this->session->userdata('email');
-	  	$condition=null;
-	  	$userinfo = $this->estudyante->read_info($data['name']);
-	  	foreach($userinfo as $i){
+	public function index(){
+		// $this->load->model('estu_model');
+
+		// $data['username'] = $u;
+	if (isset($_POST['post'])) {
+        $this->status();
+    }
+    elseif (isset($_POST['delete'])) {
+        $this->delete();
+    }
+  	$header_data['title'] = "estUdyante";
+  	$data['name'] = $this->session->userdata('email');
+  	$condition=null;
+
+		// $u = $this->estu_model->users($data['name']);
+
+  	$userinfo = $this->estudyante->read_info($data['name']);
+  	foreach($userinfo as $i){
+		$info = array(
+			'id' => $i['id'],
+			'firstname' => $i['firstname'],
+			'lastname' => $i['lastname'],
+			'email' => $i['email'],
+		);
+		$info;
+	}
+	$data['title'] = $info['firstname'].' '.$info['lastname'];
+
+
+	$data['headername'] = $this->session->userdata('headername');
+
+	$mate[]=null;
+	$follow = $this->estudyante->read_follow($info['id']);
+  	foreach($follow as $i){
+		array_push($mate, $i['mate_ID']);
+	}
+
+	if($mate!=null)
+	{
+		array_push($mate, $info['id']);
+		$a = $this->estudyante->read_post($mate);
+	}
+	else
+
+	{
+		$a = $this->estudyante->read_post($info['id']);
+	}
+	foreach($a as $c){
+		
+		if($this->estudyante->read_like($this->session->userdata('logged_user'),$c['id']))
+		{
 			$info = array(
-				'id' => $i['id'],
-				'firstname' => $i['firstname'],
-				'lastname' => $i['lastname'],
-				'email' => $i['email'],
+			'id' => $c['id'],
+			'user_id' => $c['user_id'],
+			'user_name' => $c['user_name'],
+			'body' => $c['body'],
+			'postdate' => $c['postdate'],
+			'avatar' => $c['avatar'],
+			'like' => "TRUE"
 			);
-			$info;
-		}
-		$data['title'] = $info['firstname'].' '.$info['lastname'];
-
-
-		$data['headername'] = $this->session->userdata('headername');
-
-		$mate[]=null;
-		$follow = $this->estudyante->read_follow($info['id']);
-	  	foreach($follow as $i){
-			array_push($mate, $i['mate_ID']);
-		}
-		$this->load->library('pagination');
-		if($mate!=null)
-		{
-			array_push($mate, $info['id']);
-			$config['total_rows']=$this->estudyante->count_post($mate);
-			$config['per_page'] = 5;
-			$config['base_url'] = base_url().'homepage/index';
-
-             
-			$this->pagination->initialize($config);
-			$a = $this->estudyante->read_post($mate,$config['per_page'],$this->uri->segment(3));
 		}
 		else
 		{
-			$a = $this->estudyante->read_post($info['id']);
+			$info = array(
+			'id' => $c['id'],
+			'user_id' => $c['user_id'],
+			'user_name' => $c['user_name'],
+			'body' => $c['body'],
+			'postdate' => $c['postdate'],
+			'avatar' => $c['avatar'],	
+			'like' => "FALSE"
+			);
 		}
-		foreach($a as $c){
-			
-			if($this->estudyante->read_like($this->session->userdata('logged_user'),$c['id']))
-			{
-				$info = array(
-				'id' => $c['id'],
-				'user_id' => $c['user_id'],
-				'user_name' => $c['user_name'],
-				'body' => $c['body'],
-				'postdate' => $c['postdate'],
-				'avatar' => $c['avatar'],
-				'like' => "TRUE"
-				);
-			}
-			else
-			{
-				$info = array(
-				'id' => $c['id'],
-				'user_id' => $c['user_id'],
-				'user_name' => $c['user_name'],
-				'body' => $c['body'],
-				'postdate' => $c['postdate'],
-				'avatar' => $c['avatar'],	
-				'like' => "FALSE"
-				);
-			}
-			$post[] = $info;
-		}
+		$post[] = $info;
+	}
 
-		if($a!=null)
-		{
-			$data['post'] = $post;
-		}
-		else
-		{
-			$data['post'] = null;
-		}
-	  	$this->load->view('include/headerpage', $data);
-	  	$this->load->view('estUdyante/homepage', $data);
+	if($a!=null)
+	{
+		$data['post'] = $post;
+	}
+	else
+	{
+		$data['post'] = null;
+	}
+  	$this->load->view('include/headerpage', $data);
+  	$this->load->view('estUdyante/homepage', $data);
   	}
 
 	public function status(){
@@ -206,7 +207,7 @@ class homepage extends CI_Controller {
 			'user_id' => $this->session->userdata('logged_user')
 		);
 		$insert_id = $this->estudyante->like($record);
-		//redirect($_SERVER['HTTP_REFERER']);
+		redirect($_SERVER['HTTP_REFERER']);
 	}
 
 	public function unlike(){
