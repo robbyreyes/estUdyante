@@ -25,21 +25,29 @@
 
 
                 <?php
-
-                foreach(array_reverse($note) as $s){?>
-                <div class="col-md-8 col-md-offset-0" id="feed">
-                   <a href="<?php echo base_url('notecatalog/noteinfo') ?>"> <div class="row" id="write">
-                        <div class="col-md-2"><img class="img-responsive" src="<?php echo base_url('assets/img/Document_black-512.png') ?>" alt="Note Cover" width="80"></div>
-                        <div class="col-md-9">
-                            <h1 class="text-left"><?php echo $s['note_name'] ?></h1></div>
-                        <div class="col-md-9">
+                if($note!=null)
+                {
+                    foreach(array_reverse($note) as $s){?>
+                    <div class="col-md-8 col-md-offset-0" id="feed">
+                       <a href=<?php echo base_url('notecatalog/noteinfo/'.$s['note_ID'].'') ?>> <div class="row" id="write">
+                            <div class="col-md-2"><img class="img-responsive" src="<?php echo base_url('assets/img/Document_black-512.png') ?>" alt="Note Cover" width="80"></div>
+                            <div class="col-md-9">
+                                <h1 class="text-left"><?php echo $s['note_name'] ?></h1></div>
+                            <div class="col-md-9">
+                            </div>
                         </div>
+                        <div class="row" id="row_divider"></div>
+                        </a>
                     </div>
-                    <div class="row" id="row_divider"></div>
-                    </a>
-                </div>
                 <?php
-                            }
+                    }
+                }
+                else
+                {  
+                    echo '<div class="col-md-8 col-md-offset-0" id="feed">';
+                    echo "no book";
+                    echo '</div>';
+                }
                 ?>
 
 

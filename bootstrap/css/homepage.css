@@ -1,5 +1,61 @@
 body{
-  background-color:rgb(228,228,228);
+  background-color:white;
+}
+
+textarea:hover, 
+input:hover, 
+textarea:active, 
+input:active, 
+textarea:focus, 
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.input-lg,
+.btn.active
+{
+  outline:0px !important;
+  -webkit-appearance:none;
+  border: none;
+  overflow: auto;
+  overflow-wrap: break-word;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #c6dcff;
+}
+
+.search{
+  outline:0px !important;
+  -webkit-appearance:none;
+  border: none;
+  overflow: auto;
+  overflow-wrap: break-word;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.form-control:focus{
+    border-color: #cccccc;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 #content{
@@ -8,41 +64,39 @@ body{
   padding-right:20px;
 }
 
-#post{
-  background-color:rgba(255,255,255,0.75);
-  min-height:100px;
-  padding:10px;
-  border-radius:10px;
+#postbody{
+  overflow-wrap: break-word;
 }
 
-input#writepost.input-lg{
-  min-width:100%;
-  height:75px;
+#post{
+  min-height:100px;
+  padding:20px;
+  margin-top:5px;
+  overflow-wrap: break-word;
+}
+
+.input-lg{
+  resize: none;
+  display:inline-block; 
+}
+
+.postbuttons{
+  text-align: right;
 }
 
 #book{
-  background-color:rgba(255,255,255,0.75);
   min-height:100px;
   padding:20px;
-  border-radius:10px;
+  border-bottom: solid 1px #dbdbdb;
+  margin-top:5px;
   text-align:center;
 }
 
 #write{
-  background-color:rgba(255,255,255,0.75);
-  min-height:100px;
-  padding:20px;
-  border-radius:10px;
-  text-align:center;
+  border-bottom: solid 1px #dbdbdb;
+  padding-top: 10px;
 }
 
-p#activepostp{
-  min-width:100%;
-}
-
-div#activepost.col-md-12{
-  min-width:100%;
-}
 
 #row_divider.row{
   min-height:20px;
@@ -50,7 +104,7 @@ div#activepost.col-md-12{
 }
 
 #feed{
-  background-color:rgba(254,254,254,0);
+  background-color:white;
   min-height:100%;
 }
 
@@ -59,6 +113,15 @@ div#activepost.col-md-12{
 }
 
 #function{
-  background-color:rgba(222,222,222,0);
+  margin-right: 100px;
 }
 
+@media (max-width:992px) {
+  #feed{
+    background-color:white;
+    min-height:100%;
+  }
+  .wr{
+    text-align: center;
+  }
+}

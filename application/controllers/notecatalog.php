@@ -11,11 +11,12 @@ class notecatalog extends CI_Controller {
 
 	public function index(){
     $data['name'] = $this->session->userdata('email');
-    $books=null;
-      $rs = $this->estudyante->read_note();
+    $note=null;
+    $rs = $this->estudyante->read_note();
     foreach($rs as $r)
     {
       $info = array(
+            'note_ID'=>$r['note_ID'],
             'note_desc' => $r['note_desc'],
             'note_name' => $r['note_name'],
             );
@@ -41,13 +42,14 @@ class notecatalog extends CI_Controller {
       $data['title'] = $info['firstname'].' '.$info['lastname'];
       $data['name'] = $info['firstname'].' '.$info['lastname'];
       $data['headername'] = $this->session->userdata('headername');
+
     $this->load->view('include/headerpage',$data);
     $this->load->view('estUdyante/notecatalog',$data);
     }
 
-public function noteinfo(){
+public function noteinfo($id){
     $data['name'] = $this->session->userdata('email');
-    $rs = $this->estudyante->read_note();
+    $rs = $this->estudyante->read_note($id);
     foreach($rs as $r)
     {
       $info = array(
@@ -56,7 +58,7 @@ public function noteinfo(){
             'note_name' => $r['note_name'],
             'file'=>$r['file']
             );
-      $studs[] = $info;
+      $note[]=$info;
     }
     $userinfo = $this->estudyante->read_info($data['name']);
       foreach($userinfo as $i){
@@ -70,10 +72,12 @@ public function noteinfo(){
       $data['title'] = $info['firstname'].' '.$info['lastname'];
       $data['name'] = $info['firstname'].' '.$info['lastname'];
       $data['headername'] = $this->session->userdata('headername');
-    $data['note'] = $studs;
+    $data['note'] = $note;
     $this->load->view('include/headerpage',$data);
-    $this->load->view('estUdyante/noteinfo',$data);
+    $this->load->view('estUdyante/noteinfo',$data);    
   }
+
+
 public function addnote()
   {
       $data['name'] = $this->session->userdata('email');

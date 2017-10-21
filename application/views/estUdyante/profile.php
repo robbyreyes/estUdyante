@@ -1,8 +1,8 @@
-
     <div class="container" id="cont">
-        <div class="row">
+    <div class="row prof">
+        <div class="row details">
             <div class="col-md-3" id="avatarcol">
-                <img class="img-circle" alt="<?php echo "$name's avatar"?> " src="<?php echo base_url('assets/img/account.png') ?>" width="200" id="myImg">
+                <img class="bigavatar" alt="<?php echo "$name's avatar"?> " src="<?php echo base_url(''.$avatar.'')?>" width="200" id="myImg">
             </div>
             <div id="myModalpic" class="modal">
               <span class="close" onclick="document.getElementById('myModalpic').style.display='none'">&times;</span>
@@ -14,7 +14,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Comments</h4>
+                            <h2 class="modal-title">Comments</h2>
                         </div>
                             <div class="modal-body col-md-12">
                                 <div class="col-md-4">
@@ -33,19 +33,21 @@
                 </div>
             </div>
             <div class="col-md-6" id="nameholder">
-                <h1><?php echo $name?></h1></div>
+                <h1 id="name"><?php echo $name?></h1>
+            </div>
         </div>
-        <div>
+    </div>
+        <!--<div>
             <button class="btn btn-primary">Upload Picture</button>
             <button class="btn btn-primary" id="btn">Edit Profile Details</button>
-        </div>
+        </div>-->
         <div class="row" id="profilesecrow">
-            <div class="col-md-3 col-md-offset-0">
+            <div class="col-md-3 col-md-12 col-md-12 info">
                 <div class="row" id="rowinfo">
                     <div class="col-md-12" id="personalinfo">
                         <div class="row">
                             <div class="col-md-12 col-md-offset-0">
-                                <p class="text-info">Personal Information</p>
+                                <p class="lead">Personal Information</p>
                             </div>
                         </div>
                         <div class="row">
@@ -86,15 +88,15 @@
                 </div>
                 <div class="row" id="rowfriends">
                     <div class="col-md-12">
-                        <p class="lead">Friends </p>
-                        <p>Number of friends</p>
+                        <p class="lead">Follow </p>
+                        <p>Following:</p>
+                        <p>Followers:</p>
                         <h4 class="text-center"> <a href="<?php echo base_url('friendlist') ?>">See all</a></h4></div>
                 </div>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-7 col-sm-12 col-xs-12">
                 <div class="row">
-                    <div class="col-md-8" id="feed">
-
+                    <div class="col-md-8 col-sm-12 col-xs-12" id="feed">
                         <?php
                         if($mate_validate=="USER")
                         {
@@ -102,15 +104,27 @@
                         }
                         elseif($mate_validate=="UNFOLLOW")
                         {
+<<<<<<< Updated upstream
                           ?><form role="form" class="" method="post" action = "<?php echo current_url()?>">
                             <input name="follow" value="Follow" type="submit">
+=======
+                          ?>
+
+                        <form role="form" class="" method="post" action = "<?php echo base_url('profile/modify/'.$m.'')?>">
+                                <input class="btn" name="follow" value="Follow" type="submit">
+>>>>>>> Stashed changes
                            </form><?php
                            $mate_validate = "FOLLOW";
                         }
                         elseif($mate_validate=="FOLLOW")
                         {
+<<<<<<< Updated upstream
                             ?><form role="form" class="" method="post" action = "<?php echo current_url()?>">
                               <input name="unfollow" value="Unfollow" type="submit">
+=======
+                            ?><form role="form" class="" method="post" action = "<?php echo base_url('profile/modify/'.$m.'')?>">
+                                <input class="btn" name="unfollow" value="Unfollow" type="submit">
+>>>>>>> Stashed changes
                              </form><?php
 
                         }
@@ -121,6 +135,7 @@
 
 
                         if($post!=null)
+<<<<<<< Updated upstream
                         {
                         foreach(array_reverse($post) as $p){?>
                         <div class="row" id="story">
@@ -140,7 +155,53 @@
                                 <input class="btn btn-danger" id="deletePost" value="Delete" name="delete" value="Delete" type="submit">
                                </form>
                           </div>
+=======
+
+                        foreach(($post) as $p){?>
+                        <div class="row" id="post">
+                            <div class="row">
+                                <a href=<?php echo base_url('profile/id/'.$p['user_id'].'') ?>>
+                                <div class="col-md-2 col-sm-2 col-xs-3">
+                                    <img id="avatar" class="img-circle" src="<?php echo base_url(''.$p['avatar'].'') 
+                                    ?>"alt="Avatar"> </a> 
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-9">
+                                    <div class="row">
+
+                                        <h4><a href=<?php echo base_url('profile/id/'.$p['user_id'].'') ?>><?php echo $p['name']?></a> </h4>  
+                                    </div>
+                              
+                                    <div class="row">
+                                        <p id="time"><?php echo $p['postdate'] ?></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-md-12" id="activepost">
+                                  <p id="postbody"><?php echo $p['body']?></p>                                  
+                              </div>
+                            </div>
+
+                            <div class="row postbuttons">
+                                <div class="col-md-12">
+                                  <form role="form" class="" method="post" action = "<?php echo base_url('profile/delete/'.$m.'')?>">
+                                    <button type="button" class="btn btn-primary btn-md button">
+                                        <span class="glyphicon glyphicon-thumbs-up"></span> Like
+                                    </button>
+                                    <button type="button" class="btn btn-info btn-md button" data-toggle="modal" data-target="#myModal">
+                                        <span class="glyphicon glyphicon-pencil"></span> Comment
+                                    </button>
+                                    <?php if($p['user_id']==$this->session->userdata('logged_user'))
+                                        {?>
+                                    <input class="btn btn-danger button" id="deletePost" value="Delete" name="delete" value="Delete" type="submit">
+                                   </form>
+                                 <?php } ?>
+                                 </div>
+                            </div>
+>>>>>>> Stashed changes
                         </div>
+
                         <div class="row" id="row_divider"></div>
                         <?php
                         }
@@ -148,9 +209,9 @@
                         else
                         {
                             echo'<div class="col-md-12"><h4><center>There is no post</center></h4></div>';
-                        }
+                        }                        
                         ?>
-
+                        
                     </div>
                 </div>
             </div>
