@@ -39,7 +39,7 @@ class profile extends CI_Controller {
 
       else
       {
-        $data['mate_validate'] = "UNFOLLOW";      
+        $data['mate_validate'] = "UNFOLLOW";
       }
 
 
@@ -56,13 +56,27 @@ class profile extends CI_Controller {
 
     $a = $this->estudyante->read_profile_post($info['id']);
 
+
+    $a = $this->estudyante->read_post($info['id']);
+
+
+
+
     foreach($a as $c){
       $info = array(
         'user_id' => $c['user_id'],
         'name' => $c['user_name'],
         'body' => $c['body'],
         'postdate' => $c['postdate'],
+
+
+        'avatar' => $c['avatar'],
+
+        'avatar' => $c['avatar']
+
+
         'avatar' => $c['avatar'], 
+
       );
       $post[] = $info;
     }
@@ -135,7 +149,7 @@ public function modify($id){
 
   }
 
-  else 
+  else
   {
     $data['mate_validate'] = "UNFOLLOW";
     if(isset($_POST['follow']))
@@ -166,7 +180,7 @@ public function modify($id){
       $data['mate_validate'] = "FOLLOW";
     }
 
-  } 
+  }
 
   $a = $this->estudyante->read_post($info['id']);
 foreach($a as $c){
@@ -176,7 +190,7 @@ foreach($a as $c){
     'body' => $c['body'],
     'postdate' => $c['postdate']
   );
-  } 
+  }
   if(isset($_POST['delete']))
   {
     $this->load->model('estu_model');
