@@ -21,9 +21,10 @@ class profile extends CI_Controller {
           'firstname' => $i['firstname'],
           'lastname' => $i['lastname'],
           'email' => $i['email'],
+          'avatar' => $i['avatar']
         );
         $data['m'] = $info['id'];
-
+        $data['avatar'] = $info['avatar'];
       }
 
       if($this->session->userdata('logged_user')==$info["id"])
@@ -46,14 +47,22 @@ class profile extends CI_Controller {
       $data['name'] = $info['firstname'].' '.$info['lastname'];
       $data['headername'] = $this->session->userdata('headername');
 
-      $a = $this->estudyante->read_post($info['id']);
+    $this->load->library('pagination');
+    $config['total_rows']=$this->estudyante->count_post($info['id']);
+    $config['per_page'] = 3;
+    $config['base_url'] = base_url().'profile/id/'.$info['id'].'/index';
+
+    $this->pagination->initialize($config);
+
+    $a = $this->estudyante->read_profile_post($info['id']);
 
     foreach($a as $c){
       $info = array(
         'user_id' => $c['user_id'],
         'name' => $c['user_name'],
         'body' => $c['body'],
-        'postdate' => $c['postdate']
+        'postdate' => $c['postdate'],
+        'avatar' => $c['avatar'], 
       );
       $post[] = $info;
     }
@@ -79,7 +88,7 @@ class profile extends CI_Controller {
     }
 
     $a = $this->estudyante->read_post($info['id']);
-  foreach($a as $c){
+    foreach($a as $c){
     $info = array(
       'user_id' => $c['user_id'],
       'name' => $c['user_name'],
@@ -90,7 +99,8 @@ class profile extends CI_Controller {
     if(isset($_POST['delete']))
     {
       $this->load->model('estu_model');
-      $this->estu_model->delete_post($info['body'], $info['postdate']);
+      echo "delete";
+      //$this->estu_model->delete_post($info['body'], $info['postdate']);
     }
     // redirect(base_url('profile/id/'.$id), 'refresh');
     redirect($_SERVER['HTTP_REFERER']);

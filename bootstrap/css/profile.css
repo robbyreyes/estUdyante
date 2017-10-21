@@ -1,12 +1,25 @@
-#story{
-  background-color:rgba(255,255,255,1);
+
+#post{
   min-height:100px;
-  padding:20px;
-  border: solid 1px #dbdbdb;
-  border-radius: 4px;
-  margin-top:5px;
+  padding:10px;
+  border-bottom: solid 1px #dbdbdb;
+  margin-top:10px;
+  overflow-wrap: break-word;
 }
 
+a{
+  color: #71a6f7;
+}
+
+a:hover{
+  color: #116efc;
+  text-decoration: none;
+}
+
+
+.nb{
+  background-color: #63a0ff;
+}
 
 .cont{
   margin-top: 75px;
@@ -21,12 +34,6 @@
   margin-top:5px;
 }
 
-div#activepost.col-md-12{
-  margin-top: 5%;
-  margin-bottom: 5%;
-  min-width:100%;
-}
-
 #postbody{
   overflow-wrap: break-word;
 }
@@ -35,10 +42,8 @@ div#avatarcol{
   text-align:center;
 }
 
-
-
 #avatar{
-  border: solid 10px #4f4f4f;
+  
 }
 
 #time{
@@ -51,22 +56,15 @@ div#avatarcol{
 }
 
 .prof{
-  background-image: url(../images/asd.jpg);
+  background-image: url(../images/asd.jpg);  
   background-position: center center;
-  background-size: cover;
+  background-size: cover; 
   position: all;
 }
 
-.button{
-  width:32%;
-}
-
 .postbuttons{
-  margin-right: 5px;
-  margin-left: 5px;
-  padding-top: 10px;
-  border-top : solid 1px #dbdbdb;
-  text-align: center;
+  text-align: right;
+
   color: #cccccc;
 }
 
@@ -74,22 +72,25 @@ div#cont.container{
   margin-top:50px;
 }
 
-div#profilesecrow.row{
-  margin-top:15px;
+
+
+#profilesecrow{
+
 }
 
 div#personalinfo{
-  margin-top: 5px;
-  background-color:rgba(255,255,255,1);
-  border-radius:4px;
-  border: solid 1px #dbdbdb;
-  padding:10px;
+  min-height:100px;
+  padding:20px;
+  border-bottom: solid 1px #dbdbdb;
+  margin-top:5px;
 }
 
 #avatar{
   width:100%;
   border: solid 1px #dbdbdb;
 }
+
+
 @media (max-width:992px) {
   div#nameholder.col-md-6{
     margin-top:50px;
@@ -118,17 +119,11 @@ div#nameholder.col-md-6{
   font-size:larger;
   color: white;
   text-shadow: 2px 2px 5px #4f4f4f;
-}
 
-div#feed.col-md-8{
-  margin-left:20px;
-  margin-right:20px;
 }
 
 div#rowfriends.row{
-  margin-top:10px;
-  padding:10px;
-  background-color:rgba(255,255,255,1);
-  border-radius:4px;
-  border: solid 1px #dbdbdb;
+  min-height:100px;
+  padding:20px;
+  margin-top:5px;
 }
