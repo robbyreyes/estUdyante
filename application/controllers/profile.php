@@ -21,9 +21,10 @@ class profile extends CI_Controller {
           'firstname' => $i['firstname'],
           'lastname' => $i['lastname'],
           'email' => $i['email'],
+          'avatar' => $i['avatar']
         );
         $data['m'] = $info['id'];
-
+        $data['avatar'] = $info['avatar'];
       }
 
       if($this->session->userdata('logged_user')==$info["id"])
@@ -46,7 +47,14 @@ class profile extends CI_Controller {
       $data['name'] = $info['firstname'].' '.$info['lastname'];
       $data['headername'] = $this->session->userdata('headername');
 
-    $a = $this->estudyante->read_post($info['id']);
+    $this->load->library('pagination');
+    $config['total_rows']=$this->estudyante->count_post($info['id']);
+    $config['per_page'] = 3;
+    $config['base_url'] = base_url().'profile/id/'.$info['id'].'/index';
+
+    $this->pagination->initialize($config);
+
+    $a = $this->estudyante->read_profile_post($info['id']);
 
     foreach($a as $c){
       $info = array(
@@ -54,7 +62,7 @@ class profile extends CI_Controller {
         'name' => $c['user_name'],
         'body' => $c['body'],
         'postdate' => $c['postdate'],
-        'avatar' => $c['avatar']
+        'avatar' => $c['avatar'], 
       );
       $post[] = $info;
     }
@@ -138,6 +146,23 @@ public function modify($id){
       );
       $this->load->model('estu_model');
       $follow_user = $this->estu_model->create_follow($f);
+      $userinfo = $this->estudyante->read_infobyid($this->session->userdata('logged_user'));
+      foreach($userinfo as $i){
+        $info = array(
+          'firstname' => $i['firstname'],
+          'lastname' => $i['lastname'],        
+        );
+      }
+      $notif = array(
+        'user_id' => $this->session->userdata('logged_user'),     
+        'notif_subject' => $info['firstname']." followed you",
+        'notif_text' => 'Check her/his profile now',
+        'type' => "FOLLOW",
+        'notif_user' => $f['mate_ID'].''
+
+      );
+      $this->estudyante->notif($notif);
+
       $data['mate_validate'] = "FOLLOW";
     }
 

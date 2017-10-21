@@ -1,8 +1,8 @@
-    <div class="container-fluid" id="cont">
+    <div class="container" id="cont">
     <div class="row prof">
         <div class="row details">
             <div class="col-md-3" id="avatarcol">
-                <img class="avatar" alt="<?php echo "$name's avatar"?> " src="<?php echo base_url(''.$post[0]['avatar'].'')?>" width="200" id="myImg">
+                <img class="bigavatar" alt="<?php echo "$name's avatar"?> " src="<?php echo base_url(''.$avatar.'')?>" width="200" id="myImg">
             </div>
             <div id="myModalpic" class="modal">
               <span class="close" onclick="document.getElementById('myModalpic').style.display='none'">&times;</span>
@@ -33,7 +33,8 @@
                 </div>
             </div>
             <div class="col-md-6" id="nameholder">
-                <h1><?php echo $name?></h1></div>
+                <h1 id="name"><?php echo $name?></h1>
+            </div>
         </div>
     </div>
         <!--<div>
@@ -103,15 +104,17 @@
                         }
                         elseif($mate_validate=="UNFOLLOW")
                         {
-                          ?><form role="form" class="" method="post" action = "<?php echo base_url('profile/modify/'.$m.'')?>">
-                            <input name="follow" value="Follow" type="submit">
+                          ?>
+
+                            <form role="form" class="" method="post" action = "<?php echo base_url('profile/modify/'.$m.'')?>">
+                                <input class="btn" name="follow" value="Follow" type="submit">
                            </form><?php
                            $mate_validate = "FOLLOW";
                         }
                         elseif($mate_validate=="FOLLOW")
                         {
                             ?><form role="form" class="" method="post" action = "<?php echo base_url('profile/modify/'.$m.'')?>">
-                              <input name="unfollow" value="Unfollow" type="submit">
+                                <input class="btn" name="unfollow" value="Unfollow" type="submit">
                              </form><?php
 
                         }
@@ -123,7 +126,7 @@
 
                         if($post!=null)
 
-                        foreach(array_reverse($post) as $p){?>
+                        foreach(($post) as $p){?>
                         <div class="row" id="post">
                             <div class="row">
                                 <a href=<?php echo base_url('profile/id/'.$p['user_id'].'') ?>>
@@ -174,9 +177,9 @@
                         else
                         {
                             echo'<div class="col-md-12"><h4><center>There is no post</center></h4></div>';
-                        }
+                        }                        
                         ?>
-
+                        
                     </div>
                 </div>
             </div>
