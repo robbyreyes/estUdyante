@@ -13,6 +13,7 @@
   <link href="<?php echo base_url('assets/adminassets/css/simple-sidebar.css')?>" rel="stylesheet">
   
   <script src="<?php echo base_url('assets/adminassets/jquery/jquery.min.js')?>"></script>
+  <script src="<?php echo base_url('assets/adminassets/js/sidebar.js')?>"></script>
   <script src="<?php echo base_url('assets/adminassets/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
 
 
@@ -27,11 +28,16 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">Posts</a>
+                    <a href="<?php echo base_url('admin/posts')?>">Posts</a>
                 </li>
                 <li>
-                    <a href="#">Reported Posts</a>
+                    <a href="<?php echo base_url('admin/reportedposts')?>">Reported Posts</a>
                 </li>
             </ul>
+        </div>
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menu</a>
+            </div>
         </div>
 </body>
