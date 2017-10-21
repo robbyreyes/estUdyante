@@ -1,114 +1,142 @@
-
-
-#content{
-  padding-top:80px;
-  padding-left:20px;
-  padding-right:20px;
-}
-
 #post{
-  background-color:rgba(255,255,255,0.75);
   min-height:100px;
   padding:10px;
-  border-radius:10px;
+  border-bottom: solid 1px #dbdbdb;
+  margin-top:10px;
+  overflow-wrap: break-word;
 }
 
-input#writepost.input-lg{
-  min-width:100%;
-  height:75px;
+a{
+  color: #71a6f7;
 }
 
-#book{
-  background-color:rgba(255,255,255,0.75);
+a:hover{
+  color: #116efc;
+  text-decoration: none;
+}
+
+
+.nb{
+  background-color: #63a0ff;
+}
+
+.cont{
+  margin-top: 75px;
+}
+
+.product{
+  background-color:rgba(255,255,255,1);
   min-height:100px;
   padding:20px;
-  border-radius:10px;
-  text-align:center;
-}
-
-#story{
-  background-color:rgba(255,255,255,0.75);
-  min-height:100px;
-  padding:20px;
-  border-radius:10px;
+  border: solid 1px #dbdbdb;
+  border-radius: 4px;
   margin-top:5px;
 }
 
-#write{
-  background-color:rgba(255,255,255,0.75);
-  min-height:100px;
-  padding:20px;
-  border-radius:10px;
+#postbody{
+  overflow-wrap: break-word;
+}
+
+div#avatarcol{
   text-align:center;
 }
 
-p#activepostp{
-  min-width:100%;
+#time{
+  text-align: left;
+  color: #cccccc;
 }
 
-div#activepost.col-md-12{
-  min-width:100%;
+.details{
+  padding-left: 100px;
+  margin-top:20px; 
+  padding-bottom: 10px;
 }
 
-#row_divider.row{
-  min-height:20px;
-  max-height:20px;
+.prof{
+  background-image: url(../images/asd.jpg);  
+  background-position: center center;
+  background-size: cover; 
+  position: all;
 }
 
-#feed{
-  background-color:rgba(254,254,254,0);
-  min-height:100%;
-}
-
-img.img-responsive{
-  text-align:center;
-}
-
-#divider{
-  background-color:rgba(220,9,9,0);
-}
-
-#function{
-  background-color:rgba(222,222,222,0);
-}
-
-div#avatarcol.col-md-2{
-  text-align:center;
+.postbuttons{
+  text-align: right;
+  color: #cccccc;
 }
 
 div#cont.container{
-  margin-top:100px;
+  margin-top:50px;
 }
 
-div#profilesecrow.row{
-  margin-top:20px;
+
+#profilesecrow{
+  margin-top:15px;
 }
 
 div#personalinfo{
-  background-color:rgba(255,255,255,0.75);
-  border-radius:10px;
-  padding:10px;
+  min-height:100px;
+  padding:20px;
+  border-bottom: solid 1px #dbdbdb;
+  margin-top:5px;
 }
 
-img#avatar.img-circle{
-  background-color:white;
+#avatar{
+  width:60px;
+  height: 60px;
 }
 
-div#nameholder.col-md-6{
-  margin-top:50px;
-  border-radius:10px;
-  font-size:larger;
-  color:white;
+.bigavatar{
+  width:256px;
+  height: 256px;
 }
 
-div#feed.col-md-8{
-  margin:10px;
+@media (max-width:992px) {
+  .details{
+    padding-left: 0px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+  }
+  div#nameholder.col-md-6{
+    margin-left: 0px;
+    margin-top: 0px;
+    color: white;
+    text-shadow: 5px 5px 10px black;
+    text-align: center;
+  }
+
+  .product{
+    background-color:rgba(255,255,255,1);
+    min-height:100px;
+    padding:20px;
+    border: solid 1px #dbdbdb;
+    border-radius: 4px;
+    margin-top:5px;
+    text-align: center
+  }
+  .bigavatar{
+    width:128px;
+    height: 128px;
+  }
+
+}
+
+h1#name{
+  font-size:40px;
+}
+@media (min-width:992px) {
+  div#nameholder.col-md-6{
+    margin-left: 50px;
+    margin-top: 150px;
+    border-radius:10px;
+    color: white;
+    text-shadow: 5px 5px 10px black;
+  }
+  
 }
 
 div#rowfriends.row{
-  margin-top:10px;
-  padding:10px;
-  background-color:rgba(255,255,255,0.77);
-  border-radius:10px;
+  min-height:100px;
+  padding:20px;
+  margin-top:5px;
 }
 
