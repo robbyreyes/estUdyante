@@ -41,17 +41,15 @@ div#avatarcol{
   text-align:center;
 }
 
-#avatar{
-  
-}
-
 #time{
   text-align: left;
   color: #cccccc;
 }
 
 .details{
-  padding:5%;
+  padding-left: 100px;
+  margin-top:20px; 
+  padding-bottom: 10px;
 }
 
 .prof{
@@ -83,18 +81,27 @@ div#personalinfo{
 }
 
 #avatar{
-  width:100%;
-  border: solid 1px #dbdbdb;
+  width:60px;
+  height: 60px;
+}
+
+.bigavatar{
+  width:256px;
+  height: 256px;
 }
 
 @media (max-width:992px) {
+  .details{
+    padding-left: 0px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+  }
   div#nameholder.col-md-6{
-    margin-top:50px;
-    border-radius:10px;
-    font-size:larger;
+    margin-left: 0px;
+    margin-top: 0px;
     color: white;
+    text-shadow: 5px 5px 10px black;
     text-align: center;
-    text-shadow: 2px 2px 5px #4f4f4f;
   }
 
   .product{
@@ -106,15 +113,25 @@ div#personalinfo{
     margin-top:5px;
     text-align: center
   }
+  .bigavatar{
+    width:128px;
+    height: 128px;
+  }
 
 }
 
-div#nameholder.col-md-6{
-  margin-top:50px;
-  border-radius:10px;
-  font-size:larger;
-  color: white;
-  text-shadow: 2px 2px 5px #4f4f4f;
+h1#name{
+  font-size:40px;
+}
+@media (min-width:992px) {
+  div#nameholder.col-md-6{
+    margin-left: 50px;
+    margin-top: 150px;
+    border-radius:10px;
+    color: white;
+    text-shadow: 5px 5px 10px black;
+  }
+  
 }
 
 div#rowfriends.row{

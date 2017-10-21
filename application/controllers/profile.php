@@ -56,7 +56,10 @@ class profile extends CI_Controller {
 
     $a = $this->estudyante->read_profile_post($info['id']);
 
+
     $a = $this->estudyante->read_post($info['id']);
+
+
 
 
     foreach($a as $c){
@@ -66,9 +69,13 @@ class profile extends CI_Controller {
         'body' => $c['body'],
         'postdate' => $c['postdate'],
 
+
         'avatar' => $c['avatar'],
 
         'avatar' => $c['avatar']
+
+
+        'avatar' => $c['avatar'], 
 
       );
       $post[] = $info;
@@ -153,6 +160,23 @@ public function modify($id){
       );
       $this->load->model('estu_model');
       $follow_user = $this->estu_model->create_follow($f);
+      $userinfo = $this->estudyante->read_infobyid($this->session->userdata('logged_user'));
+      foreach($userinfo as $i){
+        $info = array(
+          'firstname' => $i['firstname'],
+          'lastname' => $i['lastname'],        
+        );
+      }
+      $notif = array(
+        'user_id' => $this->session->userdata('logged_user'),     
+        'notif_subject' => $info['firstname']." followed you",
+        'notif_text' => 'Check her/his profile now',
+        'type' => "FOLLOW",
+        'notif_user' => $f['mate_ID'].''
+
+      );
+      $this->estudyante->notif($notif);
+
       $data['mate_validate'] = "FOLLOW";
     }
 

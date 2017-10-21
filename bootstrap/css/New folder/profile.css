@@ -1,4 +1,5 @@
 
+
 #content{
   padding-top:80px;
   padding-left:20px;
@@ -6,6 +7,8 @@
 }
 
 #post{
+  border-top:10px;
+  border-color: rgb(0,0,0);
   background-color:rgba(255,255,255,0.75);
   min-height:100px;
   padding:10px;
@@ -23,7 +26,14 @@ input#writepost.input-lg{
   text-align:center;
 }
 
-#write{  
+#story{
+  background-color:rgba(255,255,255,0.75);
+  min-height:100px;
+  padding:20px;
+  margin-top:5px;
+}
+
+#write{
   background-color:rgba(255,255,255,0.75);
   min-height:100px;
   padding:20px;
@@ -59,5 +69,42 @@ img.img-responsive{
 
 #function{
   background-color:rgba(222,222,222,0);
+}
+
+div#avatarcol.col-md-2{
+  text-align:center;
+}
+
+div#cont.container{
+  margin-top:100px;
+}
+
+div#profilesecrow.row{
+  margin-top:20px;
+}
+
+div#personalinfo{
+  background-color:rgba(255,255,255,0.75);  
+  padding:10px;
+}
+
+img#avatar.img-circle{
+  background-color:white;
+}
+
+div#nameholder.col-md-6{
+  margin-top:50px;
+  font-size:larger;
+  color:white;
+}
+
+div#feed.col-md-8{
+  margin:10px;
+}
+
+div#rowfriends.row{
+  margin-top:10px;
+  padding:10px;
+  background-color:rgba(255,255,255,0.77);
 }
 

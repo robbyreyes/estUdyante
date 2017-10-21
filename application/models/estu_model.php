@@ -201,10 +201,13 @@ class estu_model extends CI_Model {
 		return $query->num_rows();
 	}
 
+
 	public function count_note($condition=null){		
 		$query=$this->db->get($this->note);
 		return $query->num_rows();
 	}
+
+
 
 	public function count_post($condition=null){
 		$this->db->where_in('posts.user_id',$condition);

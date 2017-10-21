@@ -1,17 +1,25 @@
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
 body{
   background-color:white;
 }
 
-textarea:hover, 
-input:hover, 
-textarea:active, 
-input:active, 
-textarea:focus, 
-input:focus,
+.itemcard{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 button:focus,
 button:active,
-button:hover,
-label:focus,
 .btn:active,
 .input-lg,
 .btn.active
@@ -113,7 +121,7 @@ label:focus,
 }
 
 #function{
-  margin-right: 100px;
+  margin-right: 50px;
 }
 
 @media (max-width:992px) {
