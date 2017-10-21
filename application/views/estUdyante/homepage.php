@@ -31,6 +31,7 @@
                             </div>
                           </div>
                           <div class="col-md-2 wr">
+
                               <button class="btn btn-info postbutton wr" name="post" type="submit"><span class="glyphicon glyphicon-pencil"></span> POST</button>
                           </div>
                         </form>
@@ -68,22 +69,28 @@
                             <div class="row" id="post">
                             <div class="row">
                                 <a href="profile/id/<?php echo $p["user_id"] ?>">
+
                                 <div class="col-md-2 col-sm-1 col-xs-3 avatarcol">
                                     <img id="avatar" class="img-circle img-responsive "src="<?php echo base_url(''.$p['avatar'].'') 
                                     ?>"alt="Avatar"> </a> 
+
                                 </div>
                                 <div class="col-md-9 col-sm-9 col-xs-9">
                                     <div class="row">
 
+
                                         <h4><a href=<?php echo base_url('profile/id/'.$p['user_id'].'') ?>><?php echo $p['user_name']?></a> </h4>  
                                     </div>
                               
+
                                     <div class="row">
                                         <p id="time"><?php echo $p['postdate'] ?></p>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row">  
+
                               <div class="col-md-12" id="activepost">
                                   <p id="postbody"><?php echo $p['body']?></p>
                               </div>
@@ -97,30 +104,39 @@
                                       <button type="button" class="btn btn-primary btn-md button like" onClick="like('<?php echo $p['id']?>');" >
                                         <span class="glyphicon glyphicon-thumbs-up"></span> Like
                                       </button>                                 
+
                                   <?php
                                   }
                                   ?>
 
                                   <?php if($p['like']=="TRUE"){?>
+
                                     <a href="<?php echo base_url('homepage/unlike?id='.$p['id'].'') ?>"><button type="button" class="btn btn-primary btn-md button unlike">
                                         <span class="glyphicon glyphicon-thumbs-up"></span> Unlike
                                       </button></a>
                                   <?php }?>
+
                                   <button type="button" class="btn btn-info btn-md button" data-toggle="modal" data-target="#myModal">
                                     <span class="glyphicon glyphicon-pencil"></span> Comment
                                   </button>
                                   <?php if($p['user_id']==$this->session->userdata('logged_user'))
                                         {
+
                                           echo 
+
                                     '<input class="btn btn-danger button" id="deletePost" value="Delete" name="delete" value="Delete" type="submit">';
                                     echo '</form>';
                                   } ?>
                                  </div>
-                            </div>
-
-                              
+                            </div>               
                             </div>
                             
+
+
+                            </div>
+                            <div class="row" id="row_divider"></div>
+
+
                         <?php
                             }
 
@@ -129,15 +145,16 @@
                         {
                             echo'<div class="col-md-12"><h4><center>There is no post</center></h4></div>';
                         }
+
                         ?> 
                         <ul class="pagination">
                           <li><?php echo $this->pagination->create_links();?></li>      
                         </ul>
+
                 </div>
 
                 <div class="col-md-1" id="divider"></div>
-
-            </div>
+          </div>
         </div>
     </div>
 </body>
@@ -145,6 +162,7 @@
 </html>
 
 <script type="text/javascript">
+
   function adjustHeight(ctrl) {
     $(ctrl).css({'height':'auto','overflow-y':'hidden'}).height(ctrl.scrollHeight);
   }
@@ -183,3 +201,4 @@ function like($id) {
     });
   }
 </script>
+

@@ -12,7 +12,8 @@ class notecatalog extends CI_Controller {
 	public function index(){
     $data['name'] = $this->session->userdata('email');
     $note=null;
-    $rs = $this->estudyante->read_note();
+
+      $rs = $this->estudyante->read_note();
     foreach($rs as $r)
     {
       $info = array(

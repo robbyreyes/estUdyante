@@ -25,6 +25,7 @@
 
 
                 <?php
+
                 if($note!=null)
                 {
                     foreach(array_reverse($note) as $s){?>
@@ -35,11 +36,13 @@
                                 <h1 class="text-left"><?php echo $s['note_name'] ?></h1></div>
                             <div class="col-md-9">
                             </div>
+
                         </div>
                         <div class="row" id="row_divider"></div>
                         </a>
                     </div>
                 <?php
+
                     }
                 }
                 else
@@ -47,6 +50,7 @@
                     echo '<div class="col-md-8 col-md-offset-0" id="feed">';
                     echo "no book";
                     echo '</div>';
+
                 }
                 ?>
 

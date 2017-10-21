@@ -1,3 +1,4 @@
+
 #post{
   min-height:100px;
   padding:10px;
@@ -63,6 +64,7 @@ div#avatarcol{
 
 .postbuttons{
   text-align: right;
+
   color: #cccccc;
 }
 
@@ -71,8 +73,9 @@ div#cont.container{
 }
 
 
+
 #profilesecrow{
-  margin-top:15px;
+
 }
 
 div#personalinfo{
@@ -86,6 +89,7 @@ div#personalinfo{
   width:100%;
   border: solid 1px #dbdbdb;
 }
+
 
 @media (max-width:992px) {
   div#nameholder.col-md-6{
@@ -115,6 +119,7 @@ div#nameholder.col-md-6{
   font-size:larger;
   color: white;
   text-shadow: 2px 2px 5px #4f4f4f;
+
 }
 
 div#rowfriends.row{
@@ -122,4 +127,3 @@ div#rowfriends.row{
   padding:20px;
   margin-top:5px;
 }
-

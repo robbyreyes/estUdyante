@@ -27,7 +27,6 @@ class profile extends CI_Controller {
         $data['avatar'] = $info['avatar'];
       }
 
-
       if($this->session->userdata('logged_user')==$info["id"])
       {
         $data['mate_validate'] = "USER";
@@ -36,30 +35,13 @@ class profile extends CI_Controller {
       elseif($this->estudyante->if_mate($this->session->userdata('logged_user'),$info['id']))
       {
         $data['mate_validate'] = "FOLLOW";
-        if(isset($_POST['unfollow']))
-        {
-        $this->load->model('estu_model');
-        $this->estu_model->delete_follow($this->session->userdata('logged_user'),$info['id']);
-        $data['mate_validate'] = "UNFOLLOW";
-        }
-
       }
 
       else
       {
-        $data['mate_validate'] = "UNFOLLOW";
-        if(isset($_POST['follow']))
-        {
-          $f = array(
-            'user_id' => $this->session->userdata('logged_user'),
-            'mate_ID' => $info['id']
-          );
-          $this->load->model('estu_model');
-          $follow_user = $this->estu_model->create_follow($f);
-          $data['mate_validate'] = "FOLLOW";
-        }
-
+        $data['mate_validate'] = "UNFOLLOW";      
       }
+
 
       $data['title'] = $info['firstname'].' '.$info['lastname'];
       $data['name'] = $info['firstname'].' '.$info['lastname'];
@@ -122,5 +104,68 @@ class profile extends CI_Controller {
     }
     // redirect(base_url('profile/id/'.$id), 'refresh');
     redirect($_SERVER['HTTP_REFERER']);
+}
+
+
+public function modify($id){
+  $userinfo = $this->estudyante->read_infobyid($id);
+  foreach($userinfo as $i){
+    $info = array(
+      'id' => $i['id'],
+      'firstname' => $i['firstname'],
+      'lastname' => $i['lastname'],
+      'email' => $i['email'],
+    );
+  }
+
+  if($this->session->userdata('logged_user')==$info["id"])
+  {
+    $data['mate_validate'] = "USER";
+  }
+
+  elseif($this->estudyante->if_mate($this->session->userdata('logged_user'),$info['id']))
+  {
+    $data['mate_validate'] = "FOLLOW";
+    if(isset($_POST['unfollow']))
+    {
+    $this->load->model('estu_model');
+    $this->estu_model->delete_follow($this->session->userdata('logged_user'),$info['id']);
+    $data['mate_validate'] = "UNFOLLOW";
+    }
+
+  }
+
+  else 
+  {
+    $data['mate_validate'] = "UNFOLLOW";
+    if(isset($_POST['follow']))
+    {
+      $f = array(
+        'user_id' => $this->session->userdata('logged_user'),
+        'mate_ID' => $info['id']
+      );
+      $this->load->model('estu_model');
+      $follow_user = $this->estu_model->create_follow($f);
+      $data['mate_validate'] = "FOLLOW";
+    }
+
+  } 
+
+  $a = $this->estudyante->read_post($info['id']);
+foreach($a as $c){
+  $info = array(
+    'user_id' => $c['user_id'],
+    'name' => $c['user_name'],
+    'body' => $c['body'],
+    'postdate' => $c['postdate']
+  );
+  } 
+  if(isset($_POST['delete']))
+  {
+    $this->load->model('estu_model');
+    $this->estu_model->delete_post($info['body'], $info['postdate']);
+  }
+  // redirect(base_url('profile/id/'.$id), 'refresh');
+  redirect($_SERVER['HTTP_REFERER']);
 }
 }

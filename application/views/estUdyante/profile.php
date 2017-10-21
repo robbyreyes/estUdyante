@@ -1,3 +1,4 @@
+
     <div class="container" id="cont">
     <div class="row prof">
         <div class="row details">
@@ -23,15 +24,17 @@
                                 <div class="col-md-8">
                                     <input class="form-control" type="text"/>
                                 </div>
+
                             </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-info" data-dismiss="modal">
-                                <span class="glyphicon glyphicon-edit"></span> Comment
-                            </button>
                         </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="modal">
+                            <span class="glyphicon glyphicon-edit"></span> Comment
+                        </button>
                     </div>
                 </div>
             </div>
+
             <div class="col-md-6" id="nameholder">
                 <h1 id="name"><?php echo $name?></h1>
             </div>
@@ -49,43 +52,45 @@
                             <div class="col-md-12 col-md-offset-0">
                                 <p class="lead">Personal Information</p>
                             </div>
+
                         </div>
-                        <div class="row">
-                            <div class="col-md-12 ">
-                                <div class="col-md-1">
-                                    <p>School: </p>
-                                </div>
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control" id="schoolField" placeholder="TUP, PNU, ADU"/>
-                                </div>
-                                <div class="col-md-1">
-                                    <p>Birthday: </p>
-                                </div>
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control" id="bdayField" placeholder="01/01/1999" />
-                                </div>
-                                <div class="col-md-1">
-                                    <p id="cont">Contact No:</p>
-                                </div>
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control" id="contactField" placeholder="09*********" />
-                                </div>
-                                <div class="col-md-1">
-                                    <p>Address: </p>
-                                </div>
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control" id="addressField" placeholder="123 Papasa tayo Sa. Defense natin, Manila" />
-                                </div>
-                                <div class="col-md-1" id="space">
-                                    &nbsp;
-                                </div>
-                                <div class="col-md-12">
-                                    <button class="btn btn-success edit" id="save">Save details</button>
-                                </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="col-md-1">
+                                <p>School: </p>
+                            </div>
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" id="schoolField" placeholder="TUP, PNU, ADU"/>
+                            </div>
+                            <div class="col-md-1">
+                                <p>Birthday: </p>
+                            </div>
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" id="bdayField" placeholder="01/01/1999" />
+                            </div>
+                            <div class="col-md-1">
+                                <p id="cont">Contact No:</p>
+                            </div>
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" id="contactField" placeholder="09*********" />
+                            </div>
+                            <div class="col-md-1">
+                                <p>Address: </p>
+                            </div>
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" id="addressField" placeholder="123 Papasa tayo Sa. Defense natin, Manila" />
+                            </div>
+                            <div class="col-md-1" id="space">
+                                &nbsp;
+                            </div>
+                            <div class="col-md-12">
+                                <button class="btn btn-success edit" id="save">Save details</button>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="row" id="rowfriends">
                     <div class="col-md-12">
                         <p class="lead">Follow </p>
@@ -117,11 +122,23 @@
                                 <input class="btn" name="unfollow" value="Unfollow" type="submit">
                              </form><?php
 
-                        }
-                        else
-                        {
-                            echo "ERROR";
-                        }
+
+
+                    if($post!=null)
+
+                    foreach(array_reverse($post) as $p){?>
+                    <div class="row" id="story">
+                        <div class="row">
+                            <a href=<?php echo base_url('profile/id/'.$p['user_id'].'') ?>>
+                            <div class="col-md-2 col-sm-2 col-xs-3">
+                                <img id="avatar" class="img-circle" src="<?php echo base_url('assets/img/account.png')
+                                ?>"alt="Avatar"> </a>
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-9">
+                                <div class="row">
+
+                                    <h4><a href=<?php echo base_url('profile/id/'.$p['user_id'].'') ?>><?php echo $p['name']?></a> </h4>
+                                </div>
 
 
                         if($post!=null)
@@ -181,12 +198,24 @@
                         ?>
                         
                     </div>
+
+                    <div class="row" id="row_divider"></div>
+                    <?php
+                    }
+
+                    else
+                    {
+                        echo'<div class="col-md-12"><h4><center>There is no post</center></h4></div>';
+                    }
+                    ?>
+
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <script src="<?php echo base_url('bootstrap/js/profilepicmodal.js')?>"></script>
+<script src="<?php echo base_url('bootstrap/js/profilepicmodal.js')?>"></script>
 
 </body>
 

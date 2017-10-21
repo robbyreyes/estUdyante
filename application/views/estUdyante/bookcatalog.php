@@ -1,30 +1,12 @@
-<?php
- if( isset($book) && $book!=null ){
-    foreach(array_reverse($book) as $s)
-       {
-         $s['book_ID'];
-         $s['book_name'];
-         $s['book_desc'];
-         $s['book_author'];
-         $s['image'];
-       }
-}
-elseif($book==null)
-{
-    echo "no book";
-}
-?>
-
-
 <div class="container-fluid">
         <div id="content">
             <div class="row" id="contentrow">
                 <div class="col-md-8 col-md-offset-0" id="feed">
                     <div class="row" id="write">
                         <div class="col-md-9">
-                            <h1 class="text-left">Books Catalogue</h1></div>
+                            <h1 class="text-left">Books Catalog</h1></div>
                         <div class="col-md-9">
-                            <p class="text-left">Book catalogue</p>
+                            <p class="text-left">Book catalog</p>
                         </div>
                     </div>
                     <div class="row" id="row_divider"></div>
@@ -70,7 +52,6 @@ elseif($book==null)
                     echo '</div>';
                 }
                 ?>
-
 
             </div>
         </div>

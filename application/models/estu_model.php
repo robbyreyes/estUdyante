@@ -141,6 +141,19 @@ class estu_model extends CI_Model {
 		$this->db->delete('like_table', array('user_id' => $recorda,'post_id' => $recordb));
 	}
 
+
+	public function read_like($conditiona,$conditionb){
+		$this->db->select('*');
+		$this->db->from('like_table');
+		$this->db->where('user_id',$conditiona);
+		$this->db->where('post_id',$conditionb);
+		$query= $this->db->get();
+		if($query->result_array()!=null)
+		{
+			return TRUE;
+		}
+	}
+
 	public function read_like($conditiona,$conditionb){
 		$this->db->select('*');
 		$this->db->from('like_table');		
@@ -164,6 +177,7 @@ class estu_model extends CI_Model {
 		}
 	}
 
+
 	public function read_profile_post($condition=null){
 		$this->db->select('posts.id, posts.user_id, posts.user_name, posts.body, posts.postdate,
 			user1.avatar');
@@ -183,6 +197,7 @@ class estu_model extends CI_Model {
 		$this->db->limit($limit,$offset);
 		$query=$this->db->get($this->posts);
 		return $query->result_array();
+
 	}
 
 	public function count_post($condition=null){
