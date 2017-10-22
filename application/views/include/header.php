@@ -37,7 +37,7 @@
                 <span class="navbar-logo">
 
                 </span>
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="#">estÜdyante</a></span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="#"><img src="<?php echo base_url('assets/img/estulogo.png') ?>" width="150"></a></span>
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
