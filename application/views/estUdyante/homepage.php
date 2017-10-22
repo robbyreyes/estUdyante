@@ -46,8 +46,18 @@
     <div class="container-fluid">
         <div id="content">
             <div class="row" id="contentrow">
-                <div class="col-md-3 col-sm-4 col-xs-12 col-xs-auto" id="function">
-                <div class="affix">
+                
+				<div>
+				<div class="col-md-2 col-sm-4 col-xs-12 col-xs-auto " id="function">
+                <div class="affix ">
+					<div class="row">
+                        <div class="col-md-12 pic1">
+						
+                            <h4 class="text-center profile"><img src="<?php echo base_url('assets/img/account.png') ?>" alt="Avatar" width="90" height="90"> </h4></div>
+                        <div class="col-md-12 name">
+                            <h3><a href=<?php echo base_url('profile/id/'.$this->session->userdata('logged_user')) ?> ><?php echo $headername ?> </a></h3>
+                        </div>
+                    </div>
                     <div class="row" id="book">
                         <div class="col-md-12">
                             <h4 class="text-center"><img src="<?php echo base_url('assets/img/book-icon-149.png') ?>" alt="Avatar" width="30"> </h4></div>
@@ -55,16 +65,23 @@
                             <a href="<?php echo base_url('bookcatalog/index/0') ?>"><button class="btn btn-default" type="button">Exchange Books </button></a>
                         </div>
                     </div>
-                    <div class="row" id="row_divider"></div>
+                   
                     <div class="row" id="book">
                         <div class="col-md-12">
                             <h4 class="text-center"><img src="<?php echo base_url('assets/img/Document_black-512.png') ?>" alt="Avatar" width="30"> </h4></div>
                         <a href="<?php echo base_url('notecatalog') ?>"><button class="btn btn-default" type="button">Exchange Notes</button></a>
                     </div>
+					<div class="row" id="book">
+					<div class="col-md-12">
+						<h4 class="text-center"><img src="<?php echo base_url('assets/img/msg.png') ?>" alt="Avatar" width="30"> </h4></div>
+                   <a  href="<?php echo base_url('notecatalog') ?>"><button class="btn btn-default" type="button">Messages</button></a>
+                    </div>
+				
+                </div>
                 </div>
                 </div>
 
-                <div class="col-md-5 col-sm-12 col-xs-12 col-xs-auto" id="feed">
+                <div class="col-md-6 col-sm-12 col-xs-12 col-xs-auto" id="feed">
                     <div class="row" id="write">
                         <form role="form" class="" method="post" action= <?php echo base_url('homepage/status')?>>
                           <div class="col-md-10">
@@ -176,6 +193,57 @@
                           </center> 
                         </div>
                 </div>
+				
+				<!---mybook --->
+				  <div class="col-md-3 col-sm-12 col-xs-12 col-xs-auto " id="mybook">
+				  <div>
+				   <div class="row mybooks" id="mybooks">
+                        
+						<div class="col-md-12 bewk">
+                        <a href="<?php echo base_url('bookcatalog/index/0') ?>"><button class="btn btn-default" type="button">MY BOOKS</button></a>
+						</div>
+						<div class="col-md-4 ">
+						<img src="<?php echo base_url('assets/img/kafka_on_the_shore.jpg') ?>" alt="Avatar" width="80" height="100">
+						</div>
+								<div class="col-md-4 ">
+								<img src="<?php echo base_url('assets/img/Percy-Jackson-The-Lightning-Thief-Original-Cover.jpg') ?>" alt="Avatar" width="80" height="100">
+								</div>
+										<div class="col-md-4 book">
+										<img src="<?php echo base_url('assets/img/stock-vector-mathematics-vector-cover-a-background-from-scientific-formulas-for-book-textbook-notebook-320996975.jpg') ?>" alt="Avatar" width="80" height="100">
+										</div>
+						
+						<a class="see" href="<?php echo base_url('bookcatalog/index/0') ?>">See all</a>
+						</div>
+						
+						</div>
+						<div>
+
+						<!---find note --->
+						<div class="row mybooks" id="mybooks">
+                        
+						<div class="col-md-12 bewk">
+                        <a href="<?php echo base_url('notecatalog') ?>"><button class="btn btn-default" type="button">FIND NOTE</button></a>
+						
+						</div>
+						<div class=" text-center col-md-6 ">
+						<img src="<?php echo base_url('assets/img/Document_black-512.png') ?>" alt="Avatar" width="30" height="30">
+						</div>
+								 <form autocomplete="off" role="form" method="post" action = <?php echo base_url('homepage/search')?>>
+                    <div class="col-md-5 col-sm-5 searchbar">
+                        <div class="input-group">
+                            <input name="search" class="form-control search" type="text" placeholder="Search" id="AnnualSearchBox">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit"> <i class="glyphicon glyphicon-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+										
+						
+						
+                    </div>
+					</div>
+					
 
                 <div class="col-md-1" id="divider"></div>
 

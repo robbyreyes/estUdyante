@@ -125,7 +125,7 @@ label:focus,
 #content{
   padding-top:80px;
   padding-left:20px;
-  padding-right:20px;
+  padding-right:10px;
 }
 
 #postbody{
@@ -189,3 +189,35 @@ label:focus,
     text-align: center;
   }
 }
+
+.pic1{
+	background-image: url('../img/signup2.jpeg');
+	
+	padding-bottom: 20px;
+	
+}
+
+.profile{
+	margin-top: 20px;
+	padding: 5px;
+}
+
+.name{
+	background-color: #F2F4F4;
+}
+
+.book{
+	margin-bottom: 20px;
+}
+
+#mybook{
+	float: right;
+}
+
+.mybooks{
+	border: 1px solid #E5E8E8;
+	float: right;
+	padding: 5px;
+	padding-bottom:20px;
+	margin-right: -30px;
+}f
