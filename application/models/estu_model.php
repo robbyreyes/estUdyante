@@ -10,6 +10,7 @@ class estu_model extends CI_Model {
 	private $posts = "posts";
 	private $mate = "mate";
 	private $like_table = "like_table";
+	private $messages = "messages";
 
 	public function users(){
 		$this->db->where('email', $this->session->userdata('email'));
@@ -17,6 +18,32 @@ class estu_model extends CI_Model {
 		return $query->result_array();
 	}
 
+	public function create_message($m){
+  $this->db->insert('messages', $m);
+  return TRUE;
+}
+
+public function read_messageid($condition){
+
+if(isset($condition))
+
+{
+  $this->db->where('message_id', $condition);
+}
+
+$query=$this->db->get($this->messages);
+return $query->result_array();
+}
+
+
+	public function read_message($receiver, $sender){
+	  	$this->db->where('user_id', $receiver);
+		$this->db->where('mate_ID', $sender);
+		$this->db->or_where('user_id', $sender);
+		$this->db->where('mate_ID', $receiver);
+		$query=$this->db->get($this->messages);
+		return $query->result_array();
+	}
 
 	public function if_mate($userid, $mateid){
 		$query = $this->db->get_where('mate', array('user_id' => $userid,'mate_id' => $mateid));
@@ -172,9 +199,8 @@ class estu_model extends CI_Model {
 		}
 	}
 
-
 	public function read_profile_post($condition=null){
-		$this->db->select('posts.id, posts.user_id, posts.user_name, posts.body, posts.postdate,
+		$this->db->select('posts.id, posts.user_id, posts.user_name , posts.total_likes, posts.body, posts.postdate,
 			user1.avatar');
 		$this->db->join('user1', 'posts.user_id=user1.id');
 		$this->db->where_in('posts.user_id',$condition);
@@ -184,7 +210,7 @@ class estu_model extends CI_Model {
 	}
 
 	public function read_post($condition=null,$limit=null,$offset=null){
-		$this->db->select('posts.id, posts.user_id, posts.user_name, posts.body, posts.postdate,
+		$this->db->select('posts.id, posts.user_id, posts.user_name, posts.total_likes, posts.body, posts.postdate,
 			user1.avatar');
 		$this->db->join('user1', 'posts.user_id=user1.id');
 		$this->db->where_in('posts.user_id',$condition);
@@ -202,17 +228,13 @@ class estu_model extends CI_Model {
 		return $query->num_rows();
 	}
 
-	public function count_note($condition=null){		
-		$query=$this->db->get($this->note);
-		return $query->num_rows();
-	}
-
 	public function count_post($condition=null){
 		$this->db->where_in('posts.user_id',$condition);
 		$query=$this->db->get($this->posts);
 		return $query->num_rows();
 	}
-		public function delete_post($postbody, $postdate){
+
+	public function delete_post($postbody, $postdate){
 		$this->db->delete('posts', array('body' => $postbody,'postdate' => $postdate));
 		sleep(3);
 		return TRUE;
@@ -286,11 +308,11 @@ class estu_model extends CI_Model {
 		return TRUE;
 	}
 
-	public function read_profile($condition=null){
+public function read_profile($condition=null){
 
 	if(isset($condition))
 	$this->db->select('profile.info_id, profile.user_id, profile.address, profile.contact, profile.school,
-		profile.birthday');
+		profile.birthday, profile.avatar, profile.cover');
 			$this->db->join('user1', 'profile.user_id=user1.id');
 	{
 		$this->db->where_in('profile.user_id',$condition);
@@ -300,16 +322,17 @@ class estu_model extends CI_Model {
 	return $query->result_array();
 	}
 
-
-
-
 	public function delete_profile($data){
 		$this->db->where($data);
 		$this->db->delete($this->profile);
 		return TRUE;
 	}
 
-
+	public function count_note($condition=null){		
+		$query=$this->db->get($this->note);
+		return $query->num_rows();
+	}
+	
 	public function read_info($condition=null){
 
 	$this->db->select('*');
@@ -361,10 +384,15 @@ class estu_model extends CI_Model {
 
     return $this->db->insert_id();
 }
+
+
  function update_profile($data,$id){
 $this->db->where('info_id', $id);
 $this->db->update('profile', $data);
 }
+
+
+
 }
 
 ?>

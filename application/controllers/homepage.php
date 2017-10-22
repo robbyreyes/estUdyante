@@ -78,6 +78,9 @@ class homepage extends CI_Controller {
 		{
 			$a = $this->estudyante->read_post($info['id']);
 		}
+		$this->load->helper('date');
+		$now = time();
+		$units = 2;
 		foreach($a as $c){
 			
 			if($this->estudyante->read_like($this->session->userdata('logged_user'),$c['id']))
@@ -88,10 +91,12 @@ class homepage extends CI_Controller {
 				'user_name' => $c['user_name'],
 				'body' => $c['body'],
 				'postdate' => $c['postdate'],
+				'total_likes' => $c['total_likes'],
 				'avatar' => $c['avatar'],
 				'like' => "TRUE"
 				);
 			}
+			
 			else
 			{
 				$info = array(
@@ -100,6 +105,7 @@ class homepage extends CI_Controller {
 				'user_name' => $c['user_name'],
 				'body' => $c['body'],
 				'postdate' => $c['postdate'],
+				'total_likes' => $c['total_likes'],
 				'avatar' => $c['avatar'],	
 				'like' => "FALSE"
 				);
@@ -153,6 +159,34 @@ class homepage extends CI_Controller {
 	$this->load->view('estUdyante/homepage', $b);
 	}
 
+  	public function time_elapsed_string($datetime, $full = false) {
+	    $now = new DateTime;
+	    $ago = new DateTime($datetime);
+	    $diff = $now->diff($ago);
+
+	    $diff->w = floor($diff->d / 7);
+	    $diff->d -= $diff->w * 7;
+
+	    $string = array(
+	        'y' => 'year',
+	        'm' => 'month',
+	        'w' => 'week',
+	        'd' => 'day',
+	        'h' => 'hour',
+	        'i' => 'minute',
+	        's' => 'second',
+	    );
+	    foreach ($string as $k => &$v) {
+	        if ($diff->$k) {
+	            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+	        } else {
+	            unset($string[$k]);
+	        }
+	    }
+
+	    if (!$full) $string = array_slice($string, 0, 1);
+	    return $string ? implode(', ', $string) . ' ago' : 'just now';
+	}
 
 	public function search(){
 		$data['title'] = "Search Results";
@@ -258,16 +292,10 @@ class homepage extends CI_Controller {
 			'notif_user' => $user.'',
 			'type' => "LIKE"
 		);
-		$this->estudyante->notif($notif);
+		if($user!=$this->session->userdata('logged_user'))
+			$this->estudyante->notif($notif);
 	}
 	
-	public function unlike(){
-		$recordb=$_GET['id'];
-		$recorda=$this->session->userdata('logged_user');
-		$this->estudyante->unlike($recorda,$recordb);
-		
-		redirect($_SERVER['HTTP_REFERER']);
-	}
 }
 
 ?>

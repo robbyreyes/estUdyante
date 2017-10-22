@@ -1,17 +1,11 @@
-.pagination {
-    display: inline-block;
-}
-
-.pagination a {
-    color: black;
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
-}
 
 body{
   background-color:white;
 }
+
+.card-small {
+     width:400px;
+    }
 
 .itemcard{
   margin-top: 10px;
