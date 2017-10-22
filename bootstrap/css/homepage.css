@@ -2,12 +2,24 @@ body{
   background-color:white;
 }
 
+
+.card-small {
+     width:400px;
+    }
+
+.itemcard{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
 textarea:hover, 
 input:hover, 
 textarea:active, 
 input:active, 
 textarea:focus, 
 input:focus,
+
 button:focus,
 button:active,
 button:hover,

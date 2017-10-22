@@ -64,7 +64,7 @@ elseif($book==null)
                             <a href=<?php echo base_url('bookcatalog/bookinfo/'.$s['book_ID'].'') ?>><?php echo $s['book_name'] ?></a>
                           </h2>
                           <h4>Author: <?php echo $s['book_author']?></h4>
-                          <p class="card-text">Book Desc</p>
+
                         </div>
                       </div>
                     </div>

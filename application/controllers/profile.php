@@ -14,6 +14,7 @@ class profile extends CI_Controller {
   }
 
   public function id($id){
+      $data['profile']=$id;
       $userinfo = $this->estudyante->read_infobyid($id);
       foreach($userinfo as $i){
         $info = array(
@@ -22,7 +23,6 @@ class profile extends CI_Controller {
           'lastname' => $i['lastname'],
           'email' => $i['email'],
           'avatar' => $i['avatar']
-
         );
         $data['m'] = $info['id'];
         $data['avatar'] = $info['avatar'];
@@ -40,7 +40,7 @@ class profile extends CI_Controller {
 
       else
       {
-        $data['mate_validate'] = "UNFOLLOW";
+        $data['mate_validate'] = "UNFOLLOW";      
       }
 
 
@@ -54,16 +54,19 @@ class profile extends CI_Controller {
     $config['base_url'] = base_url().'profile/id/'.$info['id'].'/index';
 
     $this->pagination->initialize($config);
+
     $a = $this->estudyante->read_profile_post($info['id']);
-    $a = $this->estudyante->read_post($info['id']);
-    $b = $this->estudyante->read_profile($info['id']);
+
+   $b = $this->estudyante->read_profile($info['id']);
     foreach($a as $c){
       $info = array(
+        'id' => $c['id'],
         'user_id' => $c['user_id'],
         'name' => $c['user_name'],
         'body' => $c['body'],
         'postdate' => $c['postdate'],
-        'avatar' => $c['avatar'],
+        'total_likes' => $c['total_likes'],
+        'avatar' => $c['avatar'], 
 
       );
       $post[] = $info;
@@ -76,20 +79,29 @@ class profile extends CI_Controller {
         'address' => $d['address'],
         'contact' => $d['contact'],
         'birthday' => $d['birthday'],
-        'school' => $d['school']
+        'school' => $d['school'],
+        'avatar'=>$d['avatar'],
+        'cover'=>$d['cover']
       );
      $information[]=$info;
     }
 
-    if($a!=null&&$b!=null)
+    if($a!=null)
     {
       $data['post'] = $post;
-      $data['information']=$information;
     }
-
     else
     {
-      $data['post'] = null;
+      $data['information']=null;
+    }
+
+
+    if($b!=null)
+    {
+      $data['information']=$information;
+    }
+    else
+    {
       $data['information']=null;
     }
 
@@ -135,7 +147,7 @@ public function modify($id){
       'id' => $i['id'],
       'firstname' => $i['firstname'],
       'lastname' => $i['lastname'],
-      'email' => $i['email'],
+      'email' => $i['email']
     );
   }
 
@@ -156,7 +168,7 @@ public function modify($id){
 
   }
 
-  else
+  else 
   {
     $data['mate_validate'] = "UNFOLLOW";
     if(isset($_POST['follow']))
@@ -187,7 +199,7 @@ public function modify($id){
       $data['mate_validate'] = "FOLLOW";
     }
 
-  }
+  } 
 
   $a = $this->estudyante->read_post($info['id']);
 foreach($a as $c){
@@ -197,7 +209,7 @@ foreach($a as $c){
     'body' => $c['body'],
     'postdate' => $c['postdate']
   );
-  }
+  } 
   if(isset($_POST['delete']))
   {
     $this->load->model('estu_model');
@@ -223,12 +235,16 @@ public function info($id)
 
       if($_SERVER['REQUEST_METHOD']=='POST')
             {
+              $url = $this->do_upload();
+              $cover= $this->do_upload2();
               $record = array(
                       'user_id'=>$data['m'],
                       'address' => $_POST['address'],
                       'school' => $_POST['school'],
                       'birthday' => $_POST['birthday'],
                       'contact' => $_POST['contact'],
+                      'avatar'=>$url,
+                      'cover'=>$cover
                     );
               $insert_id = $this->estudyante->create_profile($record);
               $data['saved'] = TRUE;
@@ -278,7 +294,9 @@ public function info($id)
               'address' => $r['address'],
               'school' => $r['school'],
               'birthday' => $r['birthday'],
-              'contact' => $r['contact'],        
+              'contact' => $r['contact'],    
+              'avatar'=>$r['avatar'],
+              'cover'=>$r['cover'],  
             );
       $studs[] = $info;
     }
@@ -286,6 +304,8 @@ public function info($id)
     $data['z']=$info['info_id'];
        if($_SERVER['REQUEST_METHOD']=='POST')
             {
+              $url = $this->do_upload();
+              $cover=$this->do_upload2();
               $record = array(
                       'user_id'=>$data['m'],
                       'info_id'=>$data['z'],
@@ -293,6 +313,8 @@ public function info($id)
                       'school' => $_POST['school'],
                       'birthday' => $_POST['birthday'],
                       'contact' => $_POST['contact'],
+                      'avatar'=>$url,  
+                      'cover'=>$cover      
                     );
               $insert_id = $this->estudyante->update_profile($record,$data['z']);
               $data['saved'] = TRUE;
@@ -319,5 +341,28 @@ public function info($id)
     $this->load->view('include/headerpage',$data);
     $this->load->view('estudyante/editinfo',$data);
 
+  }
+public function do_upload()
+  {
+    $type = explode('.', $_FILES["pic"]["name"]);
+    $type = strtolower($type[count($type)-1]);
+    $url = "./assets/images/profilepicture/".uniqid(rand()).'.'.$type;
+    if(in_array($type, array("jpg", "jpeg", "gif", "png")))
+      if(is_uploaded_file($_FILES["pic"]["tmp_name"]))
+        if(move_uploaded_file($_FILES["pic"]["tmp_name"],$url))
+          return $url;
+    return null;
+  }
+
+  public function do_upload2()
+  {
+    $type = explode('.', $_FILES["cover"]["name"]);
+    $type = strtolower($type[count($type)-1]);
+    $url = "./assets/images/coverphoto/".uniqid(rand()).'.'.$type;
+    if(in_array($type, array("jpg", "jpeg", "gif", "png")))
+      if(is_uploaded_file($_FILES["cover"]["tmp_name"]))
+        if(move_uploaded_file($_FILES["cover"]["tmp_name"],$url))
+          return $url;
+    return null;
   }
 }

@@ -24,9 +24,19 @@
                                  <div class="form-group col-md-12 n form">
                                     <input class="form-control" type="birthday"  placeholder="Birthday" autofocus="" id="birthday" name="birthday" value="<?php echo $i['birthday']?>"/>
                                 </div>
+                                 <div class="form-group col-md-3 n form">
+                                <p>Upload Profile Picture</p>
+                                <input type="file" id="pic" name="pic" value="<?php $i['avatar']?>"/>
+                                </div>
+
+                                 <div class="form-group col-md-3 n form">
+                                <p>Upload Cover Photo</p>
+                                <input type="file" id="cover" name="cover" value="<?php echo $i['cover']?>"/>
+                                </div>
+
                                 <div class="form-group text-right">
                                     <a href="../bookcatalog" class="btn btn-danger btn-md">Cancel</a> 
-                                    <button type="submit" class="btn btn-primary"> Add Information
+                                    <button type="submit" class="btn btn-primary"> Edit Information
                                     <span class="glyphicon glyphicon-save"></span>   
                                     </button>
                                      <?php

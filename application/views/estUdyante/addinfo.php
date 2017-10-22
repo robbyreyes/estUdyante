@@ -23,6 +23,15 @@
                                  <div class="form-group col-md-12 n form">
                                     <input class="form-control" type="birthday"  placeholder="Birthday" autofocus="" id="birthday" name="birthday"/>
                                 </div>
+                                 <div class="form-group col-md-3 n form">
+                                <p>Upload Profile Picture</p>
+                                <input type="file" id="pic" name="pic"/>
+                                </div>
+
+                                 <div class="form-group col-md-3 n form">
+                                <p>Upload Cover Photo</p>
+                                <input type="file" id="cover" name="cover"/>
+                                </div>
                                 <div class="form-group text-right">
                                     <a href="../bookcatalog" class="btn btn-danger btn-md">Cancel</a> 
                                     <button type="submit" class="btn btn-primary"> Add Information
