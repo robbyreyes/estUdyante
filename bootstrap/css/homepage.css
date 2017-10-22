@@ -1,7 +1,7 @@
-
 body{
   background-color:white;
 }
+
 
 .card-small {
      width:400px;
@@ -12,8 +12,18 @@ body{
   margin-bottom: 10px;
 }
 
+
+textarea:hover, 
+input:hover, 
+textarea:active, 
+input:active, 
+textarea:focus, 
+input:focus,
+
 button:focus,
 button:active,
+button:hover,
+label:focus,
 .btn:active,
 .input-lg,
 .btn.active
@@ -52,7 +62,59 @@ button:active,
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+}.card-title{
+	padding: 2px;
 }
+.card-body{
+	padding: 2px;
+}
+.card-img-top{
+	width:100%; Height: 250px;
+}
+.find{
+	padding: 17px;
+}
+.lst{
+	padding: 30px;
+}
+.lst2{
+	padding: 5px;
+	float: left;
+}
+.lst3{
+	padding: 30px;
+}
+.imgflt{
+	float:left;
+}
+.ff{
+	float: center-right;
+}
+.ff2{
+	float: right;
+}
+.bb{
+	padding:10px;
+	float:right;
+}
+.pdding{
+	padding: 0px;
+}
+.pdding2{
+	padding: 4px;
+}
+.card-header {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+.card-body {
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+  padding: 1.25rem;
+}
+
 
 .form-control:focus{
     border-color: #cccccc;
@@ -115,7 +177,7 @@ button:active,
 }
 
 #function{
-  margin-right: 50px;
+  margin-right: 100px;
 }
 
 @media (max-width:992px) {
