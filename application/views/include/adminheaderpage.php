@@ -14,6 +14,8 @@
   
   <script src="<?php echo base_url('assets/adminassets/jquery/jquery.min.js')?>"></script>
   <script src="<?php echo base_url('assets/adminassets/js/sidebar.js')?>"></script>
+  <script src="<?php echo base_url('assets/adminassets/js/sweetalert.min.js')?>"></script>
+  <script src="<?php echo base_url('assets/adminassets/jquery/modals.js')?>"></script>
   <script src="<?php echo base_url('assets/adminassets/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
 
 
@@ -27,16 +29,27 @@
                         ADMIN
                     </a>
                 </li>
-                <li>
-                    <a href="<?php echo base_url('admin/posts')?>">Posts</a>
-                </li>
-                <li>
-                    <a href="<?php echo base_url('admin/reportedposts')?>">Reported Posts</a>
+                <li><a href="#"><span class="sym">Reports</span><span class=" caret"></span></a>
+                    <li>
+                        <a href="<?php echo base_url('admin/reportedposts')?>">Reported Posts</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url('admin/reportedusers')?>">Reported Users</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url('admin/reportedbooks')?>">Reported Books</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url('admin/reportednotes')?>">Reported Notes</a>
+                    </li>
                 </li>
             </ul>
         </div>
         <div id="page-content-wrapper">
             <div class="container-fluid">
+                <div class="row">
+                    <h1>estUdyante Admin</h1>
+                </div>
                 <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menu</a>
             </div>
         </div>

@@ -173,6 +173,58 @@ class estu_model extends CI_Model {
 	}
 
 
+	public function read($condition=null){
+		$this->db->select('*');
+		$this->db->from($this->posts);
+
+		if( isset($condition) ) $this->db->where($condition);
+		
+		$query=$this->db->get();
+
+		return $query->result_array();		
+	}
+
+	public function readusers($condition=null){
+		$this->db->select('*');
+		$this->db->from($this->user);
+
+		if( isset($condition) ) $this->db->where($condition);
+		
+		$query=$this->db->get();
+
+		return $query->result_array();		
+	}
+
+	public function readbooks($condition=null){
+		$this->db->select('*');
+		$this->db->from($this->book);
+
+		if( isset($condition) ) $this->db->where($condition);
+		
+		$query=$this->db->get();
+
+		return $query->result_array();		
+	}
+
+	public function readnotes($condition=null){
+		$this->db->select('*');
+		$this->db->from($this->note);
+
+		if( isset($condition) ) $this->db->where($condition);
+		
+		$query=$this->db->get();
+
+		return $query->result_array();		
+	}
+
+	public function deletepost($id){
+		$this->db->where($id);
+		$this->db->delete($this->posts);
+		sleep(3);
+		return TRUE;	
+	}
+
+
 	public function read_profile_post($condition=null){
 		$this->db->select('posts.id, posts.user_id, posts.user_name, posts.body, posts.postdate,
 			user1.avatar');

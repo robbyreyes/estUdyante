@@ -3,24 +3,24 @@
 		<table class="table table-striped table-hover table-condensed table-responsive text-center">
 			<thead>
 				<tr>
-					<th>ID</th>
+					<th>BOOK ID</th>
+					<th>BOOK NAME</th>
+					<th>BOOK DESCRIPTION</th>
+					<th>BOOK AUTHOR</th>
+					<th>IMAGE</th>
 					<th>USER ID</th>
-					<th>USER NAME</th>
-					<th>BODY</th>
-					<th>POST DATE</th>
-					<th>TOTAL LIKES</th>
 				</tr>
 			</thead>
 			<tbody>
 			<?php
-			foreach($posts as $s){
+			foreach($book as $s){
 			echo '	<tr>
-						<td>'.$s['id'].'</td>	
+						<td>'.$s['book_ID'].'</td>	
+						<td>'.$s['book_name'].'</td>
+						<td>'.$s['book_desc'].'</td>
+						<td>'.$s['book_author'].'</td>
+						<td>'.$s['image'].'</td>
 						<td>'.$s['user_id'].'</td>
-						<td>'.$s['user_name'].'</td>
-						<td>'.$s['body'].'</td>
-						<td>'.$s['postdate'].'</td>
-						<td>'.$s['total_likes'].'</td>
 					</tr>
 					';
 			}

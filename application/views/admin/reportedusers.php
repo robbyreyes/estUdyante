@@ -4,23 +4,23 @@
 			<thead>
 				<tr>
 					<th>ID</th>
-					<th>USER ID</th>
-					<th>USER NAME</th>
-					<th>BODY</th>
-					<th>POST DATE</th>
-					<th>TOTAL LIKES</th>
+					<th>PASSWORD</th>
+					<th>FIRST NAME</th>
+					<th>LAST NAME</th>
+					<th>EMAIL</th>
+					<th>AVATAR</th>
 				</tr>
 			</thead>
 			<tbody>
 			<?php
-			foreach($posts as $s){
+			foreach($user1 as $s){
 			echo '	<tr>
 						<td>'.$s['id'].'</td>	
-						<td>'.$s['user_id'].'</td>
-						<td>'.$s['user_name'].'</td>
-						<td>'.$s['body'].'</td>
-						<td>'.$s['postdate'].'</td>
-						<td>'.$s['total_likes'].'</td>
+						<td>'.$s['password'].'</td>
+						<td>'.$s['firstname'].'</td>
+						<td>'.$s['lastname'].'</td>
+						<td>'.$s['email'].'</td>
+						<td>'.$s['avatar'].'</td>
 					</tr>
 					';
 			}
