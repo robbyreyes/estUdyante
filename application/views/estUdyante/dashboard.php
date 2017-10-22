@@ -5,9 +5,13 @@
         <div class="media-container-column mbr-white col-md-8">
             <h1 class="mbr-section-title align-left mbr-bold pb-3 mbr-fonts-style display-1"></h1>
             <h3 class="mbr-section-subtitle align-left mbr-light pb-3 mbr-fonts-style display-2"><strong>Welcome to estÜdyante</strong></h3>
+			<h2 style="color: #A9CCE3; font-family: montserrat;">Share notes. Share Books.  Share Life.</h2>
+			<br />
+		
             <p class="mbr-text align-left pb-1 mbr-fonts-style display-6">If you haven't sign up yet click the sign up button below.</p>
             <div class="mbr-section-btn align-left"><a class="btn btn-md btn-warning display-4" href="index.html#header15-i">SIGN UP</a></div>
         </div>
+		
         <div class="media-container-column mbr-white col-md-4">
             <div class="form-container">
                 <div class="media-container-column" data-form-type="formoid">
@@ -30,9 +34,50 @@
         </div>
         </div>
     </div>
-
-
 </section>
+
+
+ <section class="services" id="services" style="background-color: #D4E6F1; padding-top: 30px">
+      <div class="col-lg-12 container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading" style="color: #3498DB; font-family: montserrat; text-shadow: 3px 3px #1B4F72; ">ESTUDYANTE WILL LET YOU...</h2>
+			<br />
+            <h3 class="section-subheading text-muted"></h3>
+          </div>
+        </div>
+        <div class="row text-center">
+          <div class="col-lg-3 service">
+           <span>
+		  <img src="<?php echo base_url('assets/img/social.png') ?>" width="60" height="60">
+            </span>
+            <h4 class="service-heading">Socialize</h4>
+            <p class="text-muted servicedesc">Associate with your friends and other students looking for books and build a strong friendship.</p>
+          </div>
+          <div class="col-lg-3 service">
+           <span>
+		   <img src="<?php echo base_url('assets/img/shrnote.png') ?>" width="60" height="60">
+            </span>
+            <h4 class="service-heading">Share Notes</h4>
+            <p class="text-muted servicedesc">Share your precious notes and pieces with other people. BE AN INSPIRATION!</p>
+          </div>
+		   <div class="col-lg-3 service">
+           <span>
+		    <img src="<?php echo base_url('assets/img/connect.png') ?>" width="60" height="60">
+            </span>
+            <h4 class="service-heading">Connect</h4>
+            <p class="text-muted servicedesc">Connect with other amazing people. Help others find what they need, WE help you find what you need.</p>
+          </div>
+          <div class="col-lg-3 service">
+            <span>
+			  <img src="<?php echo base_url('assets/img/bookex.png') ?>" width="60" height="60">
+            </span>
+            <h4 class="service-heading">Exchange books</h4>
+            <p class="text-muted servicedesc">Switch your books with other students and book worms out there, make OLD books NEW to others.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
 <section class="cid-qyM7KxSN9e mbr-fullscreen mbr-parallax-background" id="header15-i" data-rv-view="67">
 
@@ -42,7 +87,10 @@
 <div class="row">
     <div class="mbr-white col-lg-8 col-md-7 content-container">
         <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1">SIGN UP</h1>
-        <p class="mbr-text pb-3 mbr-fonts-style display-5">Connect with your classmates and friends — and other fascinating students. Get in-the-moment updates on the things that interest you. And exchange useful notes and used books that you haven’t read yet.&nbsp;<br></p>
+        <p class="mbr-text pb-3 mbr-fonts-style display-5">* Connect with your classmates and friends.<br></p>
+		<p class="mbr-text pb-3 mbr-fonts-style display-5">* Get updates on the things that interest you.<br></p>
+		<p class="mbr-text pb-3 mbr-fonts-style display-5">* Exchange useful notes and pre-loved books.<br></p>
+		<p class="mbr-text pb-3 mbr-fonts-style display-5">* Meet other fascinating students.<br></p>
     </div>
     <div class="col-lg-4 col-md-5">
     <div class="form-container">
